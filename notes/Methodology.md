@@ -4,7 +4,7 @@
 
 All manufacturer and market counts measure domestic new vehicles sold, including passenger, light commercial and commercial vehicles. Exports are excluded. The market total includes Volkswagen Group SA.
 
-The monthly sales chart includes January–October for each available year. Growth compares the same months in 2026 and 2025. Market-share comparisons are October 2026 versus October 2025, not full-year or January–October shares.
+The monthly sales chart includes January–October for each available year. Growth offers 2024 versus 2023, 2025 versus 2024, and 2026 versus 2025, comparing the same months. Market-share comparisons are October 2026 versus October 2025, not full-year or January–October shares.
 
 ## 2. Sales growth: how much did sales change?
 
@@ -70,4 +70,4 @@ The growth chart uses the monthly sums to remain consistent with its plotted dat
 
 Report URLs and prior verification statuses are preserved from the existing dashboard audit dated 11 November 2026. They were not independently re-fetched during this export. February 2023 VW sales were previously checked through a search-indexed mirrored report rather than a direct naamsa PDF. The original audit records that distinction.
 
-Earlier monthly market figures for 2023 and 2024 are absent, so recurring year-to-year market-growth patterns have not been established. No forecast is included. A future forecasting study would need adequate history, a simple benchmark, out-of-sample testing and an uncertainty range.
+Historical growth views now use [2023–2024 market inputs](../data/Historical_growth_market_inputs.csv), extracted directly from the ten January–October 2024 naamsa flash PDFs on 11 November 2026. For 2024, each value is the current-month Industry Total Local; for 2023, it is the prior-year same-month Industry Total Local in the same report. This preserves a documented publication basis, not a fully revised historical series. Existing 2025–2026 inputs are unchanged. Consequently, the 2025-versus-2024 view also combines publication vintages. The existing growth Excel workbook covers 2025–2026; the additional historical inputs are provided in Excel-readable CSV. Historical VW counts remain those used in the monthly-sales workbook. For each selected pair, both VW and market growth are calculated as (later / earlier − 1) × 100. The insight panel remains specifically about 2026 versus 2025. No forecast is included. A future forecasting study would need adequate history, a simple benchmark, out-of-sample testing and an uncertainty range.
