@@ -32,7 +32,7 @@ Download an Excel file to open its sheets and formulas. Source inputs are numeri
 
 Manufacturer totals include passenger, light commercial and commercial vehicles. Volkswagen Group SA is a reporting group; individual VW models do not exhaust its total.
 
-The growth chart compares January–October 2026 with the same months in 2025. Market-share pies compare **October only**. Earlier monthly market data for 2023–2024 is absent from the working dataset, so earlier market-growth comparisons are not supplied.
+The growth chart offers 2024 versus 2023, 2025 versus 2024, and 2026 versus 2025 for January–October. [Additional historical market inputs and report links](data/Historical_growth_market_inputs.csv) are supplied in Excel-readable CSV; the existing growth workbook covers 2025–2026. The historical publication basis is explained in the methodology. Market-share pies compare **October only**.
 
 Manufacturer counts retain their archived original-month publication basis. Market totals use selected later explicitly reported revisions. Shares therefore combine publication vintages and are indicative on that basis. Amarok has an unresolved baseline discrepancy; Tiguan and Taigo comparable model totals are unavailable. These limitations are retained rather than filled with estimates.
 
