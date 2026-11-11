@@ -1,0 +1,1347 @@
+{
+  "checked_on": "2026-11-11",
+  "scope": "Domestic manufacturer totals including passenger, light commercial and commercial vehicles; exports excluded. January\u2013October.",
+  "methodology": "Manufacturer counts: archived original-month flash, Total Local, page 3, using the currently archived corrected edition where applicable. Market: latest explicitly printed monthly value found in flashes through October 2026; no monthly allocation from differences between YTD totals. Manufacturer revisions are not restated in later flashes; this is an as-published manufacturer series, not a fully revised history.",
+  "months": [
+    {
+      "year": 2025,
+      "month": "January",
+      "manufacturers": {
+        "VOLKSWAGEN GROUP SA": 5676,
+        "TOYOTA": 12152,
+        "SUZUKI AUTO": 6399,
+        "CHERY AUTO SOUTH AFRICA": 1913
+      },
+      "manufacturer_report": "https://naamsa.net/wp-content/uploads/2025/02/20250203-Flash-Report-January-2025.pdf",
+      "manufacturer_report_title": "January 2025",
+      "market_original": 46398,
+      "market_selected": 46594,
+      "market_revision": 196,
+      "market_report": "https://naamsa.net/wp-content/uploads/2026/02/20260202-Flash-Report-January-2026.pdf",
+      "market_report_title": "January 2026",
+      "market_field": "prior-year same-month Local"
+    },
+    {
+      "year": 2025,
+      "month": "February",
+      "manufacturers": {
+        "VOLKSWAGEN GROUP SA": 5249,
+        "TOYOTA": 11743,
+        "SUZUKI AUTO": 6044,
+        "CHERY AUTO SOUTH AFRICA": 1924
+      },
+      "manufacturer_report": "https://naamsa.net/wp-content/uploads/2025/03/20250303-Flash-Report-February-2025.pdf",
+      "manufacturer_report_title": "February 2025",
+      "market_original": 47978,
+      "market_selected": 47994,
+      "market_revision": 16,
+      "market_report": "https://naamsa.net/wp-content/uploads/2026/03/20260302-Flash-Report-February-2026.pdf",
+      "market_report_title": "February 2026",
+      "market_field": "prior-year same-month Local"
+    },
+    {
+      "year": 2025,
+      "month": "March",
+      "manufacturers": {
+        "VOLKSWAGEN GROUP SA": 4913,
+        "TOYOTA": 11660,
+        "SUZUKI AUTO": 5284,
+        "CHERY AUTO SOUTH AFRICA": 1902
+      },
+      "manufacturer_report": "https://naamsa.net/wp-content/uploads/2025/04/FLASH_STD_202503-updated.pdf",
+      "manufacturer_report_title": "March 2025",
+      "market_original": 49493,
+      "market_selected": 49500,
+      "market_revision": 7,
+      "market_report": "https://naamsa.net/wp-content/uploads/2026/04/20260401-Flash-Report-March-2026-1.pdf",
+      "market_report_title": "March 2026",
+      "market_field": "prior-year same-month Local"
+    },
+    {
+      "year": 2025,
+      "month": "April",
+      "manufacturers": {
+        "VOLKSWAGEN GROUP SA": 3973,
+        "TOYOTA": 10363,
+        "SUZUKI AUTO": 5977,
+        "CHERY AUTO SOUTH AFRICA": 1852
+      },
+      "manufacturer_report": "https://naamsa.net/wp-content/uploads/2025/05/20250502-Flash-Report-April-2025.pdf",
+      "manufacturer_report_title": "April 2025",
+      "market_original": 42401,
+      "market_selected": 42467,
+      "market_revision": 66,
+      "market_report": "https://naamsa.net/wp-content/uploads/2026/05/FLASH_STD_202604-1.pdf",
+      "market_report_title": "April 2026",
+      "market_field": "prior-year same-month Local"
+    },
+    {
+      "year": 2025,
+      "month": "May",
+      "manufacturers": {
+        "VOLKSWAGEN GROUP SA": 4582,
+        "TOYOTA": 10330,
+        "SUZUKI AUTO": 5536,
+        "CHERY AUTO SOUTH AFRICA": 1995
+      },
+      "manufacturer_report": "https://naamsa.net/wp-content/uploads/2025/06/20250602-Flash-Report-Standard.pdf",
+      "manufacturer_report_title": "May 2025",
+      "market_original": 45308,
+      "market_selected": 45287,
+      "market_revision": -21,
+      "market_report": "https://naamsa.net/wp-content/uploads/2026/06/20260601-Flash-Report-May-2026-1.pdf",
+      "market_report_title": "May 2026",
+      "market_field": "prior-year same-month Local"
+    },
+    {
+      "year": 2025,
+      "month": "June",
+      "manufacturers": {
+        "VOLKSWAGEN GROUP SA": 4973,
+        "TOYOTA": 11690,
+        "SUZUKI AUTO": 5221,
+        "CHERY AUTO SOUTH AFRICA": 2101
+      },
+      "manufacturer_report": "https://naamsa.net/wp-content/uploads/2025/07/20250701-Flash-Report-Standard.pdf",
+      "manufacturer_report_title": "June 2025",
+      "market_original": 47294,
+      "market_selected": 47269,
+      "market_revision": -25,
+      "market_report": "https://naamsa.net/wp-content/uploads/2026/07/20260701-Flash-Report-June-2026.pdf",
+      "market_report_title": "June 2026",
+      "market_field": "prior-year same-month Local"
+    },
+    {
+      "year": 2025,
+      "month": "July",
+      "manufacturers": {
+        "VOLKSWAGEN GROUP SA": 5738,
+        "TOYOTA": 12694,
+        "SUZUKI AUTO": 6257,
+        "CHERY AUTO SOUTH AFRICA": 2160
+      },
+      "manufacturer_report": "https://naamsa.net/wp-content/uploads/2025/08/FLASH_STD_202507.pdf",
+      "manufacturer_report_title": "July 2025",
+      "market_original": 51383,
+      "market_selected": 51558,
+      "market_revision": 175,
+      "market_report": "https://naamsa.net/wp-content/uploads/2026/08/FLASH_STD_202607-1.pdf",
+      "market_report_title": "July 2026",
+      "market_field": "prior-year same-month Local"
+    },
+    {
+      "year": 2025,
+      "month": "August",
+      "manufacturers": {
+        "VOLKSWAGEN GROUP SA": 5521,
+        "TOYOTA": 13276,
+        "SUZUKI AUTO": 6534,
+        "CHERY AUTO SOUTH AFRICA": 2228
+      },
+      "manufacturer_report": "https://naamsa.net/wp-content/uploads/2025/09/FLASH_STD_202508.pdf",
+      "manufacturer_report_title": "August 2025",
+      "market_original": 51880,
+      "market_selected": 51960,
+      "market_revision": 80,
+      "market_report": "https://naamsa.net/wp-content/uploads/2026/09/20260901-Flash-Report-August-2026.pdf",
+      "market_report_title": "August 2026",
+      "market_field": "prior-year same-month Local"
+    },
+    {
+      "year": 2025,
+      "month": "September",
+      "manufacturers": {
+        "VOLKSWAGEN GROUP SA": 5763,
+        "TOYOTA": 14146,
+        "SUZUKI AUTO": 6072,
+        "CHERY AUTO SOUTH AFRICA": 2264
+      },
+      "manufacturer_report": "https://naamsa.net/wp-content/uploads/2025/10/20251002-Flash-Report-September-2025-Standard.pdf",
+      "manufacturer_report_title": "September 2025",
+      "market_original": 54700,
+      "market_selected": 54706,
+      "market_revision": 6,
+      "market_report": "https://naamsa.net/wp-content/uploads/2026/10/20261001-Flash-Report-September-2026-1.pdf",
+      "market_report_title": "September 2026",
+      "market_field": "prior-year same-month Local"
+    },
+    {
+      "year": 2025,
+      "month": "October",
+      "manufacturers": {
+        "VOLKSWAGEN GROUP SA": 6221,
+        "TOYOTA": 13559,
+        "SUZUKI AUTO": 6890,
+        "CHERY AUTO SOUTH AFRICA": 2210
+      },
+      "manufacturer_report": "https://naamsa.net/wp-content/uploads/2025/11/20251104-Flash-Report-October-2025-Standard.pdf",
+      "manufacturer_report_title": "October 2025",
+      "market_original": 55956,
+      "market_selected": 56051,
+      "market_revision": 95,
+      "market_report": "https://naamsa.net/wp-content/uploads/2026/11/FLASH_STD_202610.pdf",
+      "market_report_title": "October 2026",
+      "market_field": "prior-year same-month Local"
+    },
+    {
+      "year": 2026,
+      "month": "January",
+      "manufacturers": {
+        "VOLKSWAGEN GROUP SA": 4774,
+        "TOYOTA": 11786,
+        "SUZUKI AUTO": 6410,
+        "CHERY AUTO SOUTH AFRICA": 2258
+      },
+      "manufacturer_report": "https://naamsa.net/wp-content/uploads/2026/02/20260202-Flash-Report-January-2026.pdf",
+      "manufacturer_report_title": "January 2026",
+      "market_original": 50073,
+      "market_selected": 50521,
+      "market_revision": 448,
+      "market_report": "https://naamsa.net/wp-content/uploads/2026/03/20260302-Flash-Report-February-2026.pdf",
+      "market_report_title": "February 2026",
+      "market_field": "previous-month Local"
+    },
+    {
+      "year": 2026,
+      "month": "February",
+      "manufacturers": {
+        "VOLKSWAGEN GROUP SA": 4895,
+        "TOYOTA": 12272,
+        "SUZUKI AUTO": 6562,
+        "CHERY AUTO SOUTH AFRICA": 2312
+      },
+      "manufacturer_report": "https://naamsa.net/wp-content/uploads/2026/03/20260302-Flash-Report-February-2026.pdf",
+      "manufacturer_report_title": "February 2026",
+      "market_original": 53455,
+      "market_selected": 53383,
+      "market_revision": -72,
+      "market_report": "https://naamsa.net/wp-content/uploads/2026/04/20260401-Flash-Report-March-2026-1.pdf",
+      "market_report_title": "March 2026",
+      "market_field": "previous-month Local"
+    },
+    {
+      "year": 2026,
+      "month": "March",
+      "manufacturers": {
+        "VOLKSWAGEN GROUP SA": 5574,
+        "TOYOTA": 13323,
+        "SUZUKI AUTO": 5047,
+        "CHERY AUTO SOUTH AFRICA": 2390
+      },
+      "manufacturer_report": "https://naamsa.net/wp-content/uploads/2026/04/20260401-Flash-Report-March-2026-1.pdf",
+      "manufacturer_report_title": "March 2026",
+      "market_original": 58060,
+      "market_selected": 58064,
+      "market_revision": 4,
+      "market_report": "https://naamsa.net/wp-content/uploads/2026/05/FLASH_STD_202604-1.pdf",
+      "market_report_title": "April 2026",
+      "market_field": "previous-month Local"
+    },
+    {
+      "year": 2026,
+      "month": "April",
+      "manufacturers": {
+        "VOLKSWAGEN GROUP SA": 4814,
+        "TOYOTA": 10188,
+        "SUZUKI AUTO": 5363,
+        "CHERY AUTO SOUTH AFRICA": 2462
+      },
+      "manufacturer_report": "https://naamsa.net/wp-content/uploads/2026/05/FLASH_STD_202604-1.pdf",
+      "manufacturer_report_title": "April 2026",
+      "market_original": 47979,
+      "market_selected": 47892,
+      "market_revision": -87,
+      "market_report": "https://naamsa.net/wp-content/uploads/2026/06/20260601-Flash-Report-May-2026-1.pdf",
+      "market_report_title": "May 2026",
+      "market_field": "previous-month Local"
+    },
+    {
+      "year": 2026,
+      "month": "May",
+      "manufacturers": {
+        "VOLKSWAGEN GROUP SA": 5295,
+        "TOYOTA": 10667,
+        "SUZUKI AUTO": 5546,
+        "CHERY AUTO SOUTH AFRICA": 2569
+      },
+      "manufacturer_report": "https://naamsa.net/wp-content/uploads/2026/06/20260601-Flash-Report-May-2026-1.pdf",
+      "manufacturer_report_title": "May 2026",
+      "market_original": 51071,
+      "market_selected": 50987,
+      "market_revision": -84,
+      "market_report": "https://naamsa.net/wp-content/uploads/2026/07/20260701-Flash-Report-June-2026.pdf",
+      "market_report_title": "June 2026",
+      "market_field": "previous-month Local"
+    },
+    {
+      "year": 2026,
+      "month": "June",
+      "manufacturers": {
+        "VOLKSWAGEN GROUP SA": 5613,
+        "TOYOTA": 12417,
+        "SUZUKI AUTO": 5689,
+        "CHERY AUTO SOUTH AFRICA": 2602
+      },
+      "manufacturer_report": "https://naamsa.net/wp-content/uploads/2026/07/20260701-Flash-Report-June-2026.pdf",
+      "manufacturer_report_title": "June 2026",
+      "market_original": 54482,
+      "market_selected": 54405,
+      "market_revision": -77,
+      "market_report": "https://naamsa.net/wp-content/uploads/2026/08/FLASH_STD_202607-1.pdf",
+      "market_report_title": "July 2026",
+      "market_field": "previous-month Local"
+    },
+    {
+      "year": 2026,
+      "month": "July",
+      "manufacturers": {
+        "VOLKSWAGEN GROUP SA": 5799,
+        "TOYOTA": 14142,
+        "SUZUKI AUTO": 5994,
+        "CHERY AUTO SOUTH AFRICA": 2709
+      },
+      "manufacturer_report": "https://naamsa.net/wp-content/uploads/2026/08/FLASH_STD_202607-1.pdf",
+      "manufacturer_report_title": "July 2026",
+      "market_original": 57708,
+      "market_selected": 57733,
+      "market_revision": 25,
+      "market_report": "https://naamsa.net/wp-content/uploads/2026/09/20260901-Flash-Report-August-2026.pdf",
+      "market_report_title": "August 2026",
+      "market_field": "previous-month Local"
+    },
+    {
+      "year": 2026,
+      "month": "August",
+      "manufacturers": {
+        "VOLKSWAGEN GROUP SA": 5668,
+        "TOYOTA": 13814,
+        "SUZUKI AUTO": 6505,
+        "CHERY AUTO SOUTH AFRICA": 2763
+      },
+      "manufacturer_report": "https://naamsa.net/wp-content/uploads/2026/09/20260901-Flash-Report-August-2026.pdf",
+      "manufacturer_report_title": "August 2026",
+      "market_original": 57898,
+      "market_selected": 57761,
+      "market_revision": -137,
+      "market_report": "https://naamsa.net/wp-content/uploads/2026/10/20261001-Flash-Report-September-2026-1.pdf",
+      "market_report_title": "September 2026",
+      "market_field": "previous-month Local"
+    },
+    {
+      "year": 2026,
+      "month": "September",
+      "manufacturers": {
+        "VOLKSWAGEN GROUP SA": 5968,
+        "TOYOTA": 15366,
+        "SUZUKI AUTO": 6668,
+        "CHERY AUTO SOUTH AFRICA": 3004
+      },
+      "manufacturer_report": "https://naamsa.net/wp-content/uploads/2026/10/20261001-Flash-Report-September-2026-1.pdf",
+      "manufacturer_report_title": "September 2026",
+      "market_original": 61645,
+      "market_selected": 61656,
+      "market_revision": 11,
+      "market_report": "https://naamsa.net/wp-content/uploads/2026/11/FLASH_STD_202610.pdf",
+      "market_report_title": "October 2026",
+      "market_field": "previous-month Local"
+    },
+    {
+      "year": 2026,
+      "month": "October",
+      "manufacturers": {
+        "VOLKSWAGEN GROUP SA": 6515,
+        "TOYOTA": 14495,
+        "SUZUKI AUTO": 7292,
+        "CHERY AUTO SOUTH AFRICA": 2754
+      },
+      "manufacturer_report": "https://naamsa.net/wp-content/uploads/2026/11/FLASH_STD_202610.pdf",
+      "manufacturer_report_title": "October 2026",
+      "market_original": 61890,
+      "market_selected": 61890,
+      "market_revision": 0,
+      "market_report": "https://naamsa.net/wp-content/uploads/2026/11/FLASH_STD_202610.pdf",
+      "market_report_title": "October 2026",
+      "market_field": "current-month Local"
+    }
+  ],
+  "vw_history": [
+    {
+      "year": 2023,
+      "month": "January",
+      "sales": 5081,
+      "report": "https://naamsa.net/wp-content/uploads/2024/05/20230201-Flash-Report-Summary-January-2023.pdf",
+      "status": "Verified directly against naamsa.net PDF, page 3 Total Local"
+    },
+    {
+      "year": 2023,
+      "month": "February",
+      "sales": 5288,
+      "report": "https://www.abrbuzz.co.za/publications/press-and-customers/naamsa/20230301%20-%20Flash%20Report%20Summary%20February%202023.pdf",
+      "status": "Search-indexed original naamsa report mirrored by Automotive Business Review; not found on naamsa.net. Direct mirror download returned HTTP 403."
+    },
+    {
+      "year": 2023,
+      "month": "March",
+      "sales": 6139,
+      "report": "https://naamsa.net/wp-content/uploads/2024/05/20230403-Flash-Report-Summary-March-2023-1.pdf",
+      "status": "Verified directly against naamsa.net PDF, page 3 Total Local"
+    },
+    {
+      "year": 2023,
+      "month": "April",
+      "sales": 4644,
+      "report": "https://naamsa.net/wp-content/uploads/2023/05/20230502-Flash-Report-Summary-April-2023.pdf",
+      "status": "Verified directly against naamsa.net PDF, page 3 Total Local"
+    },
+    {
+      "year": 2023,
+      "month": "May",
+      "sales": 5259,
+      "report": "https://naamsa.net/wp-content/uploads/2024/05/20230601-Flash-Report-Summary-May-2023.pdf",
+      "status": "Verified directly against naamsa.net PDF, page 3 Total Local"
+    },
+    {
+      "year": 2023,
+      "month": "June",
+      "sales": 5578,
+      "report": "https://naamsa.net/wp-content/uploads/2024/05/20230703-Flash-Report-Summary-June-2023.pdf",
+      "status": "Verified directly against naamsa.net PDF, page 3 Total Local"
+    },
+    {
+      "year": 2023,
+      "month": "July",
+      "sales": 5797,
+      "report": "https://naamsa.net/wp-content/uploads/2024/05/20230801-Flash-Report-Summary-July-2023-1.pdf",
+      "status": "Verified directly against naamsa.net PDF, page 3 Total Local"
+    },
+    {
+      "year": 2023,
+      "month": "August",
+      "sales": 5972,
+      "report": "https://naamsa.net/wp-content/uploads/2024/05/20230901-Flash-Report-Summary-August-2023.pdf",
+      "status": "Verified directly against naamsa.net PDF, page 3 Total Local"
+    },
+    {
+      "year": 2023,
+      "month": "September",
+      "sales": 6316,
+      "report": "https://naamsa.net/wp-content/uploads/2024/05/20231002-Flash-Report-Summary-September-2023.pdf",
+      "status": "Verified directly against naamsa.net PDF, page 3 Total Local"
+    },
+    {
+      "year": 2023,
+      "month": "October",
+      "sales": 6595,
+      "report": "https://naamsa.net/wp-content/uploads/2024/05/20231101-Flash-Report-Summary-October-2023-1.pdf",
+      "status": "Verified directly against naamsa.net PDF, page 3 Total Local"
+    },
+    {
+      "year": 2024,
+      "month": "January",
+      "sales": 5522,
+      "report": "https://naamsa.net/wp-content/uploads/2024/05/20240201-Flash-Report-Summary-January-2024.pdf",
+      "status": "Verified directly against naamsa.net PDF, page 3 Total Local"
+    },
+    {
+      "year": 2024,
+      "month": "February",
+      "sales": 5333,
+      "report": "https://naamsa.net/wp-content/uploads/2024/05/20240301-Flash-Report-Summary-February-2024.pdf",
+      "status": "Verified directly against naamsa.net PDF, page 3 Total Local"
+    },
+    {
+      "year": 2024,
+      "month": "March",
+      "sales": 5219,
+      "report": "https://naamsa.net/wp-content/uploads/2024/05/FLASH_STD_202403.pdf",
+      "status": "Verified directly against naamsa.net PDF, page 3 Total Local"
+    },
+    {
+      "year": 2024,
+      "month": "April",
+      "sales": 4758,
+      "report": "https://naamsa.net/wp-content/uploads/2024/05/FLASH_STD_202404-corrected.pdf",
+      "status": "Verified directly against naamsa.net PDF, page 3 Total Local"
+    },
+    {
+      "year": 2024,
+      "month": "May",
+      "sales": 4939,
+      "report": "https://naamsa.net/wp-content/uploads/2024/06/20240603-Flash-Report-Summary-May-2024.pdf",
+      "status": "Verified directly against naamsa.net PDF, page 3 Total Local"
+    },
+    {
+      "year": 2024,
+      "month": "June",
+      "sales": 5514,
+      "report": "https://naamsa.net/wp-content/uploads/2024/07/20240701-Flash-Report-Summary-June-2024-1.pdf",
+      "status": "Verified directly against naamsa.net PDF, page 3 Total Local"
+    },
+    {
+      "year": 2024,
+      "month": "July",
+      "sales": 6178,
+      "report": "https://naamsa.net/wp-content/uploads/2024/08/20240801-Flash-Report-Summary-July-2024.pdf",
+      "status": "Verified directly against naamsa.net PDF, page 3 Total Local"
+    },
+    {
+      "year": 2024,
+      "month": "August",
+      "sales": 5645,
+      "report": "https://naamsa.net/wp-content/uploads/2024/09/20240902-Flash-Report-August-2024.pdf",
+      "status": "Verified directly against naamsa.net PDF, page 3 Total Local"
+    },
+    {
+      "year": 2024,
+      "month": "September",
+      "sales": 5885,
+      "report": "https://naamsa.net/wp-content/uploads/2024/10/20241001-Flash-Report-September-2024-1.pdf",
+      "status": "Verified directly against naamsa.net PDF, page 3 Total Local"
+    },
+    {
+      "year": 2024,
+      "month": "October",
+      "sales": 6340,
+      "report": "https://naamsa.net/wp-content/uploads/2024/11/20241101-Flash-Report-October-2024.pdf",
+      "status": "Verified directly against naamsa.net PDF, page 3 Total Local"
+    },
+    {
+      "year": 2025,
+      "month": "January",
+      "sales": 5676,
+      "report": "https://naamsa.net/wp-content/uploads/2025/02/20250203-Flash-Report-January-2025.pdf",
+      "status": "Verified directly against naamsa.net PDF, page 3 Total Local"
+    },
+    {
+      "year": 2025,
+      "month": "February",
+      "sales": 5249,
+      "report": "https://naamsa.net/wp-content/uploads/2025/03/20250303-Flash-Report-February-2025.pdf",
+      "status": "Verified directly against naamsa.net PDF, page 3 Total Local"
+    },
+    {
+      "year": 2025,
+      "month": "March",
+      "sales": 4913,
+      "report": "https://naamsa.net/wp-content/uploads/2025/04/FLASH_STD_202503-updated.pdf",
+      "status": "Verified directly against naamsa.net PDF, page 3 Total Local"
+    },
+    {
+      "year": 2025,
+      "month": "April",
+      "sales": 3973,
+      "report": "https://naamsa.net/wp-content/uploads/2025/05/20250502-Flash-Report-April-2025.pdf",
+      "status": "Verified directly against naamsa.net PDF, page 3 Total Local"
+    },
+    {
+      "year": 2025,
+      "month": "May",
+      "sales": 4582,
+      "report": "https://naamsa.net/wp-content/uploads/2025/06/20250602-Flash-Report-Standard.pdf",
+      "status": "Verified directly against naamsa.net PDF, page 3 Total Local"
+    },
+    {
+      "year": 2025,
+      "month": "June",
+      "sales": 4973,
+      "report": "https://naamsa.net/wp-content/uploads/2025/07/20250701-Flash-Report-Standard.pdf",
+      "status": "Verified directly against naamsa.net PDF, page 3 Total Local"
+    },
+    {
+      "year": 2025,
+      "month": "July",
+      "sales": 5738,
+      "report": "https://naamsa.net/wp-content/uploads/2025/08/FLASH_STD_202507.pdf",
+      "status": "Verified directly against naamsa.net PDF, page 3 Total Local"
+    },
+    {
+      "year": 2025,
+      "month": "August",
+      "sales": 5521,
+      "report": "https://naamsa.net/wp-content/uploads/2025/09/FLASH_STD_202508.pdf",
+      "status": "Verified directly against naamsa.net PDF, page 3 Total Local"
+    },
+    {
+      "year": 2025,
+      "month": "September",
+      "sales": 5763,
+      "report": "https://naamsa.net/wp-content/uploads/2025/10/20251002-Flash-Report-September-2025-Standard.pdf",
+      "status": "Verified directly against naamsa.net PDF, page 3 Total Local"
+    },
+    {
+      "year": 2025,
+      "month": "October",
+      "sales": 6221,
+      "report": "https://naamsa.net/wp-content/uploads/2025/11/20251104-Flash-Report-October-2025-Standard.pdf",
+      "status": "Verified directly against naamsa.net PDF, page 3 Total Local"
+    },
+    {
+      "year": 2026,
+      "month": "January",
+      "sales": 4774,
+      "report": "https://naamsa.net/wp-content/uploads/2026/02/20260202-Flash-Report-January-2026.pdf",
+      "status": "Verified directly against naamsa.net PDF, page 3 Total Local"
+    },
+    {
+      "year": 2026,
+      "month": "February",
+      "sales": 4895,
+      "report": "https://naamsa.net/wp-content/uploads/2026/03/20260302-Flash-Report-February-2026.pdf",
+      "status": "Verified directly against naamsa.net PDF, page 3 Total Local"
+    },
+    {
+      "year": 2026,
+      "month": "March",
+      "sales": 5574,
+      "report": "https://naamsa.net/wp-content/uploads/2026/04/20260401-Flash-Report-March-2026-1.pdf",
+      "status": "Verified directly against naamsa.net PDF, page 3 Total Local"
+    },
+    {
+      "year": 2026,
+      "month": "April",
+      "sales": 4814,
+      "report": "https://naamsa.net/wp-content/uploads/2026/05/FLASH_STD_202604-1.pdf",
+      "status": "Verified directly against naamsa.net PDF, page 3 Total Local"
+    },
+    {
+      "year": 2026,
+      "month": "May",
+      "sales": 5295,
+      "report": "https://naamsa.net/wp-content/uploads/2026/06/20260601-Flash-Report-May-2026-1.pdf",
+      "status": "Verified directly against naamsa.net PDF, page 3 Total Local"
+    },
+    {
+      "year": 2026,
+      "month": "June",
+      "sales": 5613,
+      "report": "https://naamsa.net/wp-content/uploads/2026/07/20260701-Flash-Report-June-2026.pdf",
+      "status": "Verified directly against naamsa.net PDF, page 3 Total Local"
+    },
+    {
+      "year": 2026,
+      "month": "July",
+      "sales": 5799,
+      "report": "https://naamsa.net/wp-content/uploads/2026/08/FLASH_STD_202607-1.pdf",
+      "status": "Verified directly against naamsa.net PDF, page 3 Total Local"
+    },
+    {
+      "year": 2026,
+      "month": "August",
+      "sales": 5668,
+      "report": "https://naamsa.net/wp-content/uploads/2026/09/20260901-Flash-Report-August-2026.pdf",
+      "status": "Verified directly against naamsa.net PDF, page 3 Total Local"
+    },
+    {
+      "year": 2026,
+      "month": "September",
+      "sales": 5968,
+      "report": "https://naamsa.net/wp-content/uploads/2026/10/20261001-Flash-Report-September-2026-1.pdf",
+      "status": "Verified directly against naamsa.net PDF, page 3 Total Local"
+    },
+    {
+      "year": 2026,
+      "month": "October",
+      "sales": 6515,
+      "report": "https://naamsa.net/wp-content/uploads/2026/11/FLASH_STD_202610.pdf",
+      "status": "Verified directly against naamsa.net PDF, page 3 Total Local"
+    }
+  ],
+  "market_observations": [
+    {
+      "year": 2025,
+      "month": "January",
+      "value": 46398,
+      "report": "https://naamsa.net/wp-content/uploads/2025/02/20250203-Flash-Report-January-2025.pdf",
+      "report_title": "January 2025",
+      "report_period": 202501,
+      "field": "current"
+    },
+    {
+      "year": 2025,
+      "month": "January",
+      "value": 46990,
+      "report": "https://naamsa.net/wp-content/uploads/2025/03/20250303-Flash-Report-February-2025.pdf",
+      "report_title": "February 2025",
+      "report_period": 202502,
+      "field": "previous month"
+    },
+    {
+      "year": 2025,
+      "month": "January",
+      "value": 46594,
+      "report": "https://naamsa.net/wp-content/uploads/2026/02/20260202-Flash-Report-January-2026.pdf",
+      "report_title": "January 2026",
+      "report_period": 202601,
+      "field": "prior year"
+    },
+    {
+      "year": 2025,
+      "month": "February",
+      "value": 47978,
+      "report": "https://naamsa.net/wp-content/uploads/2025/03/20250303-Flash-Report-February-2025.pdf",
+      "report_title": "February 2025",
+      "report_period": 202502,
+      "field": "current"
+    },
+    {
+      "year": 2025,
+      "month": "February",
+      "value": 47943,
+      "report": "https://naamsa.net/wp-content/uploads/2025/04/FLASH_STD_202503-updated.pdf",
+      "report_title": "March 2025",
+      "report_period": 202503,
+      "field": "previous month"
+    },
+    {
+      "year": 2025,
+      "month": "February",
+      "value": 47994,
+      "report": "https://naamsa.net/wp-content/uploads/2026/03/20260302-Flash-Report-February-2026.pdf",
+      "report_title": "February 2026",
+      "report_period": 202602,
+      "field": "prior year"
+    },
+    {
+      "year": 2025,
+      "month": "March",
+      "value": 49493,
+      "report": "https://naamsa.net/wp-content/uploads/2025/04/FLASH_STD_202503-updated.pdf",
+      "report_title": "March 2025",
+      "report_period": 202503,
+      "field": "current"
+    },
+    {
+      "year": 2025,
+      "month": "March",
+      "value": 49460,
+      "report": "https://naamsa.net/wp-content/uploads/2025/05/20250502-Flash-Report-April-2025.pdf",
+      "report_title": "April 2025",
+      "report_period": 202504,
+      "field": "previous month"
+    },
+    {
+      "year": 2025,
+      "month": "March",
+      "value": 49500,
+      "report": "https://naamsa.net/wp-content/uploads/2026/04/20260401-Flash-Report-March-2026-1.pdf",
+      "report_title": "March 2026",
+      "report_period": 202603,
+      "field": "prior year"
+    },
+    {
+      "year": 2025,
+      "month": "April",
+      "value": 42401,
+      "report": "https://naamsa.net/wp-content/uploads/2025/05/20250502-Flash-Report-April-2025.pdf",
+      "report_title": "April 2025",
+      "report_period": 202504,
+      "field": "current"
+    },
+    {
+      "year": 2025,
+      "month": "April",
+      "value": 42379,
+      "report": "https://naamsa.net/wp-content/uploads/2025/06/20250602-Flash-Report-Standard.pdf",
+      "report_title": "May 2025",
+      "report_period": 202505,
+      "field": "previous month"
+    },
+    {
+      "year": 2025,
+      "month": "April",
+      "value": 42467,
+      "report": "https://naamsa.net/wp-content/uploads/2026/05/FLASH_STD_202604-1.pdf",
+      "report_title": "April 2026",
+      "report_period": 202604,
+      "field": "prior year"
+    },
+    {
+      "year": 2025,
+      "month": "May",
+      "value": 45308,
+      "report": "https://naamsa.net/wp-content/uploads/2025/06/20250602-Flash-Report-Standard.pdf",
+      "report_title": "May 2025",
+      "report_period": 202505,
+      "field": "current"
+    },
+    {
+      "year": 2025,
+      "month": "May",
+      "value": 45206,
+      "report": "https://naamsa.net/wp-content/uploads/2025/07/20250701-Flash-Report-Standard.pdf",
+      "report_title": "June 2025",
+      "report_period": 202506,
+      "field": "previous month"
+    },
+    {
+      "year": 2025,
+      "month": "May",
+      "value": 45287,
+      "report": "https://naamsa.net/wp-content/uploads/2026/06/20260601-Flash-Report-May-2026-1.pdf",
+      "report_title": "May 2026",
+      "report_period": 202605,
+      "field": "prior year"
+    },
+    {
+      "year": 2025,
+      "month": "June",
+      "value": 47294,
+      "report": "https://naamsa.net/wp-content/uploads/2025/07/20250701-Flash-Report-Standard.pdf",
+      "report_title": "June 2025",
+      "report_period": 202506,
+      "field": "current"
+    },
+    {
+      "year": 2025,
+      "month": "June",
+      "value": 47210,
+      "report": "https://naamsa.net/wp-content/uploads/2025/08/FLASH_STD_202507.pdf",
+      "report_title": "July 2025",
+      "report_period": 202507,
+      "field": "previous month"
+    },
+    {
+      "year": 2025,
+      "month": "June",
+      "value": 47269,
+      "report": "https://naamsa.net/wp-content/uploads/2026/07/20260701-Flash-Report-June-2026.pdf",
+      "report_title": "June 2026",
+      "report_period": 202606,
+      "field": "prior year"
+    },
+    {
+      "year": 2025,
+      "month": "July",
+      "value": 51383,
+      "report": "https://naamsa.net/wp-content/uploads/2025/08/FLASH_STD_202507.pdf",
+      "report_title": "July 2025",
+      "report_period": 202507,
+      "field": "current"
+    },
+    {
+      "year": 2025,
+      "month": "July",
+      "value": 51489,
+      "report": "https://naamsa.net/wp-content/uploads/2025/09/FLASH_STD_202508.pdf",
+      "report_title": "August 2025",
+      "report_period": 202508,
+      "field": "previous month"
+    },
+    {
+      "year": 2025,
+      "month": "July",
+      "value": 51558,
+      "report": "https://naamsa.net/wp-content/uploads/2026/08/FLASH_STD_202607-1.pdf",
+      "report_title": "July 2026",
+      "report_period": 202607,
+      "field": "prior year"
+    },
+    {
+      "year": 2025,
+      "month": "August",
+      "value": 51880,
+      "report": "https://naamsa.net/wp-content/uploads/2025/09/FLASH_STD_202508.pdf",
+      "report_title": "August 2025",
+      "report_period": 202508,
+      "field": "current"
+    },
+    {
+      "year": 2025,
+      "month": "August",
+      "value": 51775,
+      "report": "https://naamsa.net/wp-content/uploads/2025/10/20251002-Flash-Report-September-2025-Standard.pdf",
+      "report_title": "September 2025",
+      "report_period": 202509,
+      "field": "previous month"
+    },
+    {
+      "year": 2025,
+      "month": "August",
+      "value": 51960,
+      "report": "https://naamsa.net/wp-content/uploads/2026/09/20260901-Flash-Report-August-2026.pdf",
+      "report_title": "August 2026",
+      "report_period": 202608,
+      "field": "prior year"
+    },
+    {
+      "year": 2025,
+      "month": "September",
+      "value": 54700,
+      "report": "https://naamsa.net/wp-content/uploads/2025/10/20251002-Flash-Report-September-2025-Standard.pdf",
+      "report_title": "September 2025",
+      "report_period": 202509,
+      "field": "current"
+    },
+    {
+      "year": 2025,
+      "month": "September",
+      "value": 54686,
+      "report": "https://naamsa.net/wp-content/uploads/2025/11/20251104-Flash-Report-October-2025-Standard.pdf",
+      "report_title": "October 2025",
+      "report_period": 202510,
+      "field": "previous month"
+    },
+    {
+      "year": 2025,
+      "month": "September",
+      "value": 54706,
+      "report": "https://naamsa.net/wp-content/uploads/2026/10/20261001-Flash-Report-September-2026-1.pdf",
+      "report_title": "September 2026",
+      "report_period": 202609,
+      "field": "prior year"
+    },
+    {
+      "year": 2025,
+      "month": "October",
+      "value": 55956,
+      "report": "https://naamsa.net/wp-content/uploads/2025/11/20251104-Flash-Report-October-2025-Standard.pdf",
+      "report_title": "October 2025",
+      "report_period": 202510,
+      "field": "current"
+    },
+    {
+      "year": 2025,
+      "month": "October",
+      "value": 55973,
+      "report": "https://naamsa.net/wp-content/uploads/2025/12/20251201-Flash-Report-Standard-November-2025.pdf",
+      "report_title": "November 2025",
+      "report_period": 202511,
+      "field": "previous month"
+    },
+    {
+      "year": 2025,
+      "month": "October",
+      "value": 56051,
+      "report": "https://naamsa.net/wp-content/uploads/2026/11/FLASH_STD_202610.pdf",
+      "report_title": "October 2026",
+      "report_period": 202610,
+      "field": "prior year"
+    },
+    {
+      "year": 2026,
+      "month": "January",
+      "value": 50073,
+      "report": "https://naamsa.net/wp-content/uploads/2026/02/20260202-Flash-Report-January-2026.pdf",
+      "report_title": "January 2026",
+      "report_period": 202601,
+      "field": "current"
+    },
+    {
+      "year": 2026,
+      "month": "January",
+      "value": 50521,
+      "report": "https://naamsa.net/wp-content/uploads/2026/03/20260302-Flash-Report-February-2026.pdf",
+      "report_title": "February 2026",
+      "report_period": 202602,
+      "field": "previous month"
+    },
+    {
+      "year": 2026,
+      "month": "February",
+      "value": 53455,
+      "report": "https://naamsa.net/wp-content/uploads/2026/03/20260302-Flash-Report-February-2026.pdf",
+      "report_title": "February 2026",
+      "report_period": 202602,
+      "field": "current"
+    },
+    {
+      "year": 2026,
+      "month": "February",
+      "value": 53383,
+      "report": "https://naamsa.net/wp-content/uploads/2026/04/20260401-Flash-Report-March-2026-1.pdf",
+      "report_title": "March 2026",
+      "report_period": 202603,
+      "field": "previous month"
+    },
+    {
+      "year": 2026,
+      "month": "March",
+      "value": 58060,
+      "report": "https://naamsa.net/wp-content/uploads/2026/04/20260401-Flash-Report-March-2026-1.pdf",
+      "report_title": "March 2026",
+      "report_period": 202603,
+      "field": "current"
+    },
+    {
+      "year": 2026,
+      "month": "March",
+      "value": 58064,
+      "report": "https://naamsa.net/wp-content/uploads/2026/05/FLASH_STD_202604-1.pdf",
+      "report_title": "April 2026",
+      "report_period": 202604,
+      "field": "previous month"
+    },
+    {
+      "year": 2026,
+      "month": "April",
+      "value": 47979,
+      "report": "https://naamsa.net/wp-content/uploads/2026/05/FLASH_STD_202604-1.pdf",
+      "report_title": "April 2026",
+      "report_period": 202604,
+      "field": "current"
+    },
+    {
+      "year": 2026,
+      "month": "April",
+      "value": 47892,
+      "report": "https://naamsa.net/wp-content/uploads/2026/06/20260601-Flash-Report-May-2026-1.pdf",
+      "report_title": "May 2026",
+      "report_period": 202605,
+      "field": "previous month"
+    },
+    {
+      "year": 2026,
+      "month": "May",
+      "value": 51071,
+      "report": "https://naamsa.net/wp-content/uploads/2026/06/20260601-Flash-Report-May-2026-1.pdf",
+      "report_title": "May 2026",
+      "report_period": 202605,
+      "field": "current"
+    },
+    {
+      "year": 2026,
+      "month": "May",
+      "value": 50987,
+      "report": "https://naamsa.net/wp-content/uploads/2026/07/20260701-Flash-Report-June-2026.pdf",
+      "report_title": "June 2026",
+      "report_period": 202606,
+      "field": "previous month"
+    },
+    {
+      "year": 2026,
+      "month": "June",
+      "value": 54482,
+      "report": "https://naamsa.net/wp-content/uploads/2026/07/20260701-Flash-Report-June-2026.pdf",
+      "report_title": "June 2026",
+      "report_period": 202606,
+      "field": "current"
+    },
+    {
+      "year": 2026,
+      "month": "June",
+      "value": 54405,
+      "report": "https://naamsa.net/wp-content/uploads/2026/08/FLASH_STD_202607-1.pdf",
+      "report_title": "July 2026",
+      "report_period": 202607,
+      "field": "previous month"
+    },
+    {
+      "year": 2026,
+      "month": "July",
+      "value": 57708,
+      "report": "https://naamsa.net/wp-content/uploads/2026/08/FLASH_STD_202607-1.pdf",
+      "report_title": "July 2026",
+      "report_period": 202607,
+      "field": "current"
+    },
+    {
+      "year": 2026,
+      "month": "July",
+      "value": 57733,
+      "report": "https://naamsa.net/wp-content/uploads/2026/09/20260901-Flash-Report-August-2026.pdf",
+      "report_title": "August 2026",
+      "report_period": 202608,
+      "field": "previous month"
+    },
+    {
+      "year": 2026,
+      "month": "August",
+      "value": 57898,
+      "report": "https://naamsa.net/wp-content/uploads/2026/09/20260901-Flash-Report-August-2026.pdf",
+      "report_title": "August 2026",
+      "report_period": 202608,
+      "field": "current"
+    },
+    {
+      "year": 2026,
+      "month": "August",
+      "value": 57761,
+      "report": "https://naamsa.net/wp-content/uploads/2026/10/20261001-Flash-Report-September-2026-1.pdf",
+      "report_title": "September 2026",
+      "report_period": 202609,
+      "field": "previous month"
+    },
+    {
+      "year": 2026,
+      "month": "September",
+      "value": 61645,
+      "report": "https://naamsa.net/wp-content/uploads/2026/10/20261001-Flash-Report-September-2026-1.pdf",
+      "report_title": "September 2026",
+      "report_period": 202609,
+      "field": "current"
+    },
+    {
+      "year": 2026,
+      "month": "September",
+      "value": 61656,
+      "report": "https://naamsa.net/wp-content/uploads/2026/11/FLASH_STD_202610.pdf",
+      "report_title": "October 2026",
+      "report_period": 202610,
+      "field": "previous month"
+    },
+    {
+      "year": 2026,
+      "month": "October",
+      "value": 61890,
+      "report": "https://naamsa.net/wp-content/uploads/2026/11/FLASH_STD_202610.pdf",
+      "report_title": "October 2026",
+      "report_period": 202610,
+      "field": "current"
+    }
+  ],
+  "errata": [
+    {
+      "url": "https://naamsa.net/wp-content/uploads/2024/05/20240411-naamsa-releases-an-Erratum-on-March-2024.pdf",
+      "scope": "March 2024: Nissan segment correction; no VW total correction stated."
+    },
+    {
+      "url": "https://naamsa.net/wp-content/uploads/2025/01/20250127-naamsa-releases-an-Erratum-on-January-2025.pdf",
+      "scope": "December/full-year 2024: two unnamed members and previous months revised; no month-by-month VW restatement supplied. Do not assume older VW figures are fully restated."
+    }
+  ],
+  "ytd": {
+    "2025": {
+      "monthly_sum": 493386,
+      "october_report_ytd": 493427,
+      "unallocated_difference": 41
+    },
+    "2026": {
+      "monthly_sum": 554292,
+      "october_report_ytd": 554081,
+      "unallocated_difference": -211
+    },
+    "explanation": "Residuals are not allocated to individual months. Flashes include rolling historical revisions; the explicitly printed monthly observations are not a single October-vintage history. Official YTD values must be quoted separately."
+  },
+  "documents": [
+    {
+      "url": "https://naamsa.net/wp-content/uploads/2023/05/20230502-Flash-Report-Summary-April-2023.pdf",
+      "report_title": "April 2023",
+      "sha256": "a7982dc0bee1e9ece39359002179dc90aaa1d1fbd7806b5e09ded63ba5661492"
+    },
+    {
+      "url": "https://naamsa.net/wp-content/uploads/2025/01/FLASH_STD_202412.pdf",
+      "report_title": "December 2024",
+      "sha256": "d901485c0877289d20af8ddf7883100e5b04f1f03f72198b7f6cafb06f2c991d"
+    },
+    {
+      "url": "https://naamsa.net/wp-content/uploads/2026/02/20260202-Flash-Report-January-2026.pdf",
+      "report_title": "January 2026",
+      "sha256": "4f74ff734ceee201816ae54568d1f14691415b928392cd8998fd996fabbeae34"
+    },
+    {
+      "url": "https://naamsa.net/wp-content/uploads/2025/07/20250701-Flash-Report-Standard.pdf",
+      "report_title": "June 2025",
+      "sha256": "a02e9a1f1f0e67cf3446093e9e8aeede55069a83753e728a0d021cc422d91f41"
+    },
+    {
+      "url": "https://naamsa.net/wp-content/uploads/2025/06/20250602-Flash-Report-Standard.pdf",
+      "report_title": "May 2025",
+      "sha256": "69b3ff0944be257cadaddd8d162ff24f62df330c99a946a40717232d4d3a5520"
+    },
+    {
+      "url": "https://naamsa.net/wp-content/uploads/2025/08/FLASH_STD_202507.pdf",
+      "report_title": "July 2025",
+      "sha256": "b0e4b9dc96dda1107054c76e90278b426fc0c0110882bfb331c89ac8650cbc51"
+    },
+    {
+      "url": "https://naamsa.net/wp-content/uploads/2025/04/FLASH_STD_202503-updated.pdf",
+      "report_title": "March 2025",
+      "sha256": "7e85a0cc818824d510b72420ce06a8ec5b89298d8c7b812246e547d26a131b66"
+    },
+    {
+      "url": "https://naamsa.net/wp-content/uploads/2025/09/FLASH_STD_202508.pdf",
+      "report_title": "August 2025",
+      "sha256": "f9e314da7c875542d2a763fbcaa06fbece530c3474b608ff0cd318cfa7d25e2c"
+    },
+    {
+      "url": "https://naamsa.net/wp-content/uploads/2024/05/20230901-Flash-Report-Summary-August-2023.pdf",
+      "report_title": "August 2023",
+      "sha256": "eecf161bbaf79cb1b604a6cd5b240cbd5fb21d27d2cc0c5946024987706f36cd"
+    },
+    {
+      "url": "https://naamsa.net/wp-content/uploads/2024/05/20230703-Flash-Report-Summary-June-2023.pdf",
+      "report_title": "June 2023",
+      "sha256": "1f512b22051918a71216ff14f52197f9357182487e403f079d4ab481f42721bc"
+    },
+    {
+      "url": "https://naamsa.net/wp-content/uploads/2024/05/20230201-Flash-Report-Summary-January-2023.pdf",
+      "report_title": "January 2023",
+      "sha256": "6fa56ead81208b75dc0caf3505ce3168c6b015629366d64ef9f19495e5c52f3c"
+    },
+    {
+      "url": "https://naamsa.net/wp-content/uploads/2024/05/20230801-Flash-Report-Summary-July-2023-1.pdf",
+      "report_title": "July 2023",
+      "sha256": "d7a91ce64e5a56d2535867f67aebc14ac98b2c4c9c06c1088e2964b0d7ce12ec"
+    },
+    {
+      "url": "https://naamsa.net/wp-content/uploads/2024/05/20230403-Flash-Report-Summary-March-2023-1.pdf",
+      "report_title": "March 2023",
+      "sha256": "872a4ac9e92388863bc014d7d2c4854e7a2ad69c9362f838822eafc8aca7facb"
+    },
+    {
+      "url": "https://naamsa.net/wp-content/uploads/2023/01/20230109-Flash-Report-Summary-December-2022.pdf",
+      "report_title": "December 2022",
+      "sha256": "070bceacadd4c30df66e33eb7a9860a970dcb9f9a4cc4eaaf1178e1224df9aaa"
+    },
+    {
+      "url": "https://naamsa.net/wp-content/uploads/2024/05/20230601-Flash-Report-Summary-May-2023.pdf",
+      "report_title": "May 2023",
+      "sha256": "c70c11bb62cf26f10491b1dd7a91f59784447b6d6faa55ae72ec47e5f963d9da"
+    },
+    {
+      "url": "https://naamsa.net/wp-content/uploads/2024/05/20240301-Flash-Report-Summary-February-2024.pdf",
+      "report_title": "February 2024",
+      "sha256": "46ec4fccd95076812355fbd0173d9868cff8fde0eb30230cfcae468bb0e3e108"
+    },
+    {
+      "url": "https://naamsa.net/wp-content/uploads/2024/05/20231101-Flash-Report-Summary-October-2023-1.pdf",
+      "report_title": "October 2023",
+      "sha256": "3b07a985078bcc78c7a68a7313458ae7c04e5873baeb0f36dd031682a2480297"
+    },
+    {
+      "url": "https://naamsa.net/wp-content/uploads/2024/05/FLASH_STD_202403.pdf",
+      "report_title": "March 2024",
+      "sha256": "70b92224c028bf9d080f4ebeb44beda70faac9bb0845113323fe3e7ff20171a4"
+    },
+    {
+      "url": "https://naamsa.net/wp-content/uploads/2024/05/20240201-Flash-Report-Summary-January-2024.pdf",
+      "report_title": "January 2024",
+      "sha256": "0b6877fb830c1ce2563d52486519e5d3a1ae5a5600bb5582b57f5111df9c8fc7"
+    },
+    {
+      "url": "https://naamsa.net/wp-content/uploads/2024/05/20240109-Flash-Report-Summary-December-2023-1.pdf",
+      "report_title": "December 2023",
+      "sha256": "dce4d92910e90409ca2afb560681b41c55bfa6141523f0d5526f655acf2a39c9"
+    },
+    {
+      "url": "https://naamsa.net/wp-content/uploads/2024/05/20231201-Flash-Report-Summary-November-2023.pdf",
+      "report_title": "November 2023",
+      "sha256": "882704ff595dde3d95e34e61097af40baa6f44a8c330aa7eee7df72f2a124364"
+    },
+    {
+      "url": "https://naamsa.net/wp-content/uploads/2024/05/20231002-Flash-Report-Summary-September-2023.pdf",
+      "report_title": "September 2023",
+      "sha256": "fb5aab35f85659231b7b2be097e8d999d83fc3ca22987cf9af2f99523ebf3a1c"
+    },
+    {
+      "url": "https://naamsa.net/wp-content/uploads/2024/09/20240902-Flash-Report-August-2024.pdf",
+      "report_title": "August 2024",
+      "sha256": "89180507636aaff1f16d158e7601c56a1e01aa4e2929f43730457621845ab2b5"
+    },
+    {
+      "url": "https://naamsa.net/wp-content/uploads/2024/11/20241101-Flash-Report-October-2024.pdf",
+      "report_title": "October 2024",
+      "sha256": "843f5a5b46cb5eb835d864159c0564ce43ad2662094a4058005339f6a160aa65"
+    },
+    {
+      "url": "https://naamsa.net/wp-content/uploads/2024/06/20240603-Flash-Report-Summary-May-2024.pdf",
+      "report_title": "May 2024",
+      "sha256": "f54c12592897dc454bad297f8f89facf2a0034dbf0d956c69debf14bdbf31622"
+    },
+    {
+      "url": "https://naamsa.net/wp-content/uploads/2024/07/20240701-Flash-Report-Summary-June-2024-1.pdf",
+      "report_title": "June 2024",
+      "sha256": "22a9fd99551fbfed312998591713dd44b253976d142b175d30831031c26647f2"
+    },
+    {
+      "url": "https://naamsa.net/wp-content/uploads/2024/08/20240801-Flash-Report-Summary-July-2024.pdf",
+      "report_title": "July 2024",
+      "sha256": "f6ec5b0d1b02e03a26addee2b5da88c4d60fa2f5dcf8e35af3f040803b9660d0"
+    },
+    {
+      "url": "https://naamsa.net/wp-content/uploads/2024/05/FLASH_STD_202404-corrected.pdf",
+      "report_title": "April 2024",
+      "sha256": "8532b0ada4ece1dbb735000d87d31d8754263da5f6ce1a143b65babeb0d793b2"
+    },
+    {
+      "url": "https://naamsa.net/wp-content/uploads/2024/12/20241202-Flash-Report-November-2024.pdf",
+      "report_title": "November 2024",
+      "sha256": "e3f3a0d78ea37b2252d6a1142d98fa11224cade078642e16219e8e1e6c29af1b"
+    },
+    {
+      "url": "https://naamsa.net/wp-content/uploads/2024/10/20241001-Flash-Report-September-2024-1.pdf",
+      "report_title": "September 2024",
+      "sha256": "9b426a7ae926f491ca2791e67c609717a26966da8f7ab72b7f141145db2bbbf4"
+    },
+    {
+      "url": "https://naamsa.net/wp-content/uploads/2025/05/20250502-Flash-Report-April-2025.pdf",
+      "report_title": "April 2025",
+      "sha256": "2d7d08494a42d535545fa65cb933bd27b2bb17d33e3edcf4fab71b3388d95892"
+    },
+    {
+      "url": "https://naamsa.net/wp-content/uploads/2025/02/20250203-Flash-Report-January-2025.pdf",
+      "report_title": "January 2025",
+      "sha256": "99744455de96098baf411a3f193977ec26fdc1075a6ef7400de4f6a0df658b36"
+    },
+    {
+      "url": "https://naamsa.net/wp-content/uploads/2025/03/20250303-Flash-Report-February-2025.pdf",
+      "report_title": "February 2025",
+      "sha256": "4874278c6f0602d390241bb459f550f21534909464f6bf63c6afa2c8b3b5f844"
+    },
+    {
+      "url": "https://naamsa.net/wp-content/uploads/2026/01/20260107-Flash-Report-Standard-December-2025-1.pdf",
+      "report_title": "December 2025",
+      "sha256": "a62cfafdbf88e9bbbf82d21875e6b61b12fb0078c5e57eea5c1bc168bc284f51"
+    },
+    {
+      "url": "https://naamsa.net/wp-content/uploads/2025/12/20251201-Flash-Report-Standard-November-2025.pdf",
+      "report_title": "November 2025",
+      "sha256": "1b735c3e6c8119cf8120d5394fc383bab07df5fca6dff67660772316c8ade35b"
+    },
+    {
+      "url": "https://naamsa.net/wp-content/uploads/2025/11/20251104-Flash-Report-October-2025-Standard.pdf",
+      "report_title": "October 2025",
+      "sha256": "49acb85ba6410426f8767fd9f53a1d2a2c3b13c4875bbff2e700470f9acc71fa"
+    },
+    {
+      "url": "https://naamsa.net/wp-content/uploads/2026/03/20260302-Flash-Report-February-2026.pdf",
+      "report_title": "February 2026",
+      "sha256": "56d85ff5008a3e8f843666fa7e88e2cd0b57beb0426ff69191ffc8b824a06d64"
+    },
+    {
+      "url": "https://naamsa.net/wp-content/uploads/2025/10/20251002-Flash-Report-September-2025-Standard.pdf",
+      "report_title": "September 2025",
+      "sha256": "80b7d0948dde4f01101fb1b9085aa2525cd7c105159197004f8b11c29b84a46b"
+    },
+    {
+      "url": "https://naamsa.net/wp-content/uploads/2026/11/FLASH_STD_202610.pdf",
+      "report_title": "October 2026",
+      "sha256": "0e7e46998197ea286b2b291f22c43283bf0f454263a60361b4ada777ae2244c6"
+    },
+    {
+      "url": "https://naamsa.net/wp-content/uploads/2026/10/20261001-Flash-Report-September-2026-1.pdf",
+      "report_title": "September 2026",
+      "sha256": "ab7ffa34388d13d8d311c9f6ab9ed965c6f3497a52505715fcb45523ffbbb27d"
+    },
+    {
+      "url": "https://naamsa.net/wp-content/uploads/2026/06/20260601-Flash-Report-May-2026-1.pdf",
+      "report_title": "May 2026",
+      "sha256": "7b8e7c7334d82f5562dd16ae69ced10a32bd28f3499e5aedfb479ea78901ebec"
+    },
+    {
+      "url": "https://naamsa.net/wp-content/uploads/2026/04/20260401-Flash-Report-March-2026-1.pdf",
+      "report_title": "March 2026",
+      "sha256": "aa78bcfd198af9c3a36a4211c13cac8473ea1e44a2015a316264be828a9b63cc"
+    },
+    {
+      "url": "https://naamsa.net/wp-content/uploads/2026/07/20260701-Flash-Report-June-2026.pdf",
+      "report_title": "June 2026",
+      "sha256": "0d468d6e0203a40298637df749efdbad386917b902be0badd865104c82b03f39"
+    },
+    {
+      "url": "https://naamsa.net/wp-content/uploads/2026/05/FLASH_STD_202604-1.pdf",
+      "report_title": "April 2026",
+      "sha256": "6df052493a51edaaeeced8c6ba104128dd7025e0001d0abe3d4dc480af0ea04e"
+    },
+    {
+      "url": "https://naamsa.net/wp-content/uploads/2026/09/20260901-Flash-Report-August-2026.pdf",
+      "report_title": "August 2026",
+      "sha256": "d186a60dfbe23189db19e8070c72a4b7358511c889a67be4d56d3ad6c9a85484"
+    },
+    {
+      "url": "https://naamsa.net/wp-content/uploads/2026/08/FLASH_STD_202607-1.pdf",
+      "report_title": "July 2026",
+      "sha256": "b6e5b99ffc3eff8e861c3e6417dc5eba08ad0e36dc63757681e6dd676748a71c"
+    }
+  ]
+}

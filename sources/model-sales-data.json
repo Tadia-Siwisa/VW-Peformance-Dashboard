@@ -1,0 +1,70 @@
+{
+  "checked_on": "2026-11-11",
+  "period": "January\u2013October",
+  "status": "Compiled public model figures; not a fully revised official model history",
+  "group_totals": {
+    "2025": 52609,
+    "2026": 54915
+  },
+  "models": [
+    {
+      "name": "Polo Vivo",
+      "sales_2025": 21181,
+      "sales_2026": 22814,
+      "scope": "Passenger hatch; excludes Vivo-Xpress",
+      "calculation_html": "2025: <a href=\"https://www.cars.co.za/motoring-news/SAs-15-best-selling-passenger-vehicles-of-2025/332159/\" target=\"_blank\" rel=\"noopener\">26 067 full year</a> \u2212 <a href=\"https://www.citizen.co.za/motoring/south-africa-new-vehicle-sales-november/\" target=\"_blank\" rel=\"noopener\">2 862 November</a> \u2212 <a href=\"https://www.citizen.co.za/motoring/south-africa-new-vehicle-sales-december-2025/\" target=\"_blank\" rel=\"noopener\">2 024 December</a> = 21 181. 2026: <a href=\"https://www.cars.co.za/motoring-news/sa-auto-market-transformed-by-budget-strains-and-chinese-oem-surge-cars-co-za-industry-report-2026-reveals/358484/\" target=\"_blank\" rel=\"noopener\">12 846 January\u2013June</a> + <a href=\"https://www.cars.co.za/motoring-news/swift-back-on-podium-sas-best-selling-passenger-cars-in-july-2026/353758/\" target=\"_blank\" rel=\"noopener\">2 503 July</a> + <a href=\"https://www.carmag.co.za/news/industry-news/top-10-best-selling-passenger-cars-in-south-africa-august-2026/\" target=\"_blank\" rel=\"noopener\">2 351 August</a> + <a href=\"https://www.carmag.co.za/news/industry-news/top-10-best-selling-passenger-cars-in-south-africa-in-september-2026/\" target=\"_blank\" rel=\"noopener\">2 534 September</a> + <a href=\"https://www.carmag.co.za/news/industry-news/top-10-best-selling-passenger-cars-south-africa-october-2026/\" target=\"_blank\" rel=\"noopener\">2 580 October</a> = 22 814. Passenger-car figures only. BSCB\u2019s 23 090 Vivo total uses a broader model grouping and is not used here."
+    },
+    {
+      "name": "Polo",
+      "sales_2025": 7932,
+      "sales_2026": 8336,
+      "scope": "Hatchback; excludes Polo Sedan",
+      "calculation_html": "2025: <a href=\"https://www.cars.co.za/motoring-news/SAs-15-best-selling-passenger-vehicles-of-2025/332159/\" target=\"_blank\" rel=\"noopener\">9 390 full year</a> \u2212 <a href=\"https://www.citizen.co.za/motoring/south-africa-new-vehicle-sales-november/\" target=\"_blank\" rel=\"noopener\">720 November</a> \u2212 <a href=\"https://www.citizen.co.za/motoring/south-africa-new-vehicle-sales-december-2025/\" target=\"_blank\" rel=\"noopener\">738 December</a> = 7 932. 2026: <a href=\"https://bestsellingcarsblog.com/2026/11/south-africa-october-2026-jetour-chery-kia-pull-market-to-all-time-best-61890/\" target=\"_blank\" rel=\"noopener\">8 336 January\u2013October</a>."
+    },
+    {
+      "name": "T-Cross",
+      "sales_2025": 5603,
+      "sales_2026": 5571,
+      "scope": "Passenger SUV",
+      "calculation_html": "2025: <a href=\"https://www.cars.co.za/motoring-news/fronx-surges-polo-relegated-sas-passenger-car-sales-in-h1-2025/301566/\" target=\"_blank\" rel=\"noopener\">3 121 January\u2013June</a> + <a href=\"https://www.citizen.co.za/motoring/south-africa-best-selling-vehicles-july/\" target=\"_blank\" rel=\"noopener\">702 July</a> + <a href=\"https://www.businessday.co.za/bd/life/motoring/2025-09-02-the-best-selling-cars-in-sa-in-august/\" target=\"_blank\" rel=\"noopener\">602 August</a> + <a href=\"https://www.citizen.co.za/motoring/south-africa-september-2025-new-vehicle-sales\" target=\"_blank\" rel=\"noopener\">606 September</a> + <a href=\"https://www.businessday.co.za/motoring/2025-11-04-these-were-sas-best-selling-cars-in-another-stellar-month-for-motor-industry/\" target=\"_blank\" rel=\"noopener\">572 October</a> = 5 603. 2026: <a href=\"https://bestsellingcarsblog.com/2026/11/south-africa-october-2026-jetour-chery-kia-pull-market-to-all-time-best-61890/\" target=\"_blank\" rel=\"noopener\">5 571 January\u2013October</a>."
+    },
+    {
+      "name": "Amarok",
+      "sales_2025": 3291,
+      "sales_2026": 4093,
+      "scope": "Light commercial vehicle \u00b7 revision discrepancy*",
+      "calculation_html": "2025: <a href=\"https://www.cars.co.za/motoring-news/sas-best-and-worst-selling-bakkies-of-2025/332310/\" target=\"_blank\" rel=\"noopener\">4 290 full year</a> \u2212 <a href=\"https://www.citizen.co.za/motoring/south-africa-new-vehicle-sales-november/\" target=\"_blank\" rel=\"noopener\">401 November</a> \u2212 <a href=\"https://www.citizen.co.za/motoring/south-africa-new-vehicle-sales-december-2025/\" target=\"_blank\" rel=\"noopener\">598 December</a> = 3 291. 2026: <a href=\"https://bestsellingcarsblog.com/2026/11/south-africa-october-2026-jetour-chery-kia-pull-market-to-all-time-best-61890/\" target=\"_blank\" rel=\"noopener\">4 093 January\u2013October</a>. These counts produce +24.4%; BSCB publishes +23.5%. The prior-year baseline has not been reconciled, so this comparison remains provisional."
+    },
+    {
+      "name": "Tiguan",
+      "sales_2025": null,
+      "sales_2026": null,
+      "scope": "Comparable totals not available",
+      "calculation_html": null
+    },
+    {
+      "name": "Taigo",
+      "sales_2025": null,
+      "sales_2026": null,
+      "scope": "Comparable totals not available",
+      "calculation_html": null
+    }
+  ],
+  "sources": {
+    "fy25": "https://www.cars.co.za/motoring-news/SAs-15-best-selling-passenger-vehicles-of-2025/332159/",
+    "nov25": "https://www.citizen.co.za/motoring/south-africa-new-vehicle-sales-november/",
+    "dec25": "https://www.citizen.co.za/motoring/south-africa-new-vehicle-sales-december-2025/",
+    "h126": "https://www.cars.co.za/motoring-news/sa-auto-market-transformed-by-budget-strains-and-chinese-oem-surge-cars-co-za-industry-report-2026-reveals/358484/",
+    "jul26": "https://www.cars.co.za/motoring-news/swift-back-on-podium-sas-best-selling-passenger-cars-in-july-2026/353758/",
+    "aug26": "https://www.carmag.co.za/news/industry-news/top-10-best-selling-passenger-cars-in-south-africa-august-2026/",
+    "sep26": "https://www.carmag.co.za/news/industry-news/top-10-best-selling-passenger-cars-in-south-africa-in-september-2026/",
+    "oct26": "https://www.carmag.co.za/news/industry-news/top-10-best-selling-passenger-cars-south-africa-october-2026/",
+    "ytd26": "https://bestsellingcarsblog.com/2026/11/south-africa-october-2026-jetour-chery-kia-pull-market-to-all-time-best-61890/",
+    "h125": "https://www.cars.co.za/motoring-news/fronx-surges-polo-relegated-sas-passenger-car-sales-in-h1-2025/301566/",
+    "jul25": "https://www.citizen.co.za/motoring/south-africa-best-selling-vehicles-july/",
+    "aug25": "https://www.businessday.co.za/bd/life/motoring/2025-09-02-the-best-selling-cars-in-sa-in-august/",
+    "sep25": "https://www.citizen.co.za/motoring/south-africa-september-2025-new-vehicle-sales",
+    "oct25": "https://www.businessday.co.za/motoring/2025-11-04-these-were-sas-best-selling-cars-in-another-stellar-month-for-motor-industry/",
+    "bakkie25": "https://www.cars.co.za/motoring-news/sas-best-and-worst-selling-bakkies-of-2025/332310/"
+  }
+}
