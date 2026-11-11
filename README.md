@@ -15,6 +15,10 @@ Independent analysis by Tadia Siwisa. Domestic new-vehicle sales; exports exclud
 
 Download an Excel file to open its sheets and formulas. Source inputs are numeric values; derived growth and shares use formulas.
 
+## Conclusion and next steps
+
+[Read the conclusion and recommended next investigation](notes/Conclusion_and_next_steps.md). Volkswagen’s sales increased, but growth trailed the wider market. This report closes with a focused investigation into the gap; forecasting is a separate future study.
+
 ## How the numbers were compiled
 
 - [Methodology and worked examples](notes/Methodology.md)
