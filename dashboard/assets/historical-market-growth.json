@@ -1,0 +1,103 @@
+{
+  "scope": "Total domestic market, all vehicle categories; exports excluded",
+  "basis": "2024: current-month Industry Total Local in each 2024 flash. 2023: prior-year same-month Industry Total Local in that same flash. No claim of latest restated history. Later revised totals may differ.",
+  "checked_on": "2026-11-11",
+  "market": {
+    "2023": [
+      43294,
+      45162,
+      50114,
+      37358,
+      43242,
+      46603,
+      43572,
+      45854,
+      45970,
+      45418
+    ],
+    "2024": [
+      41636,
+      44749,
+      44237,
+      38172,
+      37105,
+      40072,
+      44229,
+      43588,
+      44081,
+      47924
+    ]
+  },
+  "reports": [
+    {
+      "month": "January",
+      "url": "https://naamsa.net/wp-content/uploads/2024/05/20240201-Flash-Report-Summary-January-2024.pdf",
+      "lines": [
+        " Industry Total                         41 636    20 242     43 294       20 684         -3.8%        -2.1%    40 268       27 089     41 636     20 242       43 294       20 684       -3.8%            -2.1%"
+      ]
+    },
+    {
+      "month": "February",
+      "url": "https://naamsa.net/wp-content/uploads/2024/05/20240301-Flash-Report-Summary-February-2024.pdf",
+      "lines": [
+        " Industry Total                         44 749     39 517      45 162       30 991     -0.9%        27.5%       42 215     19 280      86 964     58 797      88 456        51 675    -1.7%          13.8%"
+      ]
+    },
+    {
+      "month": "March",
+      "url": "https://naamsa.net/wp-content/uploads/2024/05/FLASH_STD_202403.pdf",
+      "lines": [
+        " Industry Total                         44 237    24 161     50 114      33 136       -11.7%          -27.1%     44 732     37 208      131 201    80 649       138 570      84 811    -5.3%           -4.9%"
+      ]
+    },
+    {
+      "month": "April",
+      "url": "https://naamsa.net/wp-content/uploads/2024/05/FLASH_STD_202404-corrected.pdf",
+      "lines": [
+        " Industry Total                       38 172     23 394     37 358      30 749        2.2%      -23.9%     44 008      24 227        168 970     105 058         175 928   115 560     -4.0%            -9.1%"
+      ]
+    },
+    {
+      "month": "May",
+      "url": "https://naamsa.net/wp-content/uploads/2024/06/20240603-Flash-Report-Summary-May-2024.pdf",
+      "lines": [
+        " Industry Total                       37 105     24 235     43 242      29 947       -14.2%     -19.1%      38 062      22 670      205 965    128 569         219 170      145 507     -6.0%         -11.6%"
+      ]
+    },
+    {
+      "month": "June",
+      "url": "https://naamsa.net/wp-content/uploads/2024/07/20240701-Flash-Report-Summary-June-2024-1.pdf",
+      "lines": [
+        " Industry Total                      40 072     28 306     46 603       27 329     -14.0%             3.6%    37 120      23 604        246 052     156 244         265 773   172 836      -7.4%         -9.6%"
+      ]
+    },
+    {
+      "month": "July",
+      "url": "https://naamsa.net/wp-content/uploads/2024/08/20240801-Flash-Report-Summary-July-2024.pdf",
+      "lines": [
+        " Industry Total                      44 229     25 461      43 572        38 132        1.5%         -33.2%    39 873      25 850     289 982     182 455         309 345      210 968     -6.3%        -13.5%"
+      ]
+    },
+    {
+      "month": "August",
+      "url": "https://naamsa.net/wp-content/uploads/2024/09/20240902-Flash-Report-August-2024.pdf",
+      "lines": [
+        " Industry Total                      43 588     28 073     45 854        42 731        -4.9%        -34.3%    44 325       25 968        333 662     211 035         355 199   253 699      -6.1%        -16.8%"
+      ]
+    },
+    {
+      "month": "September",
+      "url": "https://naamsa.net/wp-content/uploads/2024/10/20241001-Flash-Report-September-2024-1.pdf",
+      "lines": [
+        " Industry Total                      44 081     21 964     45 970         35 499         -4.1%       -38.1%       43 681      27 273        377 835     232 199         401 169   289 198     -5.8%         -19.7%"
+      ]
+    },
+    {
+      "month": "October",
+      "url": "https://naamsa.net/wp-content/uploads/2024/11/20241101-Flash-Report-October-2024.pdf",
+      "lines": [
+        " Industry Total                      47 924     23 342     45 418         40 666         5.5%        -42.6%      43 995      21 134        425 806     253 535         446 587   329 864     -4.7%         -23.1%"
+      ]
+    }
+  ]
+}
