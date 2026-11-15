@@ -158,15 +158,14 @@ main>section>h2,main>section>.eyebrow,main>section>.sub{text-align:center}
 }
 
 
-/* Readable, collision-free values for the sales and growth line charts. */
+
+/* Inline labels for one/two series; focused tooltip for three/four. */
 #salesChart svg,#growthChart svg{min-width:1120px}
-.chart svg .value-annotation{font-size:14.5px;font-weight:700;letter-spacing:-.15px;pointer-events:none}
-.chart .chart-value-band{fill:#f3f6fa;stroke:#dce4ed;stroke-width:1}
-.legend .legend-line{width:46px;height:20px;flex:none;display:inline-block;overflow:visible}
-.legend span{align-items:center;gap:7px;font-weight:600}
-#salesChart .series-line,#growthChart .series-line{filter:none}
-@media(max-width:600px){
- #salesChart svg,#growthChart svg{min-width:1120px}
- .chart svg .value-annotation{font-size:15px}
- .legend{flex-wrap:wrap}
-}
+.chart svg .point-label{font-size:15px;font-weight:750;paint-order:stroke;stroke:#fff;stroke-width:5px;stroke-linejoin:round;pointer-events:none}
+.chart svg .focus-guide{stroke:#8495aa;stroke-width:1.5;stroke-dasharray:4 5}
+.chart svg .focus-ring{fill:#fff;stroke-width:3}
+.chart svg .focus-panel{fill:white;stroke:#b9c9db;stroke-width:1.6;filter:drop-shadow(0 2px 4px rgba(0,20,50,.12))}
+.chart svg .focus-heading{fill:#001e50;font-size:18px;font-weight:750}
+.chart svg .focus-value{font-size:16px;font-weight:750}
+.chart svg .hit:hover{fill:transparent}
+@media(max-width:600px){.chart svg .point-label{font-size:16px}.chart svg .focus-value{font-size:17px}}

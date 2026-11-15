@@ -18,53 +18,66 @@ function legendSwatch(z){
  return '<svg class="legend-line" viewBox="0 0 46 20" aria-hidden="true"><line x1="2" x2="44" y1="10" y2="10" stroke="'+z.color+'" stroke-width="2.7"'+(z.dashPattern?' stroke-dasharray="'+z.dashPattern+'"':'')+'/>'+svgMarker(z,23,10,4)+'</svg>';
 }
 function chart(id,series,min,max,step,unit,readout){
- // Exact labels are outside the data plotting area, so they cannot cover chart lines.
- const W=1120,L=82,R=32,T=40,plotBottom=320,monthY=346,valueTop=382,rowHeight=24;
- const H=valueTop+(series.length-1)*rowHeight+22;
- const x=i=>L+i*(W-L-R)/9;
- const y=v=>T+(max-v)*(plotBottom-T)/(max-min);
- let s='<svg viewBox="0 0 '+W+' '+H+'" role="img" aria-label="'+(id==='salesChart'?'Volkswagen monthly domestic sales with exact values for every selected year':'Year-on-year domestic sales growth with monthly percentages')+'">';
- s+='<text x="'+L+'" y="22">'+unit+'</text>';
+ const dense=series.length>=3,W=1120,L=82,R=35,T=dense?150:48,bottom=dense?430:345,monthY=bottom+34,H=monthY+38;
+ const x=i=>L+i*(W-L-R)/9,y=v=>T+(max-v)*(bottom-T)/(max-min);
+ const value=v=>unit==='%'?signed(v):fmt(v);
+ let s='<svg viewBox="0 0 '+W+' '+H+'" role="img" aria-label="'+(id==='salesChart'?'Monthly Volkswagen sales by year':'Monthly sales growth')+'">';
+ s+='<text x="'+L+'" y="'+(T-16)+'">'+unit+'</text>';
  for(let v=min;v<=max+step*.001;v+=step){
   s+='<line x1="'+L+'" x2="'+(W-R)+'" y1="'+y(v)+'" y2="'+y(v)+'" stroke="'+(v===0?'#a6b1be':'#e7ecf2')+'"/>';
   s+='<text x="'+(L-12)+'" y="'+(y(v)+4)+'" text-anchor="end">'+(unit==='Vehicles'?(v/1000)+'K':fmt(v))+(unit==='%'?'%':'')+'</text>';
  }
- // Label band is below the last plotted data point and above no series lines.
- s+='<rect class="chart-value-band" x="'+(L-52)+'" y="'+(monthY+10)+'" width="'+(W-L-R+104)+'" height="'+(H-monthY-12)+'" rx="10"/>';
- months.forEach((m,i)=>{
-  s+='<text class="month-label" data-month="'+i+'" x="'+x(i)+'" y="'+monthY+'" text-anchor="middle">'+m.slice(0,3)+'</text>';
- });
- series.forEach(z=>{
+ months.forEach((m,i)=>{s+='<text class="month-label" data-month="'+i+'" x="'+x(i)+'" y="'+monthY+'" text-anchor="middle">'+m.slice(0,3)+'</text>';});
+ series.forEach((z,j)=>{
   s+='<polyline points="'+z.values.map((v,i)=>x(i)+','+y(v)).join(' ')+'" fill="none" stroke="'+z.color+'" class="series-line" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.7"'+(z.dashPattern?' stroke-dasharray="'+z.dashPattern+'"':'')+'/>';
   z.values.forEach((v,i)=>{
-   const valueText=unit==='%'?signed(v):fmt(v);
-   s+='<g>'+svgMarker(z,x(i),y(v),4.6)+'<title>'+months[i]+' · '+z.name+': '+valueText+'</title></g>';
+   s+='<g>'+svgMarker(z,x(i),y(v),4.8)+'<title>'+months[i]+' · '+z.name+': '+value(v)+'</title></g>';
+   if(!dense){
+    const other=series.length===2?series[1-j].values[i]:null;
+    const above=other===null||v>=other;
+    const ly=Math.max(T+15,Math.min(bottom-9,y(v)+(above?-19:23)));
+    s+='<text class="point-label" x="'+x(i)+'" y="'+ly+'" text-anchor="middle" style="fill:'+z.color+'">'+value(v)+'</text>';
+   }
   });
  });
+ if(dense)s+='<g class="focus-overlay" style="display:none" aria-hidden="true" pointer-events="none"></g>';
  months.forEach((m,i)=>{
-  series.forEach((z,j)=>{
-   const valueText=unit==='%'?signed(z.values[i]):fmt(z.values[i]);
-   const shortName=unit==='%'?(z.name==='Total market'?'Market':'VW'):z.name;
-   s+='<text class="value-annotation" x="'+x(i)+'" y="'+(valueTop+j*rowHeight)+'" text-anchor="middle" style="fill:'+z.color+'">'+shortName+' '+valueText+'</text>';
-  });
- });
- months.forEach((m,i)=>{
-  const values=series.map(z=>z.name+': '+(unit==='%'?signed(z.values[i]):fmt(z.values[i])+' vehicles')).join('; ');
-  s+='<rect class="hit" data-i="'+i+'" tabindex="0" role="button" aria-label="'+m+' - '+values+'" x="'+(x(i)-(W-L-R)/18)+'" y="'+T+'" width="'+((W-L-R)/9)+'" height="'+(H-T)+'" fill="transparent"/>';
+  const aria=series.map(z=>z.name+': '+value(z.values[i])+(unit==='%'?'':' vehicles')).join('; ');
+  s+='<rect class="hit" data-i="'+i+'" tabindex="0" role="button" aria-label="'+m+' - '+aria+'" x="'+(x(i)-(W-L-R)/18)+'" y="'+T+'" width="'+((W-L-R)/9)+'" height="'+(monthY-T+12)+'" fill="transparent"/>';
  });
  s+='</svg>';
- const el=document.getElementById(id);
- el.innerHTML=s;
+ const el=document.getElementById(id);el.innerHTML=s;
+ const overlay=dense?el.querySelector('.focus-overlay'):null;
+ let pinned=null;
+ function showMonth(i){
+  if(!overlay)return;
+  const pw=448,px=Math.max(L,Math.min(x(i)-pw/2,W-R-pw));
+  let g='<line class="focus-guide" x1="'+x(i)+'" x2="'+x(i)+'" y1="'+T+'" y2="'+bottom+'"/>';
+  series.forEach(z=>{g+='<circle class="focus-ring" cx="'+x(i)+'" cy="'+y(z.values[i])+'" r="9" stroke="'+z.color+'"/>';});
+  g+='<rect class="focus-panel" x="'+px+'" y="9" width="'+pw+'" height="126" rx="14"/>';
+  g+='<text class="focus-heading" x="'+(px+17)+'" y="35">'+months[i]+' · exact '+(unit==='%'?'growth':'sales')+'</text>';
+  series.forEach((z,j)=>{
+   const tx=px+18+(j%2)*221,ty=72+Math.floor(j/2)*37;
+   g+='<circle cx="'+(tx+6)+'" cy="'+(ty-5)+'" r="5" fill="'+z.color+'"/>';
+   g+='<text class="focus-value" x="'+(tx+19)+'" y="'+ty+'" style="fill:'+z.color+'">'+z.name+'  '+value(z.values[i])+'</text>';
+  });
+  overlay.innerHTML=g;overlay.style.display='';
+ }
+ function restore(){if(!overlay)return;if(pinned===null){overlay.style.display='none';overlay.innerHTML='';}else showMonth(pinned);}
  el.querySelectorAll('.hit').forEach(hit=>{
-  function select(){
-   const i=+hit.dataset.i;
+  const i=+hit.dataset.i;
+  function choose(){
+   pinned=i;if(dense)showMonth(i);
    if(id==='salesChart'){selectedSalesMonth=i;renderSalesReadout(series,i);return;}
    if(id==='growthChart'){selectedGrowthMonth=i;renderGrowthReadout(series,i);return;}
-   document.getElementById(readout).textContent=months[i]+' · '+series.map(z=>z.name+': '+(unit==='%'?signed(z.values[i]):fmt(z.values[i])+' vehicles')).join('  | ');
+   document.getElementById(readout).textContent=months[i]+' · '+series.map(z=>z.name+': '+value(z.values[i])).join('  | ');
   }
-  hit.addEventListener('click',select);
-  hit.addEventListener('focus',select);
-  hit.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();select();}});
+  hit.addEventListener('pointerenter',()=>{if(dense)showMonth(i);});
+  hit.addEventListener('pointerleave',restore);
+  hit.addEventListener('focus',()=>{if(dense)showMonth(i);});
+  hit.addEventListener('blur',restore);
+  hit.addEventListener('click',choose);
+  hit.addEventListener('keydown',event=>{if(event.key==='Enter'||event.key===' '){event.preventDefault();choose();}});
  });
 }
 const historicalSales={"2023": [5081, 5288, 6139, 4644, 5259, 5578, 5797, 5972, 6316, 6595], "2024": [5522, 5333, 5219, 4758, 4939, 5514, 6178, 5645, 5885, 6340], "2025": [5676, 5249, 4913, 3973, 4582, 4973, 5738, 5521, 5763, 6221], "2026": [4774, 4895, 5574, 4814, 5295, 5613, 5799, 5668, 5968, 6515]};
@@ -82,7 +95,7 @@ function drawSales(){
  const series=years.map(y=>({name:y,color:yearColors[y],dashPattern:yearDash[y],shape:yearShape[y],values:historicalSales[y].map(v=>indexed?100*v/historicalSales[y][0]:v)}));
  document.querySelector('#salesLegend').innerHTML=series.map(z=>'<span>'+legendSwatch(z)+z.name+'</span>').join('');
  document.querySelector('#historicalNote').hidden=!years.some(y=>Number(y)<2025);
- document.querySelector('#salesModeNote').textContent=indexed?'Each year starts at 100. This compares movement from January, not sales volumes.':'Domestic vehicles sold. Exact values for each selected year appear below the plot.';
+ document.querySelector('#salesModeNote').textContent=years.length>=3?'Hover over or tap a month or point to see exact sales for all selected years. Tap to keep that month selected.':'Exact monthly sales are labeled beside each point. Select a month for more details.';
  document.querySelector('#salesReadout').textContent='';
  if(!series.length){document.querySelector('#salesChart').innerHTML='<p class="empty-years">Choose at least one year above.</p>';return;}
  chart('salesChart',series,indexed?60:3000,indexed?160:7000,indexed?20:1000,indexed?'Index':'Vehicles','salesReadout');
