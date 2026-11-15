@@ -1,0 +1,21 @@
+{
+  "audit_date": "2026-11-15",
+  "audit_observations": 180,
+  "mismatches": 0,
+  "workbook_filename": "VW_Domestic_Sales_Master_Audit_Verified_2023_2026.xlsx",
+  "workbook_sha256": "44bd43533e325f11f309e5943d9e02aed92b8840e1ccfe84f2964cbbb1f399c5",
+  "workbook_github_upload_status": "PENDING_BINARY_UPLOAD",
+  "verified_source_data": [
+    "VW Group SA monthly domestic 2023-2026",
+    "Market industry local 2023-2024 2024-vintage",
+    "2025-2026 original and selected market local observations",
+    "Top 4 manufacturer domestic figures 2025-2026"
+  ],
+  "limitations": [
+    "2025 selected months sum 493386 vs October 2026 published YTD 493427 (+41)",
+    "2026 selected months sum 554292 vs October 2026 published YTD 554081 (-211)",
+    "Model sales observations use secondary automotive publications and are NOT naamsa-verified",
+    "Polo Vivo export quantities NOT established"
+  ],
+  "source_of_truth_status": "NAAMSA-derived numeric observations audited; model-level figures provisional"
+}
