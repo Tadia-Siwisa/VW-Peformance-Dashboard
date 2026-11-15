@@ -156,3 +156,17 @@ main>section>h2,main>section>.eyebrow,main>section>.sub{text-align:center}
  .intro .heading{flex-direction:column}
  .tablewrap:focus-visible{outline:3px solid var(--blue);outline-offset:3px}
 }
+
+
+/* Readable, collision-free values for the sales and growth line charts. */
+#salesChart svg,#growthChart svg{min-width:1120px}
+.chart svg .value-annotation{font-size:14.5px;font-weight:700;letter-spacing:-.15px;pointer-events:none}
+.chart .chart-value-band{fill:#f3f6fa;stroke:#dce4ed;stroke-width:1}
+.legend .legend-line{width:46px;height:20px;flex:none;display:inline-block;overflow:visible}
+.legend span{align-items:center;gap:7px;font-weight:600}
+#salesChart .series-line,#growthChart .series-line{filter:none}
+@media(max-width:600px){
+ #salesChart svg,#growthChart svg{min-width:1120px}
+ .chart svg .value-annotation{font-size:15px}
+ .legend{flex-wrap:wrap}
+}
