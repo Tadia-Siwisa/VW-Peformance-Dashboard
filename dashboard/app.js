@@ -50,7 +50,7 @@ function chart(id,series,min,max,step,unit,readout){
  function showMonth(i){
   if(!overlay)return;
   const ranked=unit==='Vehicles'?[...series].sort((a,b)=>b.values[i]-a.values[i]||a.name.localeCompare(b.name)):series;
-  const heading=months[i]+': '+(unit==='%'?'Percentage change':'Number of vehicles sold');
+  const heading=months[i]+': '+(unit==='%'?'Year-on-year growth':'VW Group SA domestic sales');
   const panelHeight=51+ranked.length*30;
 
   let g='<line class="focus-guide" x1="'+x(i)+'" x2="'+x(i)+'" y1="'+T+'" y2="'+bottom+'"/>';
@@ -102,10 +102,8 @@ const historicalSales={"2023": [5081, 5288, 6139, 4644, 5259, 5578, 5797, 5972, 
 let selectedSalesMonth=0;
 const yearColors={'2023':'#007fa3','2024':'#9b6423','2025':'#61758d','2026':'#001e50'};
 function renderSalesReadout(series,i){
- const ranked=[...series].sort((a,b)=>b.values[i]-a.values[i]||a.name.localeCompare(b.name));
  document.querySelectorAll('#salesChart .month-label').forEach(el=>el.classList.toggle('active-month',+el.dataset.month===i));
  document.querySelectorAll('#salesChart .hit').forEach(el=>el.setAttribute('aria-pressed',String(+el.dataset.i===i)));
- document.querySelector('#salesReadout').innerHTML=`<h3 class="readout-month">${months[i]}</h3><div class="sales-value-grid">${ranked.map(z=>`<div class="sales-value-card" style="--series-color:${z.color}"><div class="sales-value-year"><i></i>${z.name}</div><strong>${fmt(z.values[i])}</strong><span>vehicles sold</span></div>`).join('')}</div>`;
 }
 function drawSales(){
  const years=[...document.querySelectorAll('.sales-year:checked')].map(e=>e.value), indexed=false;
@@ -113,7 +111,6 @@ function drawSales(){
  document.querySelector('#salesLegend').innerHTML=series.map(z=>'<span>'+legendSwatch(z)+z.name+'</span>').join('');
  document.querySelector('#historicalNote').hidden=!years.some(y=>Number(y)<2025);
  document.querySelector('#salesModeNote').textContent=years.length>=3?'Hover over or tap a month or point to see exact sales for all selected years. Tap to keep that month selected.':'Exact monthly sales are labeled beside each point. Select a month for more details.';
- document.querySelector('#salesReadout').textContent='';
  if(!series.length){document.querySelector('#salesChart').innerHTML='<p class="empty-years">Choose at least one year above.</p>';return;}
  chart('salesChart',series,indexed?60:3000,indexed?160:7000,indexed?20:1000,indexed?'Index':'Vehicles','salesReadout');
  if(selectedSalesMonth!==null)renderSalesReadout(series,selectedSalesMonth);
@@ -182,7 +179,7 @@ for (const [chartId, labelText] of [['salesChart','Sales chart month'],['growthC
  const picker=document.createElement('select');picker.setAttribute('aria-label',labelText);
  picker.innerHTML=months.map((m,i)=>`<option value="${i}">${m}</option>`).join('');
  label.append(picker);plot.before(label);
- const hint=document.createElement('p');hint.className='scroll-hint';hint.textContent='Swipe the chart sideways to explore all months. Exact values appear below.';plot.before(hint);
+ const hint=document.createElement('p');hint.className='scroll-hint';hint.textContent=chartId==='salesChart'?'Swipe to explore months. Tap a month for exact domestic sales.':'Swipe to explore months. Tap a month for percentage changes and their source figures.';plot.before(hint);
  picker.addEventListener('change',()=>plot.querySelector(`[data-i="${picker.value}"]`)?.dispatchEvent(new MouseEvent('click',{bubbles:true})));
  plot.addEventListener('click',e=>{const hit=e.target.closest('[data-i]');if(hit)picker.value=hit.dataset.i;});
  plot.addEventListener('focusin',e=>{const hit=e.target.closest('[data-i]');if(hit)picker.value=hit.dataset.i;});
