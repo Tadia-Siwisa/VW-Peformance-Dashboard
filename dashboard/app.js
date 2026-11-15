@@ -6,10 +6,72 @@ const month=document.querySelector('#month');month.innerHTML=months.map((m,i)=>`
 function arrow(n){return `<span class="trend ${n>=0?'up':'down'}" aria-label="${n>=0?'Increase':'Decrease'}">${n>=0?'↑':'↓'}</span>`}
 function update(){const i=+month.value,a=data[2025][i],b=data[2026][i],v=growth(i,0),m=growth(i,4),share=100*b[0]/b[4],old=100*a[0]/a[4],short=months[i].slice(0,3);document.querySelector('#kpis').innerHTML=`<div class="kpi"><div class="label">Volkswagen Group sales</div><div class="value">${fmt(b[0])}</div><div class="delta">${arrow(v)} ${pct(Math.abs(v))} from ${short} 2025</div><div class="muted">${short} 2025: ${fmt(a[0])}</div></div><div class="kpi"><div class="label">Total market growth</div><div class="value">${arrow(m)} ${pct(Math.abs(m))}</div><div class="delta">${short} 2026: ${fmt(b[4])}</div><div class="muted">${short} 2025: ${fmt(a[4])}</div></div><div class="kpi"><div class="label">Volkswagen market share</div><div class="value">${pct(share)}</div><div class="delta">${arrow(share-old)} ${Math.abs(share-old).toFixed(2)} percentage points</div><div class="muted">${short} 2025: ${pct(old)}</div></div>`;document.querySelector('#takeaway').innerHTML=`<li>${months[i]}: Volkswagen’s sales ${v>=0?'rose':'fell'} ${pct(Math.abs(v))} year on year.</li><li>Growth ${v>=m?'exceeded':'trailed'} the market by ${Math.abs(v-m).toFixed(1)} percentage points.</li>`;}
 month.addEventListener('change',update);update();
-function chart(id,series,min,max,step,unit,readout){const W=1040,H=360,L=66,R=28,T=28,B=57;const x=i=>L+i*(W-L-R)/9,y=v=>T+(max-v)*(H-T-B)/(max-min);let s=`<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="${id==='salesChart'?'Volkswagen monthly domestic sales, selected years':'Year-on-year domestic sales growth'}"><text x="${L}" y="15">${unit}</text>`;for(let v=min;v<=max;v+=step)s+=`<line x1="${L}" x2="${W-R}" y1="${y(v)}" y2="${y(v)}" stroke="${v===0?'#a6b1be':'#edf0f3'}"/><text x="${L-12}" y="${y(v)+4}" text-anchor="end">${unit==='Vehicles'?(v/1000)+'K':fmt(v)}${unit==='%'?'%':''}</text>`;months.forEach((m,i)=>s+=`<text class="month-label" data-month="${i}" x="${x(i)}" y="${H-30}" text-anchor="middle">${m.slice(0,3)}</text>`);s+=`<text x="${W/2}" y="${H-6}" text-anchor="middle">Month</text>`;series.forEach(z=>{s+=`<polyline points="${z.values.map((v,i)=>x(i)+','+y(v)).join(' ')}" fill="none" stroke="${z.color}" class="series-line" stroke-linecap="round" stroke-linejoin="round" stroke-width="4.5" ${z.dash?'stroke-dasharray="7 5"':''}/>`;z.values.forEach((v,i)=>s+=`<circle cx="${x(i)}" cy="${y(v)}" r="5.5" fill="white" stroke="${z.color}" stroke-width="2"><title>${months[i]} · ${z.name}: ${unit==='%'?pct(v):fmt(v)}</title></circle>${id==='growthChart'?`<text class="point-label" x="${x(i)}" y="${y(v)+(z.values[i]>=series.find(q=>q!==z).values[i]?-16:24)}" text-anchor="middle" style="fill:${z.color}">${signed(v)}</text>`:''}${id==='salesChart'&&series.length<=2?`<text class="point-label" x="${x(i)}" y="${y(v)+(z.name==='2026'?(i<2?24:-17):(i<2?-17:25))}" text-anchor="middle" style="fill:${z.color}">${unit==='Index'?v.toFixed(1):(v/1000).toFixed(1)+'K'}</text>`:''}`)});months.forEach((m,i)=>s+=`<rect class="hit" data-i="${i}" tabindex="0" role="button" aria-label="Show ${m} values" x="${x(i)-(W-L-R)/18}" y="${T}" width="${(W-L-R)/9}" height="${H-T-16}" fill="transparent"/>`);s+='</svg>';const el=document.getElementById(id);el.innerHTML=s;el.querySelectorAll('.hit').forEach(hit=>{function select(){const i=+hit.dataset.i;if(id==='salesChart'){selectedSalesMonth=i;renderSalesReadout(series,i);return;}if(id==='growthChart'){selectedGrowthMonth=i;renderGrowthReadout(series,i);return;}document.getElementById(readout).textContent=months[i]+' · '+series.map(z=>z.name+': '+(unit==='%'?signed(z.values[i]):unit==='Index'?z.values[i].toFixed(1)+' index':fmt(z.values[i])+' vehicles')).join('  |  ')}hit.addEventListener('click',select);hit.addEventListener('focus',select);hit.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();select()}})});}
+// Consistent markers and line samples make each series distinguishable without relying on color.
+function svgMarker(z,x,y,size){
+ const stroke=z.color;
+ if(z.shape==='square')return '<rect x="'+(x-size)+'" y="'+(y-size)+'" width="'+(size*2)+'" height="'+(size*2)+'" rx="1" fill="white" stroke="'+stroke+'" stroke-width="2.3"/>';
+ if(z.shape==='diamond')return '<path d="M '+x+' '+(y-size-0.5)+' L '+(x+size+0.5)+' '+y+' L '+x+' '+(y+size+0.5)+' L '+(x-size-0.5)+' '+y+' Z" fill="white" stroke="'+stroke+'" stroke-width="2.3"/>';
+ if(z.shape==='triangle')return '<path d="M '+x+' '+(y-size-1)+' L '+(x+size+1)+' '+(y+size)+' L '+(x-size-1)+' '+(y+size)+' Z" fill="white" stroke="'+stroke+'" stroke-width="2.3"/>';
+ return '<circle cx="'+x+'" cy="'+y+'" r="'+size+'" fill="white" stroke="'+stroke+'" stroke-width="2.3"/>';
+}
+function legendSwatch(z){
+ return '<svg class="legend-line" viewBox="0 0 46 20" aria-hidden="true"><line x1="2" x2="44" y1="10" y2="10" stroke="'+z.color+'" stroke-width="2.7"'+(z.dashPattern?' stroke-dasharray="'+z.dashPattern+'"':'')+'/>'+svgMarker(z,23,10,4)+'</svg>';
+}
+function chart(id,series,min,max,step,unit,readout){
+ // Exact labels are outside the data plotting area, so they cannot cover chart lines.
+ const W=1120,L=82,R=32,T=40,plotBottom=320,monthY=346,valueTop=382,rowHeight=24;
+ const H=valueTop+(series.length-1)*rowHeight+22;
+ const x=i=>L+i*(W-L-R)/9;
+ const y=v=>T+(max-v)*(plotBottom-T)/(max-min);
+ let s='<svg viewBox="0 0 '+W+' '+H+'" role="img" aria-label="'+(id==='salesChart'?'Volkswagen monthly domestic sales with exact values for every selected year':'Year-on-year domestic sales growth with monthly percentages')+'">';
+ s+='<text x="'+L+'" y="22">'+unit+'</text>';
+ for(let v=min;v<=max+step*.001;v+=step){
+  s+='<line x1="'+L+'" x2="'+(W-R)+'" y1="'+y(v)+'" y2="'+y(v)+'" stroke="'+(v===0?'#a6b1be':'#e7ecf2')+'"/>';
+  s+='<text x="'+(L-12)+'" y="'+(y(v)+4)+'" text-anchor="end">'+(unit==='Vehicles'?(v/1000)+'K':fmt(v))+(unit==='%'?'%':'')+'</text>';
+ }
+ // Label band is below the last plotted data point and above no series lines.
+ s+='<rect class="chart-value-band" x="'+(L-52)+'" y="'+(monthY+10)+'" width="'+(W-L-R+104)+'" height="'+(H-monthY-12)+'" rx="10"/>';
+ months.forEach((m,i)=>{
+  s+='<text class="month-label" data-month="'+i+'" x="'+x(i)+'" y="'+monthY+'" text-anchor="middle">'+m.slice(0,3)+'</text>';
+ });
+ series.forEach(z=>{
+  s+='<polyline points="'+z.values.map((v,i)=>x(i)+','+y(v)).join(' ')+'" fill="none" stroke="'+z.color+'" class="series-line" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.7"'+(z.dashPattern?' stroke-dasharray="'+z.dashPattern+'"':'')+'/>';
+  z.values.forEach((v,i)=>{
+   const valueText=unit==='%'?signed(v):fmt(v);
+   s+='<g>'+svgMarker(z,x(i),y(v),4.6)+'<title>'+months[i]+' · '+z.name+': '+valueText+'</title></g>';
+  });
+ });
+ months.forEach((m,i)=>{
+  series.forEach((z,j)=>{
+   const valueText=unit==='%'?signed(z.values[i]):fmt(z.values[i]);
+   const shortName=unit==='%'?(z.name==='Total market'?'Market':'VW'):z.name;
+   s+='<text class="value-annotation" x="'+x(i)+'" y="'+(valueTop+j*rowHeight)+'" text-anchor="middle" style="fill:'+z.color+'">'+shortName+' '+valueText+'</text>';
+  });
+ });
+ months.forEach((m,i)=>{
+  const values=series.map(z=>z.name+': '+(unit==='%'?signed(z.values[i]):fmt(z.values[i])+' vehicles')).join('; ');
+  s+='<rect class="hit" data-i="'+i+'" tabindex="0" role="button" aria-label="'+m+' - '+values+'" x="'+(x(i)-(W-L-R)/18)+'" y="'+T+'" width="'+((W-L-R)/9)+'" height="'+(H-T)+'" fill="transparent"/>';
+ });
+ s+='</svg>';
+ const el=document.getElementById(id);
+ el.innerHTML=s;
+ el.querySelectorAll('.hit').forEach(hit=>{
+  function select(){
+   const i=+hit.dataset.i;
+   if(id==='salesChart'){selectedSalesMonth=i;renderSalesReadout(series,i);return;}
+   if(id==='growthChart'){selectedGrowthMonth=i;renderGrowthReadout(series,i);return;}
+   document.getElementById(readout).textContent=months[i]+' · '+series.map(z=>z.name+': '+(unit==='%'?signed(z.values[i]):fmt(z.values[i])+' vehicles')).join('  | ');
+  }
+  hit.addEventListener('click',select);
+  hit.addEventListener('focus',select);
+  hit.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();select();}});
+ });
+}
 const historicalSales={"2023": [5081, 5288, 6139, 4644, 5259, 5578, 5797, 5972, 6316, 6595], "2024": [5522, 5333, 5219, 4758, 4939, 5514, 6178, 5645, 5885, 6340], "2025": [5676, 5249, 4913, 3973, 4582, 4973, 5738, 5521, 5763, 6221], "2026": [4774, 4895, 5574, 4814, 5295, 5613, 5799, 5668, 5968, 6515]};
 let selectedSalesMonth=0;
-const yearColors={'2023':'#007fa3','2024':'#a47734','2025':'#94a5b9','2026':'#001e50'};
+const yearColors={'2023':'#007fa3','2024':'#9b6423','2025':'#61758d','2026':'#001e50'};
+const yearDash={'2023':'3 5','2024':'11 4 2 4','2025':'8 5','2026':''};
+const yearShape={'2023':'triangle','2024':'diamond','2025':'square','2026':'circle'};
 function renderSalesReadout(series,i){
  document.querySelectorAll('#salesChart .month-label').forEach(el=>el.classList.toggle('active-month',+el.dataset.month===i));
  document.querySelectorAll('#salesChart .hit').forEach(el=>el.setAttribute('aria-pressed',String(+el.dataset.i===i)));
@@ -17,10 +79,10 @@ function renderSalesReadout(series,i){
 }
 function drawSales(){
  const years=[...document.querySelectorAll('.sales-year:checked')].map(e=>e.value), indexed=false;
- const series=years.map(y=>({name:y,color:yearColors[y],dash:y==='2025',values:historicalSales[y].map(v=>indexed?100*v/historicalSales[y][0]:v)}));
- document.querySelector('#salesLegend').innerHTML=years.map(y=>`<span><i style="background:${yearColors[y]}"></i>${y}</span>`).join('');
+ const series=years.map(y=>({name:y,color:yearColors[y],dashPattern:yearDash[y],shape:yearShape[y],values:historicalSales[y].map(v=>indexed?100*v/historicalSales[y][0]:v)}));
+ document.querySelector('#salesLegend').innerHTML=series.map(z=>'<span>'+legendSwatch(z)+z.name+'</span>').join('');
  document.querySelector('#historicalNote').hidden=!years.some(y=>Number(y)<2025);
- document.querySelector('#salesModeNote').textContent=indexed?'Each year starts at 100. This compares movement from January, not sales volumes.':'Vehicles sold domestically. Labels are rounded.';
+ document.querySelector('#salesModeNote').textContent=indexed?'Each year starts at 100. This compares movement from January, not sales volumes.':'Domestic vehicles sold. Exact values for each selected year appear below the plot.';
  document.querySelector('#salesReadout').textContent='';
  if(!series.length){document.querySelector('#salesChart').innerHTML='<p class="empty-years">Choose at least one year above.</p>';return;}
  chart('salesChart',series,indexed?60:3000,indexed?160:7000,indexed?20:1000,indexed?'Index':'Vehicles','salesReadout');
@@ -45,8 +107,8 @@ function renderGrowthReadout(series,i){
 function drawGrowth(){
  const year=+growthPeriod.value,prior=year-1;
  document.querySelector('#growthSubtitle').textContent=`January–October ${year} · Each point compares sales with the same month in ${prior}.`;
- const series=[{name:'Volkswagen Group SA',color:'#001e50',values:months.map((_,i)=>100*(growthCount(year,i,0)/growthCount(prior,i,0)-1))},{name:'Total market',color:'#007fa3',dash:true,values:months.map((_,i)=>100*(growthCount(year,i,4)/growthCount(prior,i,4)-1))}];
- document.querySelector('#growthLegend').innerHTML=series.map(z=>`<span><i style="background:${z.color}"></i>${z.name}</span>`).join('');
+ const series=[{name:'Volkswagen Group SA',color:'#001e50',shape:'circle',values:months.map((_,i)=>100*(growthCount(year,i,0)/growthCount(prior,i,0)-1))},{name:'Total market',color:'#007fa3',dashPattern:'8 5',shape:'square',values:months.map((_,i)=>100*(growthCount(year,i,4)/growthCount(prior,i,4)-1))}];
+ document.querySelector('#growthLegend').innerHTML=series.map(z=>'<span>'+legendSwatch(z)+z.name+'</span>').join('');
  const values=series.flatMap(z=>z.values),lo=Math.min(-20,Math.floor((Math.min(...values)-3)/10)*10),hi=Math.max(30,Math.ceil((Math.max(...values)+3)/10)*10);
  chart('growthChart',series,lo,hi,10,'%','growthReadout');renderGrowthReadout(series,selectedGrowthMonth);
 }
