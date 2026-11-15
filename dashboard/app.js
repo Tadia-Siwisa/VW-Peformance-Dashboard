@@ -49,22 +49,37 @@ function chart(id,series,min,max,step,unit,readout){
  let pinned=null;
  function showMonth(i){
   if(!overlay)return;
-  const pw=448,px=Math.max(L,Math.min(x(i)-pw/2,W-R-pw));
+  const ranked=unit==='Vehicles'?[...series].sort((a,b)=>b.values[i]-a.values[i]||a.name.localeCompare(b.name)):series;
+  const heading=months[i]+': '+(unit==='%'?'Percentage change':'Number of vehicles sold');
+  const panelHeight=51+ranked.length*30;
+
   let g='<line class="focus-guide" x1="'+x(i)+'" x2="'+x(i)+'" y1="'+T+'" y2="'+bottom+'"/>';
   series.forEach(z=>{
    g+='<circle class="focus-ring" cx="'+x(i)+'" cy="'+y(z.values[i])+'" r="8.5" fill="'+z.color+'" stroke="#fff" stroke-width="2.5" style="fill:'+z.color+';stroke:#fff"/>';
   });
-  g+='<rect class="focus-panel" x="'+px+'" y="9" width="'+pw+'" height="126" rx="14" fill="#fff" stroke="#c7d3e2" stroke-width="1.4" style="fill:#fff;stroke:#c7d3e2"/>';
-  g+='<text class="focus-heading" x="'+(px+17)+'" y="35" fill="#162539" style="fill:#162539;font-size:18px;font-weight:750">'+months[i]+' · exact '+(unit==='%'?'growth':'sales')+'</text>';
-  // For sales, highest month volume comes first; growth chart retains VW then market.
-  const ranked=unit==='Vehicles'?[...series].sort((a,b)=>b.values[i]-a.values[i]||a.name.localeCompare(b.name)):series;
+
+  // Render one column: colored bullet, "year: exact number", with highest sales first.
+  // Measure real SVG text widths before sizing and positioning the panel.
+  g+='<g class="focus-tooltip">';
+  g+='<rect class="focus-panel" x="0" y="9" width="300" height="'+panelHeight+'" rx="14" fill="#fff" stroke="#c7d3e2" stroke-width="1.4" style="fill:#fff;stroke:#c7d3e2"/>';
+  g+='<text class="focus-heading" x="17" y="38" fill="#162539" style="fill:#162539;font-size:18px;font-weight:750">'+heading+'</text>';
   ranked.forEach((z,j)=>{
-   const tx=px+18+(j%2)*221,ty=72+Math.floor(j/2)*37;
+   const ty=70+j*30;
    const name=unit==='%'?(z.name==='Total market'?'Market':'VW Group'):z.name;
-   g+='<circle cx="'+(tx+5)+'" cy="'+(ty-5)+'" r="5" fill="'+z.color+'" style="fill:'+z.color+'"/>';
-   g+='<text class="focus-value" x="'+(tx+18)+'" y="'+ty+'" fill="#162539" style="fill:#162539;font-size:17px;font-weight:750">'+name+': '+value(z.values[i])+'</text>';
+   g+='<circle cx="23" cy="'+(ty-5)+'" r="5" fill="'+z.color+'" style="fill:'+z.color+'"/>';
+   g+='<text class="focus-value" x="38" y="'+ty+'" fill="#162539" style="fill:#162539;font-size:17px;font-weight:750">'+name+': '+value(z.values[i])+'</text>';
   });
-  overlay.innerHTML=g;overlay.style.display='';
+  g+='</g>';
+  overlay.innerHTML=g;
+  overlay.style.display='';
+
+  const tip=overlay.querySelector('.focus-tooltip');
+  const titleWidth=tip.querySelector('.focus-heading').getComputedTextLength();
+  const entryWidths=[...tip.querySelectorAll('.focus-value')].map(el=>el.getComputedTextLength()+38);
+  const panelWidth=Math.ceil(Math.max(titleWidth+34,...entryWidths)+1);
+  const left=Math.max(L,Math.min(x(i)-panelWidth/2,W-R-panelWidth));
+  tip.querySelector('.focus-panel').setAttribute('width',String(panelWidth));
+  tip.setAttribute('transform','translate('+left+',0)');
  }
  function restore(){if(!overlay)return;if(pinned===null){overlay.style.display='none';overlay.innerHTML='';}else showMonth(pinned);}
  el.querySelectorAll('.hit').forEach(hit=>{
