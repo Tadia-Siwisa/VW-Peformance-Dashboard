@@ -169,3 +169,13 @@ main>section>h2,main>section>.eyebrow,main>section>.sub{text-align:center}
 .chart svg .focus-value{font-size:16px;font-weight:750}
 .chart svg .hit:hover{fill:transparent}
 @media(max-width:600px){.chart svg .point-label{font-size:16px}.chart svg .focus-value{font-size:17px}}
+
+
+/* Selected-month annotation: white surface, dark text, filled series points. */
+#salesChart svg .focus-panel,#growthChart svg .focus-panel{fill:#fff;stroke:#c7d3e2;stroke-width:1.4}
+#salesChart svg .focus-heading,#growthChart svg .focus-heading,
+#salesChart svg .focus-year,#growthChart svg .focus-year,
+#salesChart svg .focus-value,#growthChart svg .focus-value{fill:#162539}
+#salesChart svg .focus-year,#growthChart svg .focus-year{font-size:16px;font-weight:650}
+#salesChart svg .focus-value,#growthChart svg .focus-value{font-size:17px;font-weight:750}
+#salesChart svg .focus-ring,#growthChart svg .focus-ring{stroke:#fff;stroke-width:3}

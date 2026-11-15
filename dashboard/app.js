@@ -7,15 +7,12 @@ function arrow(n){return `<span class="trend ${n>=0?'up':'down'}" aria-label="${
 function update(){const i=+month.value,a=data[2025][i],b=data[2026][i],v=growth(i,0),m=growth(i,4),share=100*b[0]/b[4],old=100*a[0]/a[4],short=months[i].slice(0,3);document.querySelector('#kpis').innerHTML=`<div class="kpi"><div class="label">Volkswagen Group sales</div><div class="value">${fmt(b[0])}</div><div class="delta">${arrow(v)} ${pct(Math.abs(v))} from ${short} 2025</div><div class="muted">${short} 2025: ${fmt(a[0])}</div></div><div class="kpi"><div class="label">Total market growth</div><div class="value">${arrow(m)} ${pct(Math.abs(m))}</div><div class="delta">${short} 2026: ${fmt(b[4])}</div><div class="muted">${short} 2025: ${fmt(a[4])}</div></div><div class="kpi"><div class="label">Volkswagen market share</div><div class="value">${pct(share)}</div><div class="delta">${arrow(share-old)} ${Math.abs(share-old).toFixed(2)} percentage points</div><div class="muted">${short} 2025: ${pct(old)}</div></div>`;document.querySelector('#takeaway').innerHTML=`<li>${months[i]}: Volkswagen’s sales ${v>=0?'rose':'fell'} ${pct(Math.abs(v))} year on year.</li><li>Growth ${v>=m?'exceeded':'trailed'} the market by ${Math.abs(v-m).toFixed(1)} percentage points.</li>`;}
 month.addEventListener('change',update);update();
 // Consistent markers and line samples make each series distinguishable without relying on color.
+// All line charts use solid strokes and consistent, solid circular markers.
 function svgMarker(z,x,y,size){
- const stroke=z.color;
- if(z.shape==='square')return '<rect x="'+(x-size)+'" y="'+(y-size)+'" width="'+(size*2)+'" height="'+(size*2)+'" rx="1" fill="white" stroke="'+stroke+'" stroke-width="2.3"/>';
- if(z.shape==='diamond')return '<path d="M '+x+' '+(y-size-0.5)+' L '+(x+size+0.5)+' '+y+' L '+x+' '+(y+size+0.5)+' L '+(x-size-0.5)+' '+y+' Z" fill="white" stroke="'+stroke+'" stroke-width="2.3"/>';
- if(z.shape==='triangle')return '<path d="M '+x+' '+(y-size-1)+' L '+(x+size+1)+' '+(y+size)+' L '+(x-size-1)+' '+(y+size)+' Z" fill="white" stroke="'+stroke+'" stroke-width="2.3"/>';
- return '<circle cx="'+x+'" cy="'+y+'" r="'+size+'" fill="white" stroke="'+stroke+'" stroke-width="2.3"/>';
+ return '<circle cx="'+x+'" cy="'+y+'" r="'+size+'" fill="'+z.color+'" stroke="#fff" stroke-width="1.3" style="fill:'+z.color+';stroke:#fff"/>';
 }
 function legendSwatch(z){
- return '<svg class="legend-line" viewBox="0 0 46 20" aria-hidden="true"><line x1="2" x2="44" y1="10" y2="10" stroke="'+z.color+'" stroke-width="2.7"'+(z.dashPattern?' stroke-dasharray="'+z.dashPattern+'"':'')+'/>'+svgMarker(z,23,10,4)+'</svg>';
+ return '<svg class="legend-line" viewBox="0 0 46 20" aria-hidden="true"><line x1="2" x2="44" y1="10" y2="10" stroke="'+z.color+'" stroke-width="2.7"/>'+svgMarker(z,23,10,4)+'</svg>';
 }
 function chart(id,series,min,max,step,unit,readout){
  const dense=series.length>=3,W=1120,L=82,R=35,T=dense?150:48,bottom=dense?430:345,monthY=bottom+34,H=monthY+38;
@@ -29,7 +26,7 @@ function chart(id,series,min,max,step,unit,readout){
  }
  months.forEach((m,i)=>{s+='<text class="month-label" data-month="'+i+'" x="'+x(i)+'" y="'+monthY+'" text-anchor="middle">'+m.slice(0,3)+'</text>';});
  series.forEach((z,j)=>{
-  s+='<polyline points="'+z.values.map((v,i)=>x(i)+','+y(v)).join(' ')+'" fill="none" stroke="'+z.color+'" class="series-line" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.7"'+(z.dashPattern?' stroke-dasharray="'+z.dashPattern+'"':'')+'/>';
+  s+='<polyline points="'+z.values.map((v,i)=>x(i)+','+y(v)).join(' ')+'" fill="none" stroke="'+z.color+'" class="series-line" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.7"/>';
   z.values.forEach((v,i)=>{
    s+='<g>'+svgMarker(z,x(i),y(v),4.8)+'<title>'+months[i]+' · '+z.name+': '+value(v)+'</title></g>';
    if(!dense){
@@ -53,13 +50,19 @@ function chart(id,series,min,max,step,unit,readout){
   if(!overlay)return;
   const pw=448,px=Math.max(L,Math.min(x(i)-pw/2,W-R-pw));
   let g='<line class="focus-guide" x1="'+x(i)+'" x2="'+x(i)+'" y1="'+T+'" y2="'+bottom+'"/>';
-  series.forEach(z=>{g+='<circle class="focus-ring" cx="'+x(i)+'" cy="'+y(z.values[i])+'" r="9" stroke="'+z.color+'"/>';});
-  g+='<rect class="focus-panel" x="'+px+'" y="9" width="'+pw+'" height="126" rx="14"/>';
-  g+='<text class="focus-heading" x="'+(px+17)+'" y="35">'+months[i]+' · exact '+(unit==='%'?'growth':'sales')+'</text>';
+  // A white halo and a filled center draw attention to the selected month's points.
+  series.forEach(z=>{
+   g+='<circle class="focus-ring" cx="'+x(i)+'" cy="'+y(z.values[i])+'" r="8.5" fill="'+z.color+'" stroke="#fff" stroke-width="3" style="fill:'+z.color+';stroke:#fff"/>';
+  });
+  // Explicit SVG fills avoid the browser's black default even when styles are cached.
+  g+='<rect class="focus-panel" x="'+px+'" y="9" width="'+pw+'" height="126" rx="14" fill="#fff" stroke="#c7d3e2" stroke-width="1.4" style="fill:#fff;stroke:#c7d3e2"/>';
+  g+='<text class="focus-heading" x="'+(px+17)+'" y="35" fill="#162539" style="fill:#162539;font-size:18px;font-weight:750">'+months[i]+' · exact '+(unit==='%'?'growth':'sales')+'</text>';
   series.forEach((z,j)=>{
    const tx=px+18+(j%2)*221,ty=72+Math.floor(j/2)*37;
-   g+='<circle cx="'+(tx+6)+'" cy="'+(ty-5)+'" r="5" fill="'+z.color+'"/>';
-   g+='<text class="focus-value" x="'+(tx+19)+'" y="'+ty+'" style="fill:'+z.color+'">'+z.name+'  '+value(z.values[i])+'</text>';
+   const shortName=unit==='%'?(z.name==='Total market'?'Market':'VW Group'):z.name;
+   g+='<circle cx="'+(tx+5)+'" cy="'+(ty-5)+'" r="5" fill="'+z.color+'" style="fill:'+z.color+'"/>';
+   g+='<text class="focus-year" x="'+(tx+18)+'" y="'+ty+'" fill="#162539" style="fill:#162539;font-size:16px;font-weight:650">'+shortName+'</text>';
+   g+='<text class="focus-value" x="'+(tx+201)+'" y="'+ty+'" text-anchor="end" fill="#162539" style="fill:#162539;font-size:17px;font-weight:750">'+value(z.values[i])+'</text>';
   });
   overlay.innerHTML=g;overlay.style.display='';
  }
@@ -83,8 +86,6 @@ function chart(id,series,min,max,step,unit,readout){
 const historicalSales={"2023": [5081, 5288, 6139, 4644, 5259, 5578, 5797, 5972, 6316, 6595], "2024": [5522, 5333, 5219, 4758, 4939, 5514, 6178, 5645, 5885, 6340], "2025": [5676, 5249, 4913, 3973, 4582, 4973, 5738, 5521, 5763, 6221], "2026": [4774, 4895, 5574, 4814, 5295, 5613, 5799, 5668, 5968, 6515]};
 let selectedSalesMonth=0;
 const yearColors={'2023':'#007fa3','2024':'#9b6423','2025':'#61758d','2026':'#001e50'};
-const yearDash={'2023':'3 5','2024':'11 4 2 4','2025':'8 5','2026':''};
-const yearShape={'2023':'triangle','2024':'diamond','2025':'square','2026':'circle'};
 function renderSalesReadout(series,i){
  document.querySelectorAll('#salesChart .month-label').forEach(el=>el.classList.toggle('active-month',+el.dataset.month===i));
  document.querySelectorAll('#salesChart .hit').forEach(el=>el.setAttribute('aria-pressed',String(+el.dataset.i===i)));
@@ -92,7 +93,7 @@ function renderSalesReadout(series,i){
 }
 function drawSales(){
  const years=[...document.querySelectorAll('.sales-year:checked')].map(e=>e.value), indexed=false;
- const series=years.map(y=>({name:y,color:yearColors[y],dashPattern:yearDash[y],shape:yearShape[y],values:historicalSales[y].map(v=>indexed?100*v/historicalSales[y][0]:v)}));
+ const series=years.map(y=>({name:y,color:yearColors[y],values:historicalSales[y].map(v=>indexed?100*v/historicalSales[y][0]:v)}));
  document.querySelector('#salesLegend').innerHTML=series.map(z=>'<span>'+legendSwatch(z)+z.name+'</span>').join('');
  document.querySelector('#historicalNote').hidden=!years.some(y=>Number(y)<2025);
  document.querySelector('#salesModeNote').textContent=years.length>=3?'Hover over or tap a month or point to see exact sales for all selected years. Tap to keep that month selected.':'Exact monthly sales are labeled beside each point. Select a month for more details.';
@@ -120,7 +121,7 @@ function renderGrowthReadout(series,i){
 function drawGrowth(){
  const year=+growthPeriod.value,prior=year-1;
  document.querySelector('#growthSubtitle').textContent=`January–October ${year} · Each point compares sales with the same month in ${prior}.`;
- const series=[{name:'Volkswagen Group SA',color:'#001e50',shape:'circle',values:months.map((_,i)=>100*(growthCount(year,i,0)/growthCount(prior,i,0)-1))},{name:'Total market',color:'#007fa3',dashPattern:'8 5',shape:'square',values:months.map((_,i)=>100*(growthCount(year,i,4)/growthCount(prior,i,4)-1))}];
+ const series=[{name:'Volkswagen Group SA',color:'#001e50',values:months.map((_,i)=>100*(growthCount(year,i,0)/growthCount(prior,i,0)-1))},{name:'Total market',color:'#007fa3',values:months.map((_,i)=>100*(growthCount(year,i,4)/growthCount(prior,i,4)-1))}];
  document.querySelector('#growthLegend').innerHTML=series.map(z=>'<span>'+legendSwatch(z)+z.name+'</span>').join('');
  const values=series.flatMap(z=>z.values),lo=Math.min(-20,Math.floor((Math.min(...values)-3)/10)*10),hi=Math.max(30,Math.ceil((Math.max(...values)+3)/10)*10);
  chart('growthChart',series,lo,hi,10,'%','growthReadout');renderGrowthReadout(series,selectedGrowthMonth);
