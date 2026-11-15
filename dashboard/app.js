@@ -8,11 +8,12 @@ function update(){const i=+month.value,a=data[2025][i],b=data[2026][i],v=growth(
 month.addEventListener('change',update);update();
 // Consistent markers and line samples make each series distinguishable without relying on color.
 // All line charts use solid strokes and consistent, solid circular markers.
+// Consistent filled circle markers and solid legend lines for all data series.
 function svgMarker(z,x,y,size){
- return '<circle cx="'+x+'" cy="'+y+'" r="'+size+'" fill="'+z.color+'" stroke="#fff" stroke-width="1.3" style="fill:'+z.color+';stroke:#fff"/>';
+ return '<circle cx="'+x+'" cy="'+y+'" r="'+size+'" fill="'+z.color+'" stroke="'+z.color+'" stroke-width="1" style="fill:'+z.color+';stroke:'+z.color+'"/>';
 }
 function legendSwatch(z){
- return '<svg class="legend-line" viewBox="0 0 46 20" aria-hidden="true"><line x1="2" x2="44" y1="10" y2="10" stroke="'+z.color+'" stroke-width="2.7"/>'+svgMarker(z,23,10,4)+'</svg>';
+ return '<svg class="legend-line" width="46" height="20" viewBox="0 0 46 20" aria-hidden="true"><line x1="2" x2="44" y1="10" y2="10" stroke="'+z.color+'" stroke-width="2.7" stroke-dasharray="none"/>'+svgMarker(z,23,10,4.4)+'</svg>';
 }
 function chart(id,series,min,max,step,unit,readout){
  const dense=series.length>=3,W=1120,L=82,R=35,T=dense?150:48,bottom=dense?430:345,monthY=bottom+34,H=monthY+38;
@@ -26,7 +27,7 @@ function chart(id,series,min,max,step,unit,readout){
  }
  months.forEach((m,i)=>{s+='<text class="month-label" data-month="'+i+'" x="'+x(i)+'" y="'+monthY+'" text-anchor="middle">'+m.slice(0,3)+'</text>';});
  series.forEach((z,j)=>{
-  s+='<polyline points="'+z.values.map((v,i)=>x(i)+','+y(v)).join(' ')+'" fill="none" stroke="'+z.color+'" class="series-line" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.7"/>';
+  s+='<polyline points="'+z.values.map((v,i)=>x(i)+','+y(v)).join(' ')+'" fill="none" stroke="'+z.color+'" class="series-line" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.7" stroke-dasharray="none" style="stroke-dasharray:none"/>';
   z.values.forEach((v,i)=>{
    s+='<g>'+svgMarker(z,x(i),y(v),4.8)+'<title>'+months[i]+' · '+z.name+': '+value(v)+'</title></g>';
    if(!dense){
@@ -50,19 +51,18 @@ function chart(id,series,min,max,step,unit,readout){
   if(!overlay)return;
   const pw=448,px=Math.max(L,Math.min(x(i)-pw/2,W-R-pw));
   let g='<line class="focus-guide" x1="'+x(i)+'" x2="'+x(i)+'" y1="'+T+'" y2="'+bottom+'"/>';
-  // A white halo and a filled center draw attention to the selected month's points.
   series.forEach(z=>{
-   g+='<circle class="focus-ring" cx="'+x(i)+'" cy="'+y(z.values[i])+'" r="8.5" fill="'+z.color+'" stroke="#fff" stroke-width="3" style="fill:'+z.color+';stroke:#fff"/>';
+   g+='<circle class="focus-ring" cx="'+x(i)+'" cy="'+y(z.values[i])+'" r="8.5" fill="'+z.color+'" stroke="#fff" stroke-width="2.5" style="fill:'+z.color+';stroke:#fff"/>';
   });
-  // Explicit SVG fills avoid the browser's black default even when styles are cached.
   g+='<rect class="focus-panel" x="'+px+'" y="9" width="'+pw+'" height="126" rx="14" fill="#fff" stroke="#c7d3e2" stroke-width="1.4" style="fill:#fff;stroke:#c7d3e2"/>';
   g+='<text class="focus-heading" x="'+(px+17)+'" y="35" fill="#162539" style="fill:#162539;font-size:18px;font-weight:750">'+months[i]+' · exact '+(unit==='%'?'growth':'sales')+'</text>';
-  series.forEach((z,j)=>{
+  // For sales, highest month volume comes first; growth chart retains VW then market.
+  const ranked=unit==='Vehicles'?[...series].sort((a,b)=>b.values[i]-a.values[i]||a.name.localeCompare(b.name)):series;
+  ranked.forEach((z,j)=>{
    const tx=px+18+(j%2)*221,ty=72+Math.floor(j/2)*37;
-   const shortName=unit==='%'?(z.name==='Total market'?'Market':'VW Group'):z.name;
+   const name=unit==='%'?(z.name==='Total market'?'Market':'VW Group'):z.name;
    g+='<circle cx="'+(tx+5)+'" cy="'+(ty-5)+'" r="5" fill="'+z.color+'" style="fill:'+z.color+'"/>';
-   g+='<text class="focus-year" x="'+(tx+18)+'" y="'+ty+'" fill="#162539" style="fill:#162539;font-size:16px;font-weight:650">'+shortName+'</text>';
-   g+='<text class="focus-value" x="'+(tx+201)+'" y="'+ty+'" text-anchor="end" fill="#162539" style="fill:#162539;font-size:17px;font-weight:750">'+value(z.values[i])+'</text>';
+   g+='<text class="focus-value" x="'+(tx+18)+'" y="'+ty+'" fill="#162539" style="fill:#162539;font-size:17px;font-weight:750">'+name+': '+value(z.values[i])+'</text>';
   });
   overlay.innerHTML=g;overlay.style.display='';
  }
@@ -87,9 +87,10 @@ const historicalSales={"2023": [5081, 5288, 6139, 4644, 5259, 5578, 5797, 5972, 
 let selectedSalesMonth=0;
 const yearColors={'2023':'#007fa3','2024':'#9b6423','2025':'#61758d','2026':'#001e50'};
 function renderSalesReadout(series,i){
+ const ranked=[...series].sort((a,b)=>b.values[i]-a.values[i]||a.name.localeCompare(b.name));
  document.querySelectorAll('#salesChart .month-label').forEach(el=>el.classList.toggle('active-month',+el.dataset.month===i));
  document.querySelectorAll('#salesChart .hit').forEach(el=>el.setAttribute('aria-pressed',String(+el.dataset.i===i)));
- document.querySelector('#salesReadout').innerHTML=`<h3 class="readout-month">${months[i]}</h3><div class="sales-value-grid">${series.map(z=>`<div class="sales-value-card" style="--series-color:${z.color}"><div class="sales-value-year"><i></i>${z.name}</div><strong>${fmt(z.values[i])}</strong><span>vehicles sold</span></div>`).join('')}</div>`;
+ document.querySelector('#salesReadout').innerHTML=`<h3 class="readout-month">${months[i]}</h3><div class="sales-value-grid">${ranked.map(z=>`<div class="sales-value-card" style="--series-color:${z.color}"><div class="sales-value-year"><i></i>${z.name}</div><strong>${fmt(z.values[i])}</strong><span>vehicles sold</span></div>`).join('')}</div>`;
 }
 function drawSales(){
  const years=[...document.querySelectorAll('.sales-year:checked')].map(e=>e.value), indexed=false;
