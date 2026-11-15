@@ -179,3 +179,13 @@ main>section>h2,main>section>.eyebrow,main>section>.sub{text-align:center}
 #salesChart svg .focus-year,#growthChart svg .focus-year{font-size:16px;font-weight:650}
 #salesChart svg .focus-value,#growthChart svg .focus-value{font-size:17px;font-weight:750}
 #salesChart svg .focus-ring,#growthChart svg .focus-ring{stroke:#fff;stroke-width:3}
+
+
+/* Confirmed visual specification: continuous solid lines, filled circular markers,
+   high-contrast tooltip, and visible matching legend swatches. */
+#salesChart .series-line,#growthChart .series-line{stroke-dasharray:none !important}
+#salesLegend .legend-line,#growthLegend .legend-line{width:46px;height:20px;flex:none;display:inline-block;vertical-align:middle;overflow:visible}
+#salesLegend span,#growthLegend span{display:inline-flex;align-items:center;gap:7px}
+#salesChart svg .focus-panel,#growthChart svg .focus-panel{fill:#fff}
+#salesChart svg .focus-heading,#growthChart svg .focus-heading,
+#salesChart svg .focus-value,#growthChart svg .focus-value{fill:#162539;font-weight:750}
