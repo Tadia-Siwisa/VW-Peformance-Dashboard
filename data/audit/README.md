@@ -7,9 +7,11 @@
 
 ## Master Excel workbook
 
-Expected GitHub path: `data/audit/VW_Domestic_Sales_Master_Audit_Verified_2023_2026.xlsx`.
+**Source-of-truth domestic-sales audit file:** [VW_Domestic_Sales_Master_Audit_Verified_2023_2026.xlsx](VW_Domestic_Sales_Master_Audit_Verified_2023_2026.xlsx)
 
-**The Excel file is not yet uploaded to this repository.** It was produced and verified separately, and requires a binary-file upload. Do not treat this README or the CSV ledger as a substitute for the Excel workbook.
+Uploaded to `main` and verified byte-for-byte against the local workbook via the Git blob hash and SHA-256 recorded in [the manifest](verified_audit_manifest.json). File size: 56,685 bytes.
+
+This master is the baseline for **the currently audited domestic manufacturer and market figures**, including formulas and recorded publication differences. It is not an independent naamsa certification of the separate model-level figures, and the 2025/2026 monthly-vs-YTD market differences remain explicitly unresolved.
 
 ## Scope and limitations
 
