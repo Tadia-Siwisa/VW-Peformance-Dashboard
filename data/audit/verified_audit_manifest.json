@@ -4,7 +4,7 @@
   "mismatches": 0,
   "workbook_filename": "VW_Domestic_Sales_Master_Audit_Verified_2023_2026.xlsx",
   "workbook_sha256": "44bd43533e325f11f309e5943d9e02aed92b8840e1ccfe84f2964cbbb1f399c5",
-  "workbook_github_upload_status": "PENDING_BINARY_UPLOAD",
+  "workbook_github_upload_status": "UPLOADED_VERIFIED_MAIN",
   "verified_source_data": [
     "VW Group SA monthly domestic 2023-2026",
     "Market industry local 2023-2024 2024-vintage",
@@ -17,5 +17,8 @@
     "Model sales observations use secondary automotive publications and are NOT naamsa-verified",
     "Polo Vivo export quantities NOT established"
   ],
-  "source_of_truth_status": "NAAMSA-derived numeric observations audited; model-level figures provisional"
+  "source_of_truth_status": "NAAMSA-derived numeric observations audited; model-level figures provisional",
+  "workbook_github_path": "data/audit/VW_Domestic_Sales_Master_Audit_Verified_2023_2026.xlsx",
+  "workbook_git_blob_sha1": "b9737c14bba435afbbb81ef9ebeacbf7c979e1f3",
+  "workbook_size_bytes": 56685
 }
