@@ -15,7 +15,7 @@ These links are **direct Excel (.xlsx) downloads**, not GitHub code-preview page
 | Growth | [Download year-on-year growth (.xlsx)](https://raw.githubusercontent.com/Tadia-Siwisa/VW-Peformance-Dashboard/main/data/charts/03_Growth_comparison_2024-2026.xlsx) | Separate worksheets for 2024 vs 2023, 2025 vs 2024 and 2026 vs 2025; plotted rates and underlying volumes |
 | Market share | [Download October market share (.xlsx)](https://raw.githubusercontent.com/Tadia-Siwisa/VW-Peformance-Dashboard/main/data/charts/04_October_market_share_2025-2026.xlsx) | October 2025 and 2026 pie-chart values and numeric manufacturer comparison |
 
-Open the chart's **Data sources** link on the dashboard to download the matching workbook. These chart files are convenient clean exports; [source verification and revision notes](data/audit/README.md) belong to the master audit rather than to each chart file.
+Open each chart's **Data sources** link to download its numeric workbook. Model figures link directly to the [numeric model input workbook](https://raw.githubusercontent.com/Tadia-Siwisa/VW-Peformance-Dashboard/main/data/charts/02_Model_source_inputs_2025-2026.xlsx), which contains the 22 underlying observations and reconstructed totals. These chart files are convenient clean exports; [source verification and revision notes](data/audit/README.md) belong to the master audit rather than to each chart file.
 
 ## Conclusion and next steps
 
