@@ -189,3 +189,9 @@ main>section>h2,main>section>.eyebrow,main>section>.sub{text-align:center}
 #salesChart svg .focus-panel,#growthChart svg .focus-panel{fill:#fff}
 #salesChart svg .focus-heading,#growthChart svg .focus-heading,
 #salesChart svg .focus-value,#growthChart svg .focus-value{fill:#162539;font-weight:750}
+
+/* Consistent, accessible chart-specific Excel download links. */
+.chart-data-link{display:flex;align-items:center;gap:9px;flex-wrap:wrap;margin:12px 0 20px;font-size:14px}
+.chart-data-link a{display:inline-flex;align-items:center;gap:5px;color:#001e50;font-weight:700;text-underline-offset:4px;text-decoration:underline}
+.chart-data-link a:hover,.chart-data-link a:focus-visible{color:#007fa3}
+.chart-data-hint{color:#626d7a;font-size:12px}
