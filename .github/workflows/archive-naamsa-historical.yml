@@ -1,0 +1,30 @@
+name: Archive historical NAAMSA reports (2012/14/16/23/24)
+on:
+  push:
+    branches:
+      - data/naamsa-pdf-batch-2025-2026
+    paths:
+      - "scripts/naamsa_archive_historical.py"
+      - "data/naamsa_batches/2012_2014_2016_2023_2024_sources.json"
+      - ".github/workflows/archive-naamsa-historical.yml"
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  download-historical:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Download historical NAAMSA original Flash PDFs
+        run: python scripts/naamsa_archive_historical.py
+      - name: Archive downloaded reports and manifest
+        uses: actions/upload-artifact@v4
+        with:
+          name: naamsa-flash-historical-pdf-archive
+          path: artifact/
+          retention-days: 90
+          if-no-files-found: error
