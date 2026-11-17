@@ -1,0 +1,30 @@
+name: Download NAAMSA batch PDFs (2025-2026)
+on:
+  push:
+    branches:
+      - data/naamsa-pdf-batch-2025-2026
+    paths:
+      - "scripts/naamsa_batch_download.py"
+      - "data/naamsa_batches/2025_2026_sources.json"
+      - ".github/workflows/download-naamsa-batch.yml"
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  download-pdfs:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Download and hash each NAAMSA Flash Report PDF
+        run: python scripts/naamsa_batch_download.py
+      - name: Archive original PDFs and the source manifest
+        uses: actions/upload-artifact@v4
+        with:
+          name: naamsa-flash-original-reports-2025-2026
+          path: artifact/
+          retention-days: 90
+          if-no-files-found: error
