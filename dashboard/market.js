@@ -20,16 +20,39 @@ async function init(){
  const valid=rows=>rows.length===178&&rows.every((r,i)=>r.month===String(2012+Math.floor(i/12))+"-"+String(i%12+1).padStart(2,"0")+"-01"&&Number.isInteger(r.sales)&&r.sales>0);
  // Snapshot generated from the tracked CSV; no network dependency for initial render.
  if(!valid(data))throw Error("Invalid embedded monthly data");
- const picker=$("marketMonth");
- picker.innerHTML=[...data].reverse().map(r=>'<option value="'+r.month+'">'+new Date(r.month+"T00:00:00Z").toLocaleDateString("en-GB",{month:"long",year:"numeric",timeZone:"UTC"})+'</option>').join("");
- const change=(a,b)=>b>0?100*(a/b-1):null;
- const trend=v=>v===null?"N/A":'<span class="trend '+(v>=0?"up":"down")+'">'+(v>=0?"↑":"↓")+'</span> '+pct(v)+' year on year';
+ function marketMetrics(data,r){
+ const y=Number(r.month.slice(0,4)),m=Number(r.month.slice(5,7));
+ const period=n=>{const rows=data.filter(v=>Number(v.month.slice(0,4))===n&&Number(v.month.slice(5,7))<=m);return rows.length===m?rows.reduce((s,v)=>s+v.sales,0):null};
+ const change=(a,b)=>a!==null&&b!==null&&b>0?100*(a/b-1):null;
+ const old=data.find(v=>v.month===String(y-1)+r.month.slice(4)),cur=period(y),prior=period(y-1),earlier=period(y-2);
+ const a=change(r.sales,old?.sales??null),b=change(cur,prior),p=change(prior,earlier);
+ return {y,m,old,cur,prior,a,b,p,d:b!==null&&p!==null?b-p:null};
+}
+ const picker=$("marketMonth"), yearPicker=document.createElement("select"), monthContainer=picker.closest("label"), yearLabel=document.createElement("label"), controls=document.createElement("div");
+ controls.style.cssText="display:flex;flex-wrap:wrap;justify-content:center;gap:12px;width:100%;";
+ yearPicker.id="marketKpiYear";yearPicker.setAttribute("aria-label","Year");
+ yearLabel.className=monthContainer.className;yearLabel.textContent="Year";yearLabel.append(yearPicker);
+ monthContainer.before(controls);controls.append(yearLabel,monthContainer);monthContainer.firstChild.textContent="Month";picker.setAttribute("aria-label","Month");
+ for(const label of [yearLabel,monthContainer])label.style.cssText="min-width:0;width:140px;max-width:45%;";
+ const pickerYears=[...new Set(data.map(year))].reverse();
+ yearPicker.innerHTML=pickerYears.map(y=>'<option value="'+y+'">'+y+'</option>').join("");
+ function setMonths(preferred){const rows=data.filter(r=>year(r)===Number(yearPicker.value));picker.innerHTML=rows.map(r=>'<option value="'+r.month+'">'+new Date(r.month+"T00:00:00Z").toLocaleDateString("en-GB",{month:"long",timeZone:"UTC"})+'</option>').join("");picker.value=(rows.find(r=>mo(r)===preferred)||rows[rows.length-1]).month;}
+ setMonths(mo(data[data.length-1]));
+ const trend=v=>v===null?"Prior year unavailable":'<span class="trend '+(v>=0?"up":"down")+'">'+(v>=0?"↑":"↓")+'</span> '+pct(v)+' year on year';
+ const points=v=>(v>=0?"+":"")+v.toFixed(1)+" pp";
+ const movement=v=>Math.abs(v)<0.05?"unchanged":Math.abs(v).toFixed(1)+" percentage points "+(v>0?"higher":"lower");
  function renderKpis(){
-  const r=data.find(r=>r.month===picker.value),y=year(r),m=mo(r),old=data.find(v=>year(v)===y-1&&mo(v)===m),cur=sum(data.filter(v=>year(v)===y&&mo(v)<=m)),prev=data.filter(v=>year(v)===y-1&&mo(v)<=m),prior=prev.length===m?sum(prev):null;
-  const a=change(r.sales,old?.sales),b=change(cur,prior),monthLabel=mname(r.month),priorLabel=monthLabel.replace(String(y),String(y-1));
-  $("marketKpis").innerHTML='<div class="kpi"><div class="label">Market sales</div><div class="value">'+fmt(r.sales)+'</div><div class="delta">'+trend(a)+'</div><div class="muted">'+(old?priorLabel+': '+fmt(old.sales):'Prior year unavailable')+'</div></div><div class="kpi"><div class="label">Year-to-date sales · '+y+'</div><div class="value">'+fmt(cur)+'</div><div class="delta">'+trend(b)+'</div><div class="muted">'+(prior!==null?'Jan–'+monthLabel.split(" ")[0]+' '+(y-1)+': '+fmt(prior):'Prior year unavailable')+'</div></div><div class="kpi"><div class="label">Monthly average · '+y+'</div><div class="value">'+fmt(Math.round(cur/m))+'</div><div class="delta">'+trend(b)+'</div><div class="muted">'+(prior!==null?'Equivalent '+(y-1)+': '+fmt(Math.round(prior/m)):'Prior year unavailable')+'</div></div>';
-  $("marketTakeaway").innerHTML='<li>'+monthLabel+': '+fmt(r.sales)+' new vehicles sold'+(a===null?'.':', '+(a>=0?'up ':'down ')+Math.abs(a).toFixed(1)+'% year on year.')+'</li><li>Year-to-date sales total '+fmt(cur)+' vehicles'+(b===null?'.':', '+(b>=0?'up ':'down ')+Math.abs(b).toFixed(1)+'% against the equivalent period.')+' Monthly average: '+fmt(Math.round(cur/m))+'.</li>';
+  const r=data.find(r=>r.month===picker.value);if(!r)return;
+  const {y,m,old,cur,prior,a,b,p,d}=marketMetrics(data,r),monthLabel=mname(r.month),monthShort=monthLabel.split(" ")[0],period=m===1?"Jan":"Jan–"+monthShort,priorLabel=monthShort+" "+(y-1);
+  const card=(label,value,delta,detail)=>'<div class="kpi"><div class="label">'+label+'</div><div class="value">'+value+'</div><div class="delta">'+delta+'</div><div class="muted">'+detail+'</div></div>';
+  $("marketKpis").innerHTML=card("Monthly market sales · "+monthLabel,fmt(r.sales),trend(a),old?priorLabel+": "+fmt(old.sales):"Prior year unavailable")+card("Year-to-date sales · "+y,fmt(cur),trend(b),prior!==null?period+" "+(y-1)+": "+fmt(prior):"Prior year unavailable")+card("Market growth · "+y,b===null?"N/A":pct(b),d===null?"Growth-rate comparison unavailable":points(d)+" vs previous year",p===null?"Prior growth rate unavailable":period+" "+(y-1)+": "+pct(p)+" year on year");
+  const marketDirection=b===null?"Year-on-year market growth cannot be calculated from the available history.":Math.abs(b)<0.05?"The market is broadly unchanged year on year.":"The market is "+(b>0?"expanding":"contracting")+" year on year ("+pct(b)+").";
+  let growthInsight=marketDirection;
+  if(d!==null)growthInsight+=" The growth rate is "+movement(d)+" than in the equivalent period of "+(y-1)+" ("+pct(p)+").".replace(" than"," than");
+  if(d!==null&&Math.abs(d)<0.05)growthInsight=marketDirection+" The growth rate is unchanged at one decimal place versus "+(y-1)+".";
+  $("marketTakeaway").innerHTML='<li><strong>Monthly performance:</strong> '+monthLabel+': '+fmt(r.sales)+' new vehicles sold'+(a===null?'; no prior-year comparison available.':', '+(a>=0?'up ':'down ')+Math.abs(a).toFixed(1)+'% versus '+priorLabel+'.')+'</li><li><strong>Year-to-date performance:</strong> '+period+' '+y+': '+fmt(cur)+' vehicles'+(b===null?'; no prior-year comparison available.':', '+(b>=0?'up ':'down ')+Math.abs(b).toFixed(1)+'% versus the same period in '+(y-1)+'.')+'</li><li><strong>Market growth:</strong> '+growthInsight+'</li>';
  }
+ yearPicker.addEventListener("change",()=>{const previous=Number(picker.value.slice(5,7));setMonths(previous);renderKpis();});
  picker.addEventListener("change",renderKpis);renderKpis();
 if(data.length!==178||data.some((r,i)=>r.month!==String(2012+Math.floor(i/12))+"-"+String(i%12+1).padStart(2,"0")+"-01"||!Number.isInteger(r.sales)||r.sales<0))throw Error("Invalid monthly series");
 const years=[...new Set(data.map(year))];for(const id of ["marketStart","marketEnd"]){$(id).innerHTML=years.map(y=>'<option value="'+y+'">'+y+'</option>').join("");}
