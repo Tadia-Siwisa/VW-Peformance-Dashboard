@@ -1,1 +1,27 @@
 #market{padding-top:40px}#market .market-controls{display:flex;gap:14px;align-items:end;flex-wrap:wrap;margin:0 0 24px}#market .market-controls label{min-width:110px;flex:1}#market .market-controls select{width:100%;font-family:inherit}#market .market-controls button{min-height:44px}#market .market-metrics{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin:0 0 28px}#market .market-metric{background:#f4f6f8;border-radius:12px;padding:16px;color:var(--navy)}#market .market-metric:first-child{background:var(--navy);color:white}#market .market-metric strong{display:block;font-size:clamp(23px,3vw,34px);letter-spacing:-.6px;line-height:1.4}#market .market-metric small{display:block;font-size:12px;opacity:.85}#market .chart svg{min-width:0;overflow:visible;touch-action:pan-y}#market .market-mark{cursor:pointer;outline-offset:2px}#market .market-mark:focus-visible{stroke:#007fa3;stroke-width:2}#market .market-readout{min-height:42px}#market .chart-title{margin-top:12px}@media(max-width:600px){#market{padding-top:28px}#market .market-controls{gap:10px}#market .market-controls label{min-width:calc(50% - 10px)}#market .market-controls select{padding:10px 8px}#market .market-metrics{grid-template-columns:1fr;gap:8px}#market .market-metric{padding:12px 15px}#market .chart svg text{font-size:13px}}
+
+/* Distinct dashboard views and live market hero. The neutral gradient remains when the approved image is not yet uploaded. */
+main > [hidden]{display:none!important}
+#market{padding-top:0}
+#market .market-hero{background:#24394e url("assets/market-hero.webp") center 56%/cover no-repeat;background-image:linear-gradient(170deg,rgba(26,52,78,.50),rgba(30,52,72,.25)),url("assets/market-hero.webp");text-align:center;border-radius:0;min-height:660px}
+#market .market-hero:before{background:linear-gradient(180deg,rgba(0,18,43,.55),rgba(0,18,43,.14) 45%,rgba(0,18,43,.5))}
+#market .market-hero .eyebrow{color:#fff}
+#market .market-hero .heading{justify-content:center}
+#market .market-month-label{display:block;align-self:center;color:white;min-width:220px;text-align:center;font-size:14px;margin:0 0 14px}
+#market .market-month-label select{width:100%;font:16px inherit;font-family:inherit}
+#market .market-hero .scope{margin:0 auto}
+#market .market-hero .takeaway{text-align:left}
+#market .market-section-heading{text-align:center;margin:42px 0 12px}
+#market .market-description{text-align:center}
+#market #marketChart svg{min-width:740px}
+#market .market-observation-label{display:block;margin:16px 0 6px;max-width:280px;color:var(--navy)}
+#market .market-observation-label select{width:100%;font-family:inherit}
+#market .market-tooltip text{font-size:14px}
+@media(max-width:600px){
+ nav{gap:12px}nav a{white-space:nowrap}
+ #market .market-hero{min-height:0;background-position:center top}
+ #market .market-hero .kpis{padding-top:64px}
+ #market .market-hero .scope{max-width:100%}
+ #market .market-hero .market-month-label{width:min(100%,280px)}
+ #market .market-section-heading{margin-top:32px}
+}
