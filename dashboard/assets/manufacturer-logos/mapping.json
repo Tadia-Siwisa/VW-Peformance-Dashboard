@@ -1,0 +1,140 @@
+{
+  "Toyota": {
+    "file": "toyota.png",
+    "sources": [
+      "https://raw.githubusercontent.com/filippofilip95/car-logos-dataset/master/logos/optimized/toyota.png"
+    ]
+  },
+  "Volkswagen Group": {
+    "file": "volkswagen.png",
+    "sources": [
+      "https://raw.githubusercontent.com/filippofilip95/car-logos-dataset/master/logos/optimized/volkswagen.png"
+    ]
+  },
+  "Nissan": {
+    "file": "nissan.png",
+    "sources": [
+      "https://raw.githubusercontent.com/filippofilip95/car-logos-dataset/master/logos/optimized/nissan.png"
+    ]
+  },
+  "Chrysler": {
+    "file": "chrysler.png",
+    "sources": [
+      "https://raw.githubusercontent.com/filippofilip95/car-logos-dataset/master/logos/optimized/chrysler.png"
+    ]
+  },
+  "BMW Group": {
+    "file": "bmw.png",
+    "sources": [
+      "https://raw.githubusercontent.com/filippofilip95/car-logos-dataset/master/logos/optimized/bmw.png"
+    ]
+  },
+  "Chery": {
+    "file": "chery.png",
+    "sources": [
+      "https://raw.githubusercontent.com/filippofilip95/car-logos-dataset/master/logos/optimized/chery.png"
+    ]
+  },
+  "Ford": {
+    "file": "ford.png",
+    "sources": [
+      "https://raw.githubusercontent.com/filippofilip95/car-logos-dataset/master/logos/optimized/ford.png"
+    ]
+  },
+  "GM South Africa": {
+    "file": "general-motors.png",
+    "sources": [
+      "https://raw.githubusercontent.com/filippofilip95/car-logos-dataset/master/logos/optimized/general-motors.png"
+    ]
+  },
+  "GWM": {
+    "file": "great-wall.png",
+    "sources": [
+      "https://raw.githubusercontent.com/filippofilip95/car-logos-dataset/master/logos/optimized/great-wall.png"
+    ]
+  },
+  "Haval": {
+    "file": "haval.png",
+    "sources": [
+      "https://raw.githubusercontent.com/filippofilip95/car-logos-dataset/master/logos/optimized/haval.png"
+    ]
+  },
+  "Honda": {
+    "file": "honda.png",
+    "sources": [
+      "https://raw.githubusercontent.com/filippofilip95/car-logos-dataset/master/logos/optimized/honda.png"
+    ]
+  },
+  "Hyundai": {
+    "file": "hyundai.png",
+    "sources": [
+      "https://raw.githubusercontent.com/filippofilip95/car-logos-dataset/master/logos/optimized/hyundai.png"
+    ]
+  },
+  "Isuzu": {
+    "file": "isuzu.png",
+    "sources": [
+      "https://raw.githubusercontent.com/filippofilip95/car-logos-dataset/master/logos/optimized/isuzu.png"
+    ]
+  },
+  "Jetour": {
+    "file": "jetour.png",
+    "sources": [
+      "https://raw.githubusercontent.com/filippofilip95/car-logos-dataset/master/logos/optimized/jetour.png"
+    ]
+  },
+  "Kia": {
+    "file": "kia.png",
+    "sources": [
+      "https://raw.githubusercontent.com/filippofilip95/car-logos-dataset/master/logos/optimized/kia.png"
+    ]
+  },
+  "Mahindra": {
+    "file": "mahindra.png",
+    "sources": [
+      "https://raw.githubusercontent.com/filippofilip95/car-logos-dataset/master/logos/optimized/mahindra.png"
+    ]
+  },
+  "Mazda": {
+    "file": "mazda.png",
+    "sources": [
+      "https://raw.githubusercontent.com/filippofilip95/car-logos-dataset/master/logos/optimized/mazda.png"
+    ]
+  },
+  "Mercedes-Benz": {
+    "file": "mercedes-benz.png",
+    "sources": [
+      "https://raw.githubusercontent.com/filippofilip95/car-logos-dataset/master/logos/optimized/mercedes-benz.png"
+    ]
+  },
+  "Renault": {
+    "file": "renault.png",
+    "sources": [
+      "https://raw.githubusercontent.com/filippofilip95/car-logos-dataset/master/logos/optimized/renault.png"
+    ]
+  },
+  "Suzuki": {
+    "file": "suzuki.png",
+    "sources": [
+      "https://raw.githubusercontent.com/filippofilip95/car-logos-dataset/master/logos/optimized/suzuki.png"
+    ]
+  },
+  "GM / Isuzu Trucks": {
+    "file": "gm-isuzu.png",
+    "sources": [
+      "https://raw.githubusercontent.com/filippofilip95/car-logos-dataset/master/logos/optimized/general-motors.png",
+      "https://raw.githubusercontent.com/filippofilip95/car-logos-dataset/master/logos/optimized/isuzu.png"
+    ]
+  },
+  "Motus": {
+    "file": "motus.svg",
+    "sources": [
+      "https://www.motus.co.za/"
+    ]
+  },
+  "AMH & AAD": {
+    "file": null,
+    "sources": [],
+    "note": "Joint distributor reporting label; there is no verified common logo. Use a neutral group symbol."
+  }
+}

@@ -1,0 +1,752 @@
+{
+ "2012": {
+  "total": 618758,
+  "months": 12,
+  "bars": [
+   [
+    "Toyota",
+    121276
+   ],
+   [
+    "Volkswagen Group",
+    108385
+   ],
+   [
+    "AMH & AAD",
+    84562
+   ],
+   [
+    "GM South Africa",
+    69968
+   ],
+   [
+    "Nissan",
+    49906
+   ],
+   [
+    "Ford",
+    49118
+   ],
+   [
+    "BMW Group",
+    27539
+   ],
+   [
+    "Mercedes-Benz",
+    25232
+   ],
+   [
+    "Renault",
+    10556
+   ],
+   [
+    "Chrysler",
+    9589
+   ],
+   [
+    "Others",
+    62627
+   ]
+  ]
+ },
+ "2013": {
+  "total": 644419,
+  "months": 12,
+  "bars": [
+   [
+    "Toyota",
+    126749
+   ],
+   [
+    "Volkswagen Group",
+    111723
+   ],
+   [
+    "AMH & AAD",
+    77019
+   ],
+   [
+    "Ford",
+    64344
+   ],
+   [
+    "GM South Africa",
+    62779
+   ],
+   [
+    "Nissan",
+    47155
+   ],
+   [
+    "Mercedes-Benz",
+    31937
+   ],
+   [
+    "BMW Group",
+    27671
+   ],
+   [
+    "Honda",
+    12905
+   ],
+   [
+    "Renault",
+    12405
+   ],
+   [
+    "Others",
+    69732
+   ]
+  ]
+ },
+ "2014": {
+  "total": 644846,
+  "months": 12,
+  "bars": [
+   [
+    "Toyota",
+    127534
+   ],
+   [
+    "Volkswagen Group",
+    107809
+   ],
+   [
+    "Ford",
+    74603
+   ],
+   [
+    "AMH & AAD",
+    69750
+   ],
+   [
+    "GM / Isuzu Trucks",
+    61633
+   ],
+   [
+    "Nissan",
+    46383
+   ],
+   [
+    "Mercedes-Benz",
+    36970
+   ],
+   [
+    "BMW Group",
+    26664
+   ],
+   [
+    "Renault",
+    18795
+   ],
+   [
+    "Honda",
+    10169
+   ],
+   [
+    "Others",
+    64536
+   ]
+  ]
+ },
+ "2015": {
+  "total": 617984,
+  "months": 12,
+  "bars": [
+   [
+    "Toyota",
+    123028
+   ],
+   [
+    "Volkswagen Group",
+    98180
+   ],
+   [
+    "Ford",
+    78480
+   ],
+   [
+    "AMH & AAD",
+    59478
+   ],
+   [
+    "GM / Isuzu Trucks",
+    58464
+   ],
+   [
+    "Nissan",
+    47844
+   ],
+   [
+    "Mercedes-Benz",
+    32705
+   ],
+   [
+    "BMW Group",
+    23658
+   ],
+   [
+    "Renault",
+    20012
+   ],
+   [
+    "Honda",
+    11065
+   ],
+   [
+    "Others",
+    65070
+   ]
+  ]
+ },
+ "2016": {
+  "total": 547856,
+  "months": 12,
+  "bars": [
+   [
+    "Toyota",
+    117071
+   ],
+   [
+    "Volkswagen Group",
+    86575
+   ],
+   [
+    "Ford",
+    73897
+   ],
+   [
+    "AMH & AAD",
+    53877
+   ],
+   [
+    "Nissan",
+    41292
+   ],
+   [
+    "GM / Isuzu Trucks",
+    40897
+   ],
+   [
+    "Mercedes-Benz",
+    29674
+   ],
+   [
+    "BMW Group",
+    22585
+   ],
+   [
+    "Renault",
+    18713
+   ],
+   [
+    "Mazda",
+    12049
+   ],
+   [
+    "Others",
+    51226
+   ]
+  ]
+ },
+ "2017": {
+  "total": 557153,
+  "months": 12,
+  "bars": [
+   [
+    "Toyota",
+    127444
+   ],
+   [
+    "Volkswagen Group",
+    86960
+   ],
+   [
+    "Ford",
+    71252
+   ],
+   [
+    "Nissan",
+    51825
+   ],
+   [
+    "GM / Isuzu Trucks",
+    32979
+   ],
+   [
+    "Mercedes-Benz",
+    26736
+   ],
+   [
+    "Motus",
+    24074
+   ],
+   [
+    "Renault",
+    22620
+   ],
+   [
+    "Hyundai",
+    18309
+   ],
+   [
+    "BMW Group",
+    18184
+   ],
+   [
+    "Others",
+    76770
+   ]
+  ]
+ },
+ "2018": {
+  "total": 552327,
+  "months": 12,
+  "bars": [
+   [
+    "Toyota",
+    133603
+   ],
+   [
+    "Volkswagen Group",
+    89886
+   ],
+   [
+    "Ford",
+    57877
+   ],
+   [
+    "Nissan",
+    55439
+   ],
+   [
+    "Hyundai",
+    35858
+   ],
+   [
+    "Renault",
+    25500
+   ],
+   [
+    "Mercedes-Benz",
+    22465
+   ],
+   [
+    "Isuzu",
+    20159
+   ],
+   [
+    "BMW Group",
+    18261
+   ],
+   [
+    "Kia",
+    17335
+   ],
+   [
+    "Others",
+    75944
+   ]
+  ]
+ },
+ "2019": {
+  "total": 535801,
+  "months": 12,
+  "bars": [
+   [
+    "Toyota",
+    130072
+   ],
+   [
+    "Volkswagen Group",
+    89352
+   ],
+   [
+    "Ford",
+    50914
+   ],
+   [
+    "Nissan",
+    49546
+   ],
+   [
+    "Hyundai",
+    33625
+   ],
+   [
+    "Renault",
+    27250
+   ],
+   [
+    "Mercedes-Benz",
+    20915
+   ],
+   [
+    "Isuzu",
+    20510
+   ],
+   [
+    "Kia",
+    15774
+   ],
+   [
+    "Suzuki",
+    15481
+   ],
+   [
+    "Others",
+    82362
+   ]
+  ]
+ },
+ "2020": {
+  "total": 380752,
+  "months": 12,
+  "bars": [
+   [
+    "Toyota",
+    90129
+   ],
+   [
+    "Volkswagen Group",
+    63482
+   ],
+   [
+    "Ford",
+    35268
+   ],
+   [
+    "Hyundai",
+    27700
+   ],
+   [
+    "Nissan",
+    25991
+   ],
+   [
+    "Renault",
+    16687
+   ],
+   [
+    "Suzuki",
+    16527
+   ],
+   [
+    "Mercedes-Benz",
+    16023
+   ],
+   [
+    "Isuzu",
+    15636
+   ],
+   [
+    "Kia",
+    12325
+   ],
+   [
+    "Others",
+    60984
+   ]
+  ]
+ },
+ "2021": {
+  "total": 464743,
+  "months": 12,
+  "bars": [
+   [
+    "Toyota",
+    117659
+   ],
+   [
+    "Volkswagen Group",
+    71577
+   ],
+   [
+    "Hyundai",
+    33478
+   ],
+   [
+    "Ford",
+    31127
+   ],
+   [
+    "Nissan",
+    30172
+   ],
+   [
+    "Suzuki",
+    27583
+   ],
+   [
+    "Renault",
+    21024
+   ],
+   [
+    "Kia",
+    20162
+   ],
+   [
+    "Isuzu",
+    19873
+   ],
+   [
+    "Haval",
+    19062
+   ],
+   [
+    "Others",
+    73026
+   ]
+  ]
+ },
+ "2022": {
+  "total": 529482,
+  "months": 12,
+  "bars": [
+   [
+    "Toyota",
+    132035
+   ],
+   [
+    "Volkswagen Group",
+    69801
+   ],
+   [
+    "Suzuki",
+    47178
+   ],
+   [
+    "Hyundai",
+    36047
+   ],
+   [
+    "Nissan",
+    30487
+   ],
+   [
+    "Renault",
+    27251
+   ],
+   [
+    "Ford",
+    26335
+   ],
+   [
+    "Kia",
+    22766
+   ],
+   [
+    "Haval",
+    22644
+   ],
+   [
+    "Isuzu",
+    21274
+   ],
+   [
+    "Others",
+    93664
+   ]
+  ]
+ },
+ "2023": {
+  "total": 530139,
+  "months": 12,
+  "bars": [
+   [
+    "Toyota",
+    142612
+   ],
+   [
+    "Volkswagen Group",
+    67456
+   ],
+   [
+    "Suzuki",
+    49438
+   ],
+   [
+    "Hyundai",
+    31952
+   ],
+   [
+    "Ford",
+    30710
+   ],
+   [
+    "Nissan",
+    29158
+   ],
+   [
+    "Renault",
+    21703
+   ],
+   [
+    "Isuzu",
+    21479
+   ],
+   [
+    "Haval",
+    19904
+   ],
+   [
+    "Kia",
+    19086
+   ],
+   [
+    "Others",
+    96641
+   ]
+  ]
+ },
+ "2024": {
+  "total": 515651,
+  "months": 12,
+  "bars": [
+   [
+    "Toyota",
+    128663
+   ],
+   [
+    "Volkswagen Group",
+    66486
+   ],
+   [
+    "Suzuki",
+    59574
+   ],
+   [
+    "Ford",
+    32766
+   ],
+   [
+    "Hyundai",
+    30759
+   ],
+   [
+    "Isuzu",
+    23290
+   ],
+   [
+    "Nissan",
+    22286
+   ],
+   [
+    "Chery",
+    20376
+   ],
+   [
+    "Renault",
+    15822
+   ],
+   [
+    "GWM",
+    15808
+   ],
+   [
+    "Others",
+    99821
+   ]
+  ]
+ },
+ "2025": {
+  "total": 596670,
+  "months": 12,
+  "bars": [
+   [
+    "Toyota",
+    148122
+   ],
+   [
+    "Suzuki",
+    71560
+   ],
+   [
+    "Volkswagen Group",
+    63667
+   ],
+   [
+    "Hyundai",
+    36409
+   ],
+   [
+    "Ford",
+    34628
+   ],
+   [
+    "GWM",
+    27202
+   ],
+   [
+    "Isuzu",
+    26134
+   ],
+   [
+    "Chery",
+    25304
+   ],
+   [
+    "Kia",
+    18517
+   ],
+   [
+    "Mahindra",
+    18100
+   ],
+   [
+    "Others",
+    127027
+   ]
+  ]
+ },
+ "2026": {
+  "total": 554261,
+  "months": 10,
+  "bars": [
+   [
+    "Toyota",
+    128470
+   ],
+   [
+    "Suzuki",
+    61076
+   ],
+   [
+    "Volkswagen Group",
+    54915
+   ],
+   [
+    "Hyundai",
+    30695
+   ],
+   [
+    "Ford",
+    29701
+   ],
+   [
+    "GWM",
+    26327
+   ],
+   [
+    "Chery",
+    25823
+   ],
+   [
+    "Isuzu",
+    22412
+   ],
+   [
+    "Jetour",
+    18993
+   ],
+   [
+    "Kia",
+    17026
+   ],
+   [
+    "Others",
+    138823
+   ]
+  ]
+ }
+}

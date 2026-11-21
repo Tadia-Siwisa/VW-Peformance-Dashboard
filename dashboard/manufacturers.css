@@ -1,0 +1,26 @@
+#manufacturers{scroll-margin-top:5rem}
+.manufacturer-controls{display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap}
+.manufacturer-controls h3{margin:0;color:var(--navy);font-size:1.35rem}
+.manufacturer-controls p{margin:.4rem 0}
+.manufacturer-controls label{display:grid;gap:.25rem;font-weight:600}
+#manufacturerYear{width:7rem;font:inherit}
+#manufacturerBars{display:grid;grid-template-columns:repeat(11,minmax(0,1fr));gap:.45rem;margin:2rem 0 1.5rem;padding:0;list-style:none}
+.manufacturer-bar{display:grid;grid-template-rows:11rem auto;min-width:0}
+.manufacturer-plot{display:flex;flex-direction:column;justify-content:flex-end;align-items:center;gap:.28rem;border-bottom:1px solid #aebdca}
+.manufacturer-value{font-size:.86rem;font-weight:700;color:var(--navy);white-space:nowrap;font-variant-numeric:tabular-nums}
+.manufacturer-fill{display:block;background:#166487;width:min(75%,3.45rem);height:calc(var(--ratio)*8.75rem);border-radius:4px 4px 0 0}
+.manufacturer-other .manufacturer-fill{background:#8393a4}
+.manufacturer-label{display:flex;flex-direction:column;align-items:center;text-align:center;gap:.35rem;padding-top:.65rem;font-size:.86rem;line-height:1.2;color:var(--navy);overflow-wrap:anywhere}
+.manufacturer-symbol{display:flex;gap:.12rem;align-items:center;justify-content:center;height:2rem;width:100%}
+.manufacturer-symbol img{object-fit:contain;max-width:75%;height:1.75rem;min-width:0}
+.manufacturer-symbol img:only-child{width:3rem}
+.manufacturer-symbol img:not(:only-child){max-width:46%}
+.manufacturer-symbol span{font-size:.82rem;font-weight:700;color:#435970}
+@media(max-width:900px){
+ #manufacturerBars{display:flex;flex-direction:column;gap:.55rem}
+ .manufacturer-bar{display:grid;grid-template-columns:6.2rem minmax(0,1fr);grid-template-rows:auto;gap:.55rem;align-items:center}
+ .manufacturer-label{grid-column:1;grid-row:1;padding:0;font-size:.84rem}
+ .manufacturer-symbol{height:1.45rem}.manufacturer-symbol img{height:1.35rem}
+ .manufacturer-plot{grid-column:2;grid-row:1;flex-direction:row-reverse;justify-content:flex-end;align-items:center;border-bottom:0;border-left:1px solid #aebdca;gap:.42rem}
+ .manufacturer-fill{width:calc((100% - 4.7rem)*var(--ratio));height:1.12rem;border-radius:0 3px 3px 0}
+}
