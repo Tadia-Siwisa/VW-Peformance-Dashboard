@@ -1,0 +1,450 @@
+{
+ "2013": {
+  "months": 12,
+  "priorMarket": 618758,
+  "currentMarket": 644419,
+  "leaders": [
+   [
+    "Porsche",
+    1436,
+    2438
+   ],
+   [
+    "NC2 Trucks SA",
+    147,
+    209
+   ],
+   [
+    "Honda",
+    9094,
+    12905
+   ],
+   [
+    "Tata",
+    5958,
+    7995
+   ],
+   [
+    "Subaru",
+    861,
+    1153
+   ]
+  ]
+ },
+ "2014": {
+  "months": 12,
+  "priorMarket": 644419,
+  "currentMarket": 644846,
+  "leaders": [
+   [
+    "GWM",
+    1401,
+    3647
+   ],
+   [
+    "Volvo Bus",
+    46,
+    109
+   ],
+   [
+    "Babcock",
+    115,
+    247
+   ],
+   [
+    "FAW Trucks",
+    339,
+    588
+   ],
+   [
+    "Renault",
+    12405,
+    18795
+   ]
+  ]
+ },
+ "2015": {
+  "months": 12,
+  "priorMarket": 644846,
+  "currentMarket": 617984,
+  "leaders": [
+   [
+    "Mazda",
+    1219,
+    9067
+   ],
+   [
+    "Maserati",
+    26,
+    45
+   ],
+   [
+    "FAW Trucks",
+    588,
+    798
+   ],
+   [
+    "Porsche",
+    1146,
+    1469
+   ],
+   [
+    "JMC",
+    700,
+    885
+   ]
+  ]
+ },
+ "2016": {
+  "months": 12,
+  "priorMarket": 617984,
+  "currentMarket": 547856,
+  "leaders": [
+   [
+    "Scuderia South Africa",
+    26,
+    94
+   ],
+   [
+    "Maserati",
+    45,
+    113
+   ],
+   [
+    "Mazda",
+    9067,
+    12049
+   ],
+   [
+    "Iveco",
+    1100,
+    1360
+   ],
+   [
+    "FAW Trucks",
+    798,
+    929
+   ]
+  ]
+ },
+ "2017": {
+  "months": 12,
+  "priorMarket": 547856,
+  "currentMarket": 557153,
+  "leaders": [
+   [
+    "VDL Bus & Coach SA",
+    4,
+    17
+   ],
+   [
+    "GWM",
+    858,
+    1644
+   ],
+   [
+    "Babcock",
+    162,
+    288
+   ],
+   [
+    "Suzuki",
+    5629,
+    8833
+   ],
+   [
+    "Maserati",
+    113,
+    165
+   ]
+  ]
+ },
+ "2018": {
+  "months": 12,
+  "priorMarket": 557153,
+  "currentMarket": 552327,
+  "leaders": [
+   [
+    "VECV South Africa",
+    32,
+    89
+   ],
+   [
+    "Hyundai",
+    18309,
+    35858
+   ],
+   [
+    "Kia",
+    10814,
+    17335
+   ],
+   [
+    "GWM",
+    1644,
+    2557
+   ],
+   [
+    "Bentley",
+    59,
+    88
+   ]
+  ]
+ },
+ "2019": {
+  "months": 12,
+  "priorMarket": 552327,
+  "currentMarket": 535801,
+  "leaders": [
+   [
+    "GWM",
+    2557,
+    9473
+   ],
+   [
+    "FCA South Africa",
+    1137,
+    2395
+   ],
+   [
+    "VECV South Africa",
+    89,
+    127
+   ],
+   [
+    "Mahindra",
+    5640,
+    7259
+   ],
+   [
+    "Suzuki",
+    12088,
+    15481
+   ]
+  ]
+ },
+ "2020": {
+  "months": 12,
+  "priorMarket": 535801,
+  "currentMarket": 380752,
+  "leaders": [
+   [
+    "FAW Trucks",
+    1102,
+    1410
+   ],
+   [
+    "JMC",
+    599,
+    733
+   ],
+   [
+    "Powerstar",
+    673,
+    789
+   ],
+   [
+    "Scuderia South Africa",
+    69,
+    76
+   ],
+   [
+    "Suzuki",
+    15481,
+    16527
+   ]
+  ]
+ },
+ "2021": {
+  "months": 12,
+  "priorMarket": 380752,
+  "currentMarket": 464743,
+  "leaders": [
+   [
+    "GWM",
+    9252,
+    19062
+   ],
+   [
+    "Mitsubishi",
+    1644,
+    2819
+   ],
+   [
+    "VECV South Africa",
+    109,
+    186
+   ],
+   [
+    "Suzuki",
+    16527,
+    27583
+   ],
+   [
+    "Kia",
+    12325,
+    20162
+   ]
+  ]
+ },
+ "2022": {
+  "months": 12,
+  "priorMarket": 464743,
+  "currentMarket": 529482,
+  "leaders": [
+   [
+    "Stellantis",
+    2718,
+    7789
+   ],
+   [
+    "VECV South Africa",
+    186,
+    417
+   ],
+   [
+    "Mahindra",
+    7236,
+    12914
+   ],
+   [
+    "Suzuki",
+    27583,
+    47178
+   ],
+   [
+    "FAW Trucks",
+    1763,
+    2871
+   ]
+  ]
+ },
+ "2023": {
+  "months": 12,
+  "priorMarket": 529482,
+  "currentMarket": 530139,
+  "leaders": [
+   [
+    "Chery",
+    8024,
+    16319
+   ],
+   [
+    "MAN",
+    1655,
+    2287
+   ],
+   [
+    "Iveco",
+    851,
+    1139
+   ],
+   [
+    "FAW Trucks",
+    2871,
+    3797
+   ],
+   [
+    "Scania",
+    2340,
+    3079
+   ]
+  ]
+ },
+ "2024": {
+  "months": 12,
+  "priorMarket": 530139,
+  "currentMarket": 515651,
+  "leaders": [
+   [
+    "Sinotruk",
+    126,
+    680
+   ],
+   [
+    "JAC",
+    1165,
+    1790
+   ],
+   [
+    "Proton",
+    640,
+    888
+   ],
+   [
+    "FAW Trucks",
+    3797,
+    4826
+   ],
+   [
+    "Stellantis",
+    4733,
+    5964
+   ]
+  ]
+ },
+ "2025": {
+  "months": 12,
+  "priorMarket": 515651,
+  "currentMarket": 596670,
+  "leaders": [
+   [
+    "Omoda & Jaecoo",
+    3367,
+    12627
+   ],
+   [
+    "VECV South Africa",
+    146,
+    402
+   ],
+   [
+    "JAC",
+    1790,
+    2722
+   ],
+   [
+    "GWM",
+    18927,
+    27202
+   ],
+   [
+    "Mahindra",
+    12868,
+    18100
+   ]
+  ]
+ },
+ "2026": {
+  "months": 10,
+  "priorMarket": 492791,
+  "currentMarket": 554261,
+  "leaders": [
+   [
+    "Shacman",
+    50,
+    394
+   ],
+   [
+    "Jetour",
+    6467,
+    18993
+   ],
+   [
+    "MG",
+    1616,
+    4389
+   ],
+   [
+    "Babcock",
+    173,
+    292
+   ],
+   [
+    "Foton",
+    2859,
+    4745
+   ]
+  ]
+ }
+}

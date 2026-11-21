@@ -136,5 +136,169 @@
     "file": null,
     "sources": [],
     "note": "Joint distributor reporting label; there is no verified common logo. Use a neutral group symbol."
+  },
+  "Bentley": {
+    "file": "bentley.png",
+    "sources": [
+      "https://raw.githubusercontent.com/filippofilip95/car-logos-dataset/master/logos/optimized/bentley.png"
+    ]
+  },
+  "FAW Trucks": {
+    "file": "faw-jiefang.png",
+    "sources": [
+      "https://raw.githubusercontent.com/filippofilip95/car-logos-dataset/master/logos/optimized/faw-jiefang.png"
+    ]
+  },
+  "Foton": {
+    "file": "foton.png",
+    "sources": [
+      "https://raw.githubusercontent.com/filippofilip95/car-logos-dataset/master/logos/optimized/foton.png"
+    ]
+  },
+  "Iveco": {
+    "file": "iveco.png",
+    "sources": [
+      "https://raw.githubusercontent.com/filippofilip95/car-logos-dataset/master/logos/optimized/iveco.png"
+    ]
+  },
+  "JAC": {
+    "file": "jac.png",
+    "sources": [
+      "https://raw.githubusercontent.com/filippofilip95/car-logos-dataset/master/logos/optimized/jac.png"
+    ]
+  },
+  "JMC": {
+    "file": "jmc.png",
+    "sources": [
+      "https://raw.githubusercontent.com/filippofilip95/car-logos-dataset/master/logos/optimized/jmc.png"
+    ]
+  },
+  "MAN": {
+    "file": "man.png",
+    "sources": [
+      "https://raw.githubusercontent.com/filippofilip95/car-logos-dataset/master/logos/optimized/man.png"
+    ]
+  },
+  "MG": {
+    "file": "mg.png",
+    "sources": [
+      "https://raw.githubusercontent.com/filippofilip95/car-logos-dataset/master/logos/optimized/mg.png"
+    ]
+  },
+  "Maserati": {
+    "file": "maserati.png",
+    "sources": [
+      "https://raw.githubusercontent.com/filippofilip95/car-logos-dataset/master/logos/optimized/maserati.png"
+    ]
+  },
+  "Mitsubishi": {
+    "file": "mitsubishi.png",
+    "sources": [
+      "https://raw.githubusercontent.com/filippofilip95/car-logos-dataset/master/logos/optimized/mitsubishi.png"
+    ]
+  },
+  "Porsche": {
+    "file": "porsche.png",
+    "sources": [
+      "https://raw.githubusercontent.com/filippofilip95/car-logos-dataset/master/logos/optimized/porsche.png"
+    ]
+  },
+  "Proton": {
+    "file": "proton.png",
+    "sources": [
+      "https://raw.githubusercontent.com/filippofilip95/car-logos-dataset/master/logos/optimized/proton.png"
+    ]
+  },
+  "Scania": {
+    "file": "scania.png",
+    "sources": [
+      "https://raw.githubusercontent.com/filippofilip95/car-logos-dataset/master/logos/optimized/scania.png"
+    ]
+  },
+  "Shacman": {
+    "file": "shacman.png",
+    "sources": [
+      "https://raw.githubusercontent.com/filippofilip95/car-logos-dataset/master/logos/optimized/shacman.png"
+    ]
+  },
+  "Sinotruk": {
+    "file": "sinotruk.png",
+    "sources": [
+      "https://raw.githubusercontent.com/filippofilip95/car-logos-dataset/master/logos/optimized/sinotruk.png"
+    ]
+  },
+  "Subaru": {
+    "file": "subaru.png",
+    "sources": [
+      "https://raw.githubusercontent.com/filippofilip95/car-logos-dataset/master/logos/optimized/subaru.png"
+    ]
+  },
+  "Tata": {
+    "file": "tata.png",
+    "sources": [
+      "https://raw.githubusercontent.com/filippofilip95/car-logos-dataset/master/logos/optimized/tata.png"
+    ]
+  },
+  "Volvo Bus": {
+    "file": "volvo.png",
+    "sources": [
+      "https://raw.githubusercontent.com/filippofilip95/car-logos-dataset/master/logos/optimized/volvo.png"
+    ]
+  },
+  "Scuderia South Africa": {
+    "file": "ferrari.png",
+    "sources": [
+      "https://raw.githubusercontent.com/filippofilip95/car-logos-dataset/master/logos/optimized/ferrari.png",
+      "https://linktr.ee/ScuderiaFerrariSA"
+    ],
+    "note": "Ferrari marque, represented by the official South African distributor."
+  },
+  "Stellantis": {
+    "file": "stellantis.png",
+    "sources": [
+      "https://www.stellantis.com/content/dam/stellantis-corporate/assets/stell-logo-blue.svg"
+    ]
+  },
+  "Babcock": {
+    "file": "babcock.png",
+    "sources": [
+      "https://www.babcock.co.za/images/2025/logos/babcock_logo_primary_full_colour_linear_rgb.svg"
+    ]
+  },
+  "VDL Bus & Coach SA": {
+    "file": "vdl.png",
+    "sources": [
+      "https://www.vdlbuscoach.com/_theme/vdlbc/images/frontend/vdl-bus-coach-logo.png"
+    ]
+  },
+  "FCA South Africa": {
+    "file": "fca.png",
+    "sources": [
+      "https://upload.wikimedia.org/wikipedia/commons/e/e1/Fiat_Chrysler_Automobiles_logo.svg"
+    ]
+  },
+  "Powerstar": {
+    "file": "powerstar.png",
+    "sources": [
+      "https://amequipment.co.za/assets/powerstar_web_logo_new.jpg"
+    ]
+  },
+  "Omoda & Jaecoo": {
+    "file": "omoda-jaecoo.png",
+    "sources": [
+      "https://www.omoda.co.za/_next/static/immutable/media/omoda-logo.1ttq8b9-fq7g4.svg",
+      "https://www.jaecoo.co.za/_next/static/immutable/media/logo.0t72xamwk1fe5.svg"
+    ]
+  },
+  "VECV South Africa": {
+    "file": "vecv.png",
+    "sources": [
+      "https://cms.eichertrucksandbuses.com/uploads/media/Press_Release_October26Sales_1stNovember26.pdf"
+    ]
+  },
+  "NC2 Trucks SA": {
+    "file": null,
+    "sources": [],
+    "note": "Historical reporting entity; verified company logo unavailable."
   }
 }
