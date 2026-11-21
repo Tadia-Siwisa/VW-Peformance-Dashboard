@@ -22,7 +22,7 @@
   }
   try {
     const [years, comparisons, logos] = await Promise.all([
-      load('manufacturer-rankings.json'), load('manufacturer-growth.json?v=sales-rank'), load('manufacturer-logos/mapping.json')
+      load('manufacturer-rankings.json'), load('manufacturer-growth.json?v=2'), load('manufacturer-logos/mapping.json')
     ]);
     setupSelect(byId('shareYear'), years, year => year, year => {
       const {total, months, bars} = years[year];
@@ -73,32 +73,45 @@
       }
     });
     setupSelect(byId('gainingYears'), comparisons, y => y + ' vs ' + (y - 1), year => {
-      const {months, priorMarket, currentMarket, leaders} = comparisons[year];
+      const {months, priorMarket, currentMarket, leaders, challenger} = comparisons[year];
       const benchmark = 100 * (currentMarket / priorMarket - 1);
       const period = months === 12 ? 'Full calendar years' : 'January–October in both years';
-      byId('gainingBenchmark').textContent = period + ' · ' + year + ' vs ' + (year - 1) + ' · Market sales growth ' + signed(benchmark,1) + '%';
+      const cohort = leaders.map(([name,prior,current], index) => ({
+        name, prior, current, rank: index + 1, growth: prior > 0 ? 100 * (current / prior - 1) : null
+      }));
+      const vwGrowth = cohort.find(row => row.name === 'Volkswagen Group').growth;
+      byId('gainingBenchmark').textContent = period + ' · ' + year + ' vs ' + (year - 1) + ' · VW growth ' + signed(vwGrowth,1) + '% · Market growth ' + signed(benchmark,1) + '%';
       const body = byId('gainingTable').tBodies[0];
       body.replaceChildren();
-      for (const [name, prior, current] of leaders) {
+      for (const {name, prior, current, rank, growth} of cohort) {
         const row = add(body,'tr');
+        if (name === 'Volkswagen Group') row.className = 'vw-reference';
         const label = add(row,'th');
         label.scope = 'row';
         if (logos[name]?.file) {
           const image = add(label,'img');
           image.alt = '';
           image.src = 'assets/manufacturer-logos/' + logos[name].file;
-        } else if (name === 'NC2 Trucks SA') {
-          const mark = add(label,'span','NC2');
+        } else {
+          const mark = add(label,'span','◉ ◉');
           mark.className = 'text-mark';
           mark.setAttribute('aria-hidden','true');
         }
         add(label,'span',name);
-        const growth = prior > 0 ? 100 * (current / prior - 1) : null;
+        add(label,'small','Sales rank ' + rank);
         const cell = add(row,'td');
-        add(cell,'span',growth === null ? 'N/A' : signed(growth,1) + '%').className = 'gain-value';
-        add(cell,'small',prior === null ? 'Prior reporting group differs' : numbers.format(prior) + ' → ' + numbers.format(current));
-        add(row,'td',prior === null ? 'N/A' : signed(100 * (current / currentMarket - prior / priorMarket),2) + ' pp');
-        add(row,'td',growth === null ? 'N/A' : signed(growth - benchmark,1) + ' pp');
+        add(cell,'span',growth === null ? '—' : signed(growth,1) + '%').className = 'gain-value';
+        add(cell,'small',prior === null ? 'Prior reporting group differs · ' + numbers.format(current) : numbers.format(prior) + ' → ' + numbers.format(current));
+        add(row,'td',name === 'Volkswagen Group' ? 'Baseline' : growth === null ? '—' : signed(growth - vwGrowth,1) + ' pp');
+        add(row,'td',prior === null ? '—' : signed(100 * (current / currentMarket - prior / priorMarket),2) + ' pp');
+        add(row,'td',growth === null ? '—' : signed(growth - benchmark,1) + ' pp');
+      }
+      const watch = byId('competitorWatch');
+      watch.hidden = !challenger;
+      if (challenger) {
+        const [name, prior, current, rank] = challenger;
+        const growth = 100 * (current / prior - 1);
+        watch.textContent = 'Outside the top five · ' + name + ' ranked ' + rank + ' by sales and grew fastest among ranks 6–10 with comparable sales, from ' + numbers.format(prior) + ' to ' + numbers.format(current) + ' vehicles (' + signed(growth,1) + '%). That was ' + (growth - vwGrowth).toFixed(1) + ' pp ahead of VW.';
       }
     });
   } catch {

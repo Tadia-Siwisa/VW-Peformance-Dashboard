@@ -6,7 +6,7 @@ function setupViews(){
  const market=$("market"), others=[...document.querySelectorAll("main > section, main > .jump")].filter(e=>e!==market && e.id!=="sources");
  function route(){
   const hash=location.hash;
-  const local=!hash||hash==="#market"||hash==="#marketPanel"||hash==="#marketTitle"||hash==="#manufacturers"||hash==="#share";
+  const local=!hash||hash==="#market"||hash==="#marketPanel"||hash==="#marketTitle"||hash==="#manufacturers"||hash==="#share"||hash==="#competitors";
   market.hidden=!local;others.forEach(e=>e.hidden=local);
   [["localTab",local],["vwTab",!local]].forEach(([id,active])=>{const a=$(id);a.classList.toggle("active",active);if(active)a.setAttribute("aria-current","page");else a.removeAttribute("aria-current");});
   const target=hash&&document.getElementById(hash.slice(1));if(target)requestAnimationFrame(()=>target.scrollIntoView({block:"start"}));else window.scrollTo(0,0);

@@ -19,3 +19,6 @@
 @media(max-width:600px){.share-layout{grid-template-columns:1fr}#localPie{width:12.5rem}#gainingTable th,#gainingTable td{font-size:.8rem;padding:.6rem .12rem}#gainingTable small{font-size:.73rem}#gainingTable th:first-child{width:28%}}
 
 #gainingTable .text-mark{display:table;margin:0 auto .25rem;padding:.2em .5em;border:1px solid #acbbc5;border-radius:.25rem;color:#445a6a;font-weight:700}
+
+#competitors{scroll-margin-top:5rem}#gainingTable tr.vw-reference>*{background:#e9f3f8}#competitorWatch:not([hidden]){border-left:3px solid #147d9c;padding:.65rem .9rem;font-size:1rem;color:#17384b}
+@media(max-width:600px){#gainingTable{min-width:32rem}}
