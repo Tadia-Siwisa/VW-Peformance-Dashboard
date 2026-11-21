@@ -22,7 +22,7 @@
   }
   try {
     const [years, comparisons, logos] = await Promise.all([
-      load('manufacturer-rankings.json'), load('manufacturer-growth.json'), load('manufacturer-logos/mapping.json')
+      load('manufacturer-rankings.json'), load('manufacturer-growth.json?v=sales-rank'), load('manufacturer-logos/mapping.json')
     ]);
     setupSelect(byId('shareYear'), years, year => year, year => {
       const {total, months, bars} = years[year];
@@ -87,18 +87,18 @@
           const image = add(label,'img');
           image.alt = '';
           image.src = 'assets/manufacturer-logos/' + logos[name].file;
-        } else {
+        } else if (name === 'NC2 Trucks SA') {
           const mark = add(label,'span','NC2');
           mark.className = 'text-mark';
           mark.setAttribute('aria-hidden','true');
         }
         add(label,'span',name);
-        const growth = 100 * (current / prior - 1);
+        const growth = prior > 0 ? 100 * (current / prior - 1) : null;
         const cell = add(row,'td');
-        add(cell,'span',signed(growth,1) + '%').className = 'gain-value';
-        add(cell,'small',numbers.format(prior) + ' → ' + numbers.format(current));
-        add(row,'td',signed(100 * (current / currentMarket - prior / priorMarket),2) + ' pp');
-        add(row,'td',signed(growth - benchmark,1) + ' pp');
+        add(cell,'span',growth === null ? 'N/A' : signed(growth,1) + '%').className = 'gain-value';
+        add(cell,'small',prior === null ? 'Prior reporting group differs' : numbers.format(prior) + ' → ' + numbers.format(current));
+        add(row,'td',prior === null ? 'N/A' : signed(100 * (current / currentMarket - prior / priorMarket),2) + ' pp');
+        add(row,'td',growth === null ? 'N/A' : signed(growth - benchmark,1) + ' pp');
       }
     });
   } catch {
