@@ -50,7 +50,7 @@ function legendSwatch(z){
 function chart(id,series,min,max,step,unit,readout,labels=months,title='Monthly sales growth'){
  const dense=series.length>=3,W=1120,L=82,R=35,T=dense?150:48,bottom=dense?430:345,monthY=bottom+34,H=monthY+38;
  const x=i=>L+i*(W-L-R)/(labels.length-1),y=v=>T+(max-v)*(bottom-T)/(max-min);
- const value=v=>unit==='%'?signed(v):fmt(v);
+ const value=v=>v===null?'Unavailable':unit==='%'?signed(v):fmt(v);
  let s='<svg viewBox="0 0 '+W+' '+H+'" role="img" aria-label="'+title+'">';
  s+='<text x="'+L+'" y="'+(T-16)+'">'+unit+'</text>';
  for(let v=min;v<=max+step*.001;v+=step){
@@ -59,14 +59,15 @@ function chart(id,series,min,max,step,unit,readout,labels=months,title='Monthly 
  }
  labels.forEach((m,i)=>{s+='<text class="month-label" data-month="'+i+'" x="'+x(i)+'" y="'+monthY+'" text-anchor="middle">'+(/^\d{4}$/.test(m)?m:m.slice(0,3))+'</text>';});
  series.forEach((z,j)=>{
-  s+='<polyline points="'+z.values.map((v,i)=>x(i)+','+y(v)).join(' ')+'" fill="none" stroke="'+z.color+'" class="series-line" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.7" stroke-dasharray="none" style="stroke-dasharray:none"/>';
+  s+='<path d="'+z.values.map((v,i)=>v===null?'':((i===0||z.values[i-1]===null)?'M':'L')+x(i)+','+y(v)).join(' ')+'" fill="none" stroke="'+z.color+'" class="series-line" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.7" stroke-dasharray="none" style="stroke-dasharray:none"/>';
   z.values.forEach((v,i)=>{
+   if(v===null)return;
    s+='<g>'+svgMarker(z,x(i),y(v),4.8)+'<title>'+labels[i]+' · '+z.name+': '+value(v)+'</title></g>';
    if(!dense){
     const other=series.length===2?series[1-j].values[i]:null;
     const above=other===null||v>=other;
     const ly=Math.max(T+15,Math.min(bottom-9,y(v)+(above?-19:23)));
-    s+='<text class="point-label" x="'+x(i)+'" y="'+ly+'" text-anchor="middle" style="fill:'+z.color+'">'+value(v)+'</text>';
+    s+='<text class="point-label" x="'+(id==='salesChart'&&i===0?x(i)+4:x(i))+'" y="'+ly+'" text-anchor="'+(id==='salesChart'&&i===0?'start':'middle')+'" style="fill:'+z.color+'">'+value(v)+'</text>';
    }
   });
  });
@@ -130,7 +131,6 @@ function chart(id,series,min,max,step,unit,readout,labels=months,title='Monthly 
   hit.addEventListener('keydown',event=>{if(event.key==='Enter'||event.key===' '){event.preventDefault();choose();}});
  });
 }
-const historicalSales={"2023": [5081, 5288, 6139, 4644, 5259, 5578, 5797, 5972, 6316, 6595], "2024": [5522, 5333, 5219, 4758, 4939, 5514, 6178, 5645, 5885, 6340], "2025": [5676, 5249, 4913, 3973, 4582, 4973, 5738, 5521, 5763, 6221], "2026": [4774, 4895, 5574, 4814, 5295, 5613, 5799, 5668, 5968, 6515]};
 const salesYear = document.getElementById('vwSalesYear'), salesView = document.getElementById('vwSalesView');
 salesYear.innerHTML = yearOptions;
 function drawSales() {
@@ -148,26 +148,28 @@ function drawSales() {
 salesYear.addEventListener('change',drawSales);
 salesView.addEventListener('change',drawSales);
 drawSales();
-const historicalMarket={"2023": [43294, 45162, 50114, 37358, 43242, 46603, 43572, 45854, 45970, 45418], "2024": [41636, 44749, 44237, 38172, 37105, 40072, 44229, 43588, 44081, 47924]};
-const historicalMarketSources={"2024": ["https://naamsa.net/wp-content/uploads/2024/05/20240201-Flash-Report-Summary-January-2024.pdf", "https://naamsa.net/wp-content/uploads/2024/05/20240301-Flash-Report-Summary-February-2024.pdf", "https://naamsa.net/wp-content/uploads/2024/05/FLASH_STD_202403.pdf", "https://naamsa.net/wp-content/uploads/2024/05/FLASH_STD_202404-corrected.pdf", "https://naamsa.net/wp-content/uploads/2024/06/20240603-Flash-Report-Summary-May-2024.pdf", "https://naamsa.net/wp-content/uploads/2024/07/20240701-Flash-Report-Summary-June-2024-1.pdf", "https://naamsa.net/wp-content/uploads/2024/08/20240801-Flash-Report-Summary-July-2024.pdf", "https://naamsa.net/wp-content/uploads/2024/09/20240902-Flash-Report-August-2024.pdf", "https://naamsa.net/wp-content/uploads/2024/10/20241001-Flash-Report-September-2024-1.pdf", "https://naamsa.net/wp-content/uploads/2024/11/20241101-Flash-Report-October-2024.pdf"], "2023": ["https://naamsa.net/wp-content/uploads/2024/05/20240201-Flash-Report-Summary-January-2024.pdf", "https://naamsa.net/wp-content/uploads/2024/05/20240301-Flash-Report-Summary-February-2024.pdf", "https://naamsa.net/wp-content/uploads/2024/05/FLASH_STD_202403.pdf", "https://naamsa.net/wp-content/uploads/2024/05/FLASH_STD_202404-corrected.pdf", "https://naamsa.net/wp-content/uploads/2024/06/20240603-Flash-Report-Summary-May-2024.pdf", "https://naamsa.net/wp-content/uploads/2024/07/20240701-Flash-Report-Summary-June-2024-1.pdf", "https://naamsa.net/wp-content/uploads/2024/08/20240801-Flash-Report-Summary-July-2024.pdf", "https://naamsa.net/wp-content/uploads/2024/09/20240902-Flash-Report-August-2024.pdf", "https://naamsa.net/wp-content/uploads/2024/10/20241001-Flash-Report-September-2024-1.pdf", "https://naamsa.net/wp-content/uploads/2024/11/20241101-Flash-Report-October-2024.pdf"]};
-const historicalVwSources={"2023": ["https://naamsa.net/wp-content/uploads/2024/05/20230201-Flash-Report-Summary-January-2023.pdf", "https://naamsa.net/wp-content/uploads/2023/03/20230301-Flash-Report-Summary-February-2023.pdf", "https://naamsa.net/wp-content/uploads/2024/05/20230403-Flash-Report-Summary-March-2023-1.pdf", "https://naamsa.net/wp-content/uploads/2023/05/20230502-Flash-Report-Summary-April-2023.pdf", "https://naamsa.net/wp-content/uploads/2024/05/20230601-Flash-Report-Summary-May-2023.pdf", "https://naamsa.net/wp-content/uploads/2024/05/20230703-Flash-Report-Summary-June-2023.pdf", "https://naamsa.net/wp-content/uploads/2024/05/20230801-Flash-Report-Summary-July-2023-1.pdf", "https://naamsa.net/wp-content/uploads/2024/05/20230901-Flash-Report-Summary-August-2023.pdf", "https://naamsa.net/wp-content/uploads/2024/05/20231002-Flash-Report-Summary-September-2023.pdf", "https://naamsa.net/wp-content/uploads/2024/05/20231101-Flash-Report-Summary-October-2023-1.pdf"], "2024": ["https://naamsa.net/wp-content/uploads/2024/05/20240201-Flash-Report-Summary-January-2024.pdf", "https://naamsa.net/wp-content/uploads/2024/05/20240301-Flash-Report-Summary-February-2024.pdf", "https://naamsa.net/wp-content/uploads/2024/05/FLASH_STD_202403.pdf", "https://naamsa.net/wp-content/uploads/2024/05/FLASH_STD_202404-corrected.pdf", "https://naamsa.net/wp-content/uploads/2024/06/20240603-Flash-Report-Summary-May-2024.pdf", "https://naamsa.net/wp-content/uploads/2024/07/20240701-Flash-Report-Summary-June-2024-1.pdf", "https://naamsa.net/wp-content/uploads/2024/08/20240801-Flash-Report-Summary-July-2024.pdf", "https://naamsa.net/wp-content/uploads/2024/09/20240902-Flash-Report-August-2024.pdf", "https://naamsa.net/wp-content/uploads/2024/10/20241001-Flash-Report-September-2024-1.pdf", "https://naamsa.net/wp-content/uploads/2024/11/20241101-Flash-Report-October-2024.pdf"]};
 let selectedGrowthMonth=0;
 const growthPeriod=document.querySelector('#growthPeriod');
-function growthCount(year,i,col){return col===0?historicalSales[year][i]:year<2025?historicalMarket[year][i]:data[year][i][4];}
-function growthSource(year,i,col){return 'https://raw.githubusercontent.com/Tadia-Siwisa/VW-Peformance-Dashboard/main/data/charts/03_Growth_comparison_2024-2026.xlsx';}
+growthPeriod.replaceChildren(...Object.keys(vwPeriods).filter(year => vwPeriods[year-1]).map(year => new Option(year+' versus '+(year-1),year)));
+growthPeriod.value = vwYears[0];
+function growthCount(year,i,col){return vwPeriods[year][i][col===0?0:1];}
 function renderGrowthReadout(series,i){
  const year=+growthPeriod.value,prior=year-1;
  document.querySelectorAll('#growthChart .month-label').forEach(el=>el.classList.toggle('active-month',+el.dataset.month===i));
  document.querySelectorAll('#growthChart .hit').forEach(el=>el.setAttribute('aria-pressed',String(+el.dataset.i===i)));
- document.querySelector('#growthReadout').innerHTML=`<h3 class="readout-month">${months[i]} ${year} versus ${months[i]} ${prior}</h3><div class="sales-value-grid">${series.map((z,k)=>{const col=k===0?0:4;return `<div class="sales-value-card" style="--series-color:${z.color}"><div class="sales-value-year"><i></i>${z.name}</div><strong>${signed(z.values[i])}</strong><span>sales change from the same month in ${prior}</span><div class="growth-volumes"><a href="${growthSource(prior,i,col)}" target="_blank" rel="noopener">${prior}: ${fmt(growthCount(prior,i,col))} vehicles</a><a href="${growthSource(year,i,col)}" target="_blank" rel="noopener">${year}: ${fmt(growthCount(year,i,col))} vehicles</a></div></div>`}).join('')}</div>`;
+ document.querySelector('#growthReadout').innerHTML=`<h3 class="readout-month">${calendarMonths[i]} ${year} versus ${calendarMonths[i]} ${prior}</h3><div class="sales-value-grid">${series.map((z,k)=>{const col=k===0?0:4;return `<div class="sales-value-card" style="--series-color:${z.color}"><div class="sales-value-year"><i></i>${z.name}</div><strong>${z.values[i]===null?'Unavailable':signed(z.values[i])}</strong><span>${z.values[i]===null?'Zero sales in the comparison month':'sales change from the same month in '+prior}</span><div class="growth-volumes"><a href="assets/growth-2012-2026.xlsx" target="_blank" rel="noopener">${prior}: ${fmt(growthCount(prior,i,col))} vehicles</a><a href="assets/growth-2012-2026.xlsx" target="_blank" rel="noopener">${year}: ${fmt(growthCount(year,i,col))} vehicles</a></div></div>`}).join('')}</div>`;
 }
 function drawGrowth(){
  const year=+growthPeriod.value,prior=year-1;
- document.querySelector('#growthSubtitle').textContent=`January–October ${year} · Each point compares sales with the same month in ${prior}.`;
- const series=[{name:'Volkswagen Group SA',color:'#001e50',values:months.map((_,i)=>100*(growthCount(year,i,0)/growthCount(prior,i,0)-1))},{name:'Total market',color:'#007fa3',values:months.map((_,i)=>100*(growthCount(year,i,4)/growthCount(prior,i,4)-1))}];
+ const labels=calendarMonths.slice(0,vwPeriods[year].length);
+ selectedGrowthMonth=Math.min(selectedGrowthMonth,labels.length-1);
+ const picker=document.getElementById('growthMonthPicker');
+ if(picker){picker.replaceChildren(...labels.map((m,i)=>new Option(m,i)));picker.value=selectedGrowthMonth;}
+ document.querySelector('#growthSubtitle').textContent=labels[0]+'–'+labels.at(-1)+' '+year+' · Each point compares sales with the same month in '+prior+'.';
+ const series=[{name:'Volkswagen Group SA',color:'#001e50'},{name:'Total market',color:'#007fa3'}].map((s,k)=>({...s,values:vwPeriods[year].map((row,i)=>vwPeriods[prior][i][k]>0?100*(row[k]/vwPeriods[prior][i][k]-1):null)}));
  document.querySelector('#growthLegend').innerHTML=series.map(z=>'<span>'+legendSwatch(z)+z.name+'</span>').join('');
- const values=series.flatMap(z=>z.values),lo=Math.min(-20,Math.floor((Math.min(...values)-3)/10)*10),hi=Math.max(30,Math.ceil((Math.max(...values)+3)/10)*10);
- chart('growthChart',series,lo,hi,10,'%','growthReadout');renderGrowthReadout(series,selectedGrowthMonth);
+ const values=series.flatMap(z=>z.values).filter(Number.isFinite),lo=Math.min(-20,Math.floor((Math.min(...values)-3)/10)*10),hi=Math.max(30,Math.ceil((Math.max(...values)+3)/10)*10);
+ chart('growthChart',series,lo,hi,Math.max(10,Math.ceil((hi-lo)/150)*10),'%','growthReadout',labels);renderGrowthReadout(series,selectedGrowthMonth);
 }
 growthPeriod.addEventListener('change',drawGrowth);drawGrowth();
 const archivedMonthlyTable='<thead><tr><th>Month</th><th>Volkswagen Group SA</th><th>Toyota</th><th>Suzuki Auto</th><th>Chery Auto SA</th><th>Total market</th></tr></thead><tbody>'+[2025,2026].map(yr=>data[yr].map((r,i)=>`<tr><td>${months[i]} ${yr}</td>${r.map((v,k)=>`<td><a href="https://raw.githubusercontent.com/Tadia-Siwisa/VW-Peformance-Dashboard/main/data/charts/03_Growth_comparison_2024-2026.xlsx" download title="Download underlying monthly counts in Excel">${fmt(v)}</a></td>`).join('')}</tr>`).join('')).join('')+'</tbody>';
@@ -187,7 +189,8 @@ for (const [chartId, labelText] of [['growthChart','Growth chart month']]) {
  const plot=document.getElementById(chartId);
  const label=document.createElement('label');label.className='phone-chart-control';label.textContent=labelText;
  const picker=document.createElement('select');picker.setAttribute('aria-label',labelText);
- picker.innerHTML=months.map((m,i)=>`<option value="${i}">${m}</option>`).join('');
+ picker.id='growthMonthPicker';
+ picker.innerHTML=calendarMonths.slice(0,vwPeriods[growthPeriod.value].length).map((m,i)=>`<option value="${i}">${m}</option>`).join('');
  label.append(picker);plot.before(label);
  const hint=document.createElement('p');hint.className='scroll-hint';hint.textContent=chartId==='salesChart'?'Swipe to explore months. Tap a month for exact domestic sales.':'Swipe to explore months. Tap a month for percentage changes and their source figures.';plot.before(hint);
  picker.addEventListener('change',()=>plot.querySelector(`[data-i="${picker.value}"]`)?.dispatchEvent(new MouseEvent('click',{bubbles:true})));
