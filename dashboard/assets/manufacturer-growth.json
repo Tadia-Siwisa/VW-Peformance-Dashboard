@@ -5,29 +5,29 @@
   "currentMarket": 644419,
   "leaders": [
    [
-    "Porsche",
-    1436,
-    2438
+    "Toyota",
+    121276,
+    126749
    ],
    [
-    "NC2 Trucks SA",
-    147,
-    209
+    "Volkswagen Group",
+    108385,
+    111723
    ],
    [
-    "Honda",
-    9094,
-    12905
+    "AMH & AAD",
+    84562,
+    77019
    ],
    [
-    "Tata",
-    5958,
-    7995
+    "Ford",
+    49118,
+    64344
    ],
    [
-    "Subaru",
-    861,
-    1153
+    "GM South Africa",
+    69968,
+    62779
    ]
   ]
  },
@@ -37,29 +37,29 @@
   "currentMarket": 644846,
   "leaders": [
    [
-    "GWM",
-    1401,
-    3647
+    "Toyota",
+    126749,
+    127534
    ],
    [
-    "Volvo Bus",
-    46,
-    109
+    "Volkswagen Group",
+    111723,
+    107809
    ],
    [
-    "Babcock",
-    115,
-    247
+    "Ford",
+    64344,
+    74603
    ],
    [
-    "FAW Trucks",
-    339,
-    588
+    "AMH & AAD",
+    77019,
+    69750
    ],
    [
-    "Renault",
-    12405,
-    18795
+    "GM / Isuzu Trucks",
+    null,
+    61633
    ]
   ]
  },
@@ -69,29 +69,29 @@
   "currentMarket": 617984,
   "leaders": [
    [
-    "Mazda",
-    1219,
-    9067
+    "Toyota",
+    127534,
+    123028
    ],
    [
-    "Maserati",
-    26,
-    45
+    "Volkswagen Group",
+    107809,
+    98180
    ],
    [
-    "FAW Trucks",
-    588,
-    798
+    "Ford",
+    74603,
+    78480
    ],
    [
-    "Porsche",
-    1146,
-    1469
+    "AMH & AAD",
+    69750,
+    59478
    ],
    [
-    "JMC",
-    700,
-    885
+    "GM / Isuzu Trucks",
+    61633,
+    58464
    ]
   ]
  },
@@ -101,29 +101,29 @@
   "currentMarket": 547856,
   "leaders": [
    [
-    "Scuderia South Africa",
-    26,
-    94
+    "Toyota",
+    123028,
+    117071
    ],
    [
-    "Maserati",
-    45,
-    113
+    "Volkswagen Group",
+    98180,
+    86575
    ],
    [
-    "Mazda",
-    9067,
-    12049
+    "Ford",
+    78480,
+    73897
    ],
    [
-    "Iveco",
-    1100,
-    1360
+    "AMH & AAD",
+    59478,
+    53877
    ],
    [
-    "FAW Trucks",
-    798,
-    929
+    "Nissan",
+    47844,
+    41292
    ]
   ]
  },
@@ -133,29 +133,29 @@
   "currentMarket": 557153,
   "leaders": [
    [
-    "VDL Bus & Coach SA",
-    4,
-    17
+    "Toyota",
+    117071,
+    127444
    ],
    [
-    "GWM",
-    858,
-    1644
+    "Volkswagen Group",
+    86575,
+    86960
    ],
    [
-    "Babcock",
-    162,
-    288
+    "Ford",
+    73897,
+    71252
    ],
    [
-    "Suzuki",
-    5629,
-    8833
+    "Nissan",
+    41292,
+    51825
    ],
    [
-    "Maserati",
-    113,
-    165
+    "GM / Isuzu Trucks",
+    40897,
+    32979
    ]
   ]
  },
@@ -165,29 +165,29 @@
   "currentMarket": 552327,
   "leaders": [
    [
-    "VECV South Africa",
-    32,
-    89
+    "Toyota",
+    127444,
+    133603
+   ],
+   [
+    "Volkswagen Group",
+    86960,
+    89886
+   ],
+   [
+    "Ford",
+    71252,
+    57877
+   ],
+   [
+    "Nissan",
+    51825,
+    55439
    ],
    [
     "Hyundai",
     18309,
     35858
-   ],
-   [
-    "Kia",
-    10814,
-    17335
-   ],
-   [
-    "GWM",
-    1644,
-    2557
-   ],
-   [
-    "Bentley",
-    59,
-    88
    ]
   ]
  },
@@ -197,29 +197,29 @@
   "currentMarket": 535801,
   "leaders": [
    [
-    "GWM",
-    2557,
-    9473
+    "Toyota",
+    133603,
+    130072
    ],
    [
-    "FCA South Africa",
-    1137,
-    2395
+    "Volkswagen Group",
+    89886,
+    89352
    ],
    [
-    "VECV South Africa",
-    89,
-    127
+    "Ford",
+    57877,
+    50914
    ],
    [
-    "Mahindra",
-    5640,
-    7259
+    "Nissan",
+    55439,
+    49546
    ],
    [
-    "Suzuki",
-    12088,
-    15481
+    "Hyundai",
+    35858,
+    33625
    ]
   ]
  },
@@ -229,29 +229,29 @@
   "currentMarket": 380752,
   "leaders": [
    [
-    "FAW Trucks",
-    1102,
-    1410
+    "Toyota",
+    130072,
+    90129
    ],
    [
-    "JMC",
-    599,
-    733
+    "Volkswagen Group",
+    89352,
+    63482
    ],
    [
-    "Powerstar",
-    673,
-    789
+    "Ford",
+    50914,
+    35268
    ],
    [
-    "Scuderia South Africa",
-    69,
-    76
+    "Hyundai",
+    33625,
+    27700
    ],
    [
-    "Suzuki",
-    15481,
-    16527
+    "Nissan",
+    49546,
+    25991
    ]
   ]
  },
@@ -261,29 +261,29 @@
   "currentMarket": 464743,
   "leaders": [
    [
-    "GWM",
-    9252,
-    19062
+    "Toyota",
+    90129,
+    117659
    ],
    [
-    "Mitsubishi",
-    1644,
-    2819
+    "Volkswagen Group",
+    63482,
+    71577
    ],
    [
-    "VECV South Africa",
-    109,
-    186
+    "Hyundai",
+    27700,
+    33478
    ],
    [
-    "Suzuki",
-    16527,
-    27583
+    "Ford",
+    35268,
+    31127
    ],
    [
-    "Kia",
-    12325,
-    20162
+    "Nissan",
+    25991,
+    30172
    ]
   ]
  },
@@ -293,19 +293,14 @@
   "currentMarket": 529482,
   "leaders": [
    [
-    "Stellantis",
-    2718,
-    7789
+    "Toyota",
+    117659,
+    132035
    ],
    [
-    "VECV South Africa",
-    186,
-    417
-   ],
-   [
-    "Mahindra",
-    7236,
-    12914
+    "Volkswagen Group",
+    71577,
+    69801
    ],
    [
     "Suzuki",
@@ -313,9 +308,14 @@
     47178
    ],
    [
-    "FAW Trucks",
-    1763,
-    2871
+    "Hyundai",
+    33478,
+    36047
+   ],
+   [
+    "Nissan",
+    30172,
+    30487
    ]
   ]
  },
@@ -325,29 +325,29 @@
   "currentMarket": 530139,
   "leaders": [
    [
-    "Chery",
-    8024,
-    16319
+    "Toyota",
+    132035,
+    142612
    ],
    [
-    "MAN",
-    1655,
-    2287
+    "Volkswagen Group",
+    69801,
+    67456
    ],
    [
-    "Iveco",
-    851,
-    1139
+    "Suzuki",
+    47178,
+    49438
    ],
    [
-    "FAW Trucks",
-    2871,
-    3797
+    "Hyundai",
+    36047,
+    31952
    ],
    [
-    "Scania",
-    2340,
-    3079
+    "Ford",
+    26335,
+    30710
    ]
   ]
  },
@@ -357,29 +357,29 @@
   "currentMarket": 515651,
   "leaders": [
    [
-    "Sinotruk",
-    126,
-    680
+    "Toyota",
+    142612,
+    128663
    ],
    [
-    "JAC",
-    1165,
-    1790
+    "Volkswagen Group",
+    67456,
+    66486
    ],
    [
-    "Proton",
-    640,
-    888
+    "Suzuki",
+    49438,
+    59574
    ],
    [
-    "FAW Trucks",
-    3797,
-    4826
+    "Ford",
+    30710,
+    32766
    ],
    [
-    "Stellantis",
-    4733,
-    5964
+    "Hyundai",
+    31952,
+    30759
    ]
   ]
  },
@@ -389,29 +389,29 @@
   "currentMarket": 596670,
   "leaders": [
    [
-    "Omoda & Jaecoo",
-    3367,
-    12627
+    "Toyota",
+    128663,
+    148122
    ],
    [
-    "VECV South Africa",
-    146,
-    402
+    "Suzuki",
+    59574,
+    71560
    ],
    [
-    "JAC",
-    1790,
-    2722
+    "Volkswagen Group",
+    66486,
+    63667
    ],
    [
-    "GWM",
-    18927,
-    27202
+    "Hyundai",
+    30759,
+    36409
    ],
    [
-    "Mahindra",
-    12868,
-    18100
+    "Ford",
+    32766,
+    34628
    ]
   ]
  },
@@ -421,29 +421,29 @@
   "currentMarket": 554261,
   "leaders": [
    [
-    "Shacman",
-    50,
-    394
+    "Toyota",
+    121613,
+    128470
    ],
    [
-    "Jetour",
-    6467,
-    18993
+    "Suzuki",
+    60214,
+    61076
    ],
    [
-    "MG",
-    1616,
-    4389
+    "Volkswagen Group",
+    52609,
+    54915
    ],
    [
-    "Babcock",
-    173,
-    292
+    "Hyundai",
+    30290,
+    30695
    ],
    [
-    "Foton",
-    2859,
-    4745
+    "Ford",
+    28546,
+    29701
    ]
   ]
  }
