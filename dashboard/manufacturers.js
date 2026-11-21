@@ -19,7 +19,7 @@
       const period = months === 12 ? year : 'January–October ' + year;
       const maximum = Math.max(...entries.map(([, units]) => units));
       document.getElementById('manufacturerPeriod').textContent = period;
-      summary.textContent = format.format(total) + ' domestic new vehicles';
+      summary.textContent = format.format(total) + ' domestic new vehicles · Top 10 and Others';
       bars.replaceChildren();
       for (const [name, units] of entries) {
         const row = document.createElement('li');
