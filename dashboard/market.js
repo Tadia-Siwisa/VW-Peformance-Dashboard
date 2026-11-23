@@ -56,10 +56,41 @@ async function init(){
  picker.addEventListener("change",renderKpis);renderKpis();
 if(data.length!==178||data.some((r,i)=>r.month!==String(2012+Math.floor(i/12))+"-"+String(i%12+1).padStart(2,"0")+"-01"||!Number.isInteger(r.sales)||r.sales<0))throw Error("Invalid monthly series");
 const years=[...new Set(data.map(year))];for(const id of ["marketStart","marketEnd"]){$(id).innerHTML=years.map(y=>'<option value="'+y+'">'+y+'</option>').join("");}
-function render(){
-let start=Number($("marketStart").value),end=Number($("marketEnd").value);if(start>end){end=start;$("marketEnd").value=String(end);}
-const mode=$("marketMode").value, selected=data.filter(r=>year(r)>=start&&year(r)<=end);
-const latest=selected[selected.length-1], y=year(latest), m=mo(latest);
+const startYear = $("marketStart"), endYear = $("marketEnd");
+const startMonth = $("marketStartMonth"), endMonth = $("marketEndMonth");
+const modeSelect = $("marketMode");
+function populateMonths(select, selectedYear, preferred) {
+ const rows = data.filter(row => year(row) === Number(selectedYear));
+ select.replaceChildren(...rows.map(row => new Option(
+  new Date(row.month + "T00:00:00Z").toLocaleDateString("en-GB", {month:"long", timeZone:"UTC"}),
+  String(mo(row))
+ )));
+ select.value = String(Math.min(preferred, mo(rows.at(-1))));
+}
+function render(event) {
+ const changed = event?.target;
+ const editingEnd = changed === endYear || changed === endMonth;
+ if (Number(startYear.value) > Number(endYear.value)) {
+  if (editingEnd) startYear.value = endYear.value;
+  else endYear.value = startYear.value;
+ }
+ const start = Number(startYear.value), end = Number(endYear.value), mode = modeSelect.value;
+ const from = Number(startMonth.value) || 1;
+ const throughEnd = endMonth.selectedIndex === endMonth.options.length - 1;
+ const to = throughEnd ? 12 : Number(endMonth.value);
+ populateMonths(startMonth, start, from);
+ populateMonths(endMonth, end, to);
+ for (const select of [startMonth,endMonth]) select.parentElement.style.display = mode === "monthly" ? "" : "none";
+ if (mode === "monthly" && start === end && Number(startMonth.value) > Number(endMonth.value)) {
+  if (editingEnd) startMonth.value = endMonth.value;
+  else endMonth.value = startMonth.value;
+ }
+ const selected = data.filter(row => {
+  const y = year(row), m = mo(row);
+  return y >= start && y <= end && (mode !== "monthly" ||
+   ((y > start || m >= Number(startMonth.value)) && (y < end || m <= Number(endMonth.value))));
+ });
+ const latest = selected.at(-1);
 let points=selected.map(r=>({label:mname(r.month),value:r.sales,short:r.month.slice(0,4),month:r.month}));
 let note="Monthly domestic sales · "+mname(selected[0].month)+" to "+mname(latest.month)+".";
 if(mode!=="monthly"){
@@ -88,8 +119,17 @@ svg+='<g id="marketFocus" pointer-events="none"></g></svg>';$("marketChart").inn
 function focus(i){const p=points[i];$("marketFocus").innerHTML='<line x1="'+x(i)+'" x2="'+x(i)+'" y1="'+T+'" y2="'+(T+plotH)+'" stroke="#007fa3" stroke-dasharray="4 4"/><circle cx="'+x(i)+'" cy="'+yy(p.value)+'" r="5" stroke="white" stroke-width="2" fill="#007fa3"/>';const tx=Math.max(L,Math.min(x(i)-105,W-R-210));$("marketFocus").innerHTML+='<g class="market-tooltip" transform="translate('+tx+',4)"><rect width="210" height="49" rx="7" fill="white" stroke="#c7d3e2"/><text x="12" y="19" style="fill:#001e50;font-weight:700">'+p.label+'</text><text x="12" y="37" style="fill:#001e50;font-weight:700">'+fmt(p.value)+' vehicles</text></g>';$("marketReadout").textContent=p.label+" · "+fmt(p.value)+" vehicles";}
 $("marketChart").querySelectorAll(".market-mark").forEach(el=>{const i=Number(el.dataset.i);for(const evt of ["pointerenter","focus","click"])el.addEventListener(evt,()=>focus(i));el.addEventListener("keydown",e=>{if(e.key==="Enter"||e.key===" "){e.preventDefault();focus(i);}});});focus(points.length-1);
 }
-function reset(){$("marketStart").value=String(years[0]);$("marketEnd").value=String(years[years.length-1]);$("marketMode").value="monthly";render();}
-for(const id of ["marketStart","marketEnd","marketMode"])$(id).addEventListener("change",()=>{if(id==="marketEnd"&&Number($("marketEnd").value)<Number($("marketStart").value))$("marketStart").value=$("marketEnd").value;render();});$("marketReset").addEventListener("click",reset);reset();
+function reset(){
+ startYear.value = String(years[0]);
+ endYear.value = String(years.at(-1));
+ startMonth.replaceChildren();
+ endMonth.replaceChildren();
+ modeSelect.value = "monthly";
+ render();
+}
+for (const select of [startYear, endYear, startMonth, endMonth, modeSelect]) select.addEventListener("change", render);
+$("marketReset").addEventListener("click", reset);
+reset();
 }
 init().catch(e=>{$("marketChartNote").textContent="Historical market data could not load. Download the CSV below.";console.error(e);});
 })();
