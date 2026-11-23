@@ -28,10 +28,13 @@ function update() {
  const salesGrowth = prior?.[0] > 0 ? 100*(sales/prior[0]-1) : null;
  const marketGrowth = prior ? 100*(market/prior[1]-1) : null;
  const oldShare = prior ? 100*prior[0]/prior[1] : null;
+ const yearRows = vwPeriods[y];
+ const yearSales = yearRows.reduce((total, row) => total + row[0], 0);
+ const yearPeriod = yearRows.length === 12 ? 'Full year' : 'January–'+calendarMonths[yearRows.length-1];
  const card = (label,value,delta,note) => '<div class="kpi"><div class="label">'+label+'</div><div class="value">'+value+'</div><div class="delta">'+delta+'</div><div class="muted">'+note+'</div></div>';
  document.getElementById('kpis').innerHTML =
   card('Volkswagen Group sales',fmt(sales),salesGrowth===null?'Year-on-year rate unavailable':signed(salesGrowth)+' year on year',prior?compare+': '+fmt(prior[0]):unavailable)+
-  card('Total market growth',marketGrowth===null?'—':signed(marketGrowth),name+' '+y+': '+fmt(market),prior?compare+': '+fmt(prior[1]):unavailable)+
+  card('Volkswagen Group sales · '+y,fmt(yearSales),yearPeriod+' '+y,'Domestic new vehicles sold')+
   card('Volkswagen market share',pct(share),prior?((share-oldShare)>=0?'+':'')+(share-oldShare).toFixed(2)+' percentage points':'',prior?compare+': '+pct(oldShare):unavailable);
  document.getElementById('takeaway').innerHTML='<li>'+name+' '+y+': Volkswagen Group accounted for '+fmt(sales)+' of '+fmt(market)+' domestic sales.</li>'+
   (salesGrowth===null?'':'<li>Volkswagen sales growth '+(salesGrowth>=marketGrowth?'exceeded':'trailed')+' market growth by '+Math.abs(salesGrowth-marketGrowth).toFixed(1)+' percentage points.</li>')+
