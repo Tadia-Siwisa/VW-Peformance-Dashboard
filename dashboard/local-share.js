@@ -28,7 +28,7 @@
       const {total, months, bars} = years[year];
       const period = months === 12 ? year : 'January–October ' + year;
       byId('sharePeriod').textContent = period;
-      byId('shareTotal').textContent = numbers.format(total) + ' domestic new vehicles';
+      byId('shareTotal').textContent = formatVehicleCount(total) + ' domestic new vehicles';
       const legend = byId('localShareLegend');
       legend.replaceChildren();
       const svg = byId('localPie');
@@ -47,7 +47,7 @@
         const slice = document.createElementNS(svgNS,'path');
         slice.setAttribute('d', 'M 100 100 L ' + start + ' A 98 98 0 ' + (share > 50 ? 1 : 0) + ' 1 ' + point(cumulative) + ' Z');
         slice.setAttribute('fill', colors[i]);
-        const detail = name + ' · ' + share.toFixed(1) + '% · ' + numbers.format(units) + ' vehicles';
+        const detail = name + ' · ' + share.toFixed(1) + '% · ' + formatVehicleCount(units) + ' vehicles';
         const title = document.createElementNS(svgNS,'title');
         title.textContent = detail;
         slice.append(title);
@@ -66,7 +66,7 @@
           for (const other of legend.querySelectorAll('button')) other.setAttribute('aria-pressed','false');
           for (const other of svg.children) other.style.opacity = active && other !== slice ? '.55' : '1';
           button.setAttribute('aria-pressed',String(active));
-          byId('shareTotal').textContent = active ? detail : numbers.format(total) + ' domestic new vehicles';
+          byId('shareTotal').textContent = active ? detail : formatVehicleCount(total) + ' domestic new vehicles';
         }
         slice.addEventListener('click',select);
         button.addEventListener('click',select);
@@ -111,7 +111,7 @@
       if (challenger) {
         const [name, prior, current, rank] = challenger;
         const growth = 100 * (current / prior - 1);
-        watch.textContent = 'Outside the top five · ' + name + ' ranked ' + rank + ' by sales and grew fastest among ranks 6–10 with comparable sales, from ' + numbers.format(prior) + ' to ' + numbers.format(current) + ' vehicles (' + signed(growth,1) + '%). That was ' + (growth - vwGrowth).toFixed(1) + ' pp ahead of VW.';
+        watch.textContent = 'Outside the top five · ' + name + ' ranked ' + rank + ' by sales and grew fastest among ranks 6–10 with comparable sales, from ' + formatVehicleCount(prior) + ' to ' + formatVehicleCount(current) + ' vehicles (' + signed(growth,1) + '%). That was ' + (growth - vwGrowth).toFixed(1) + ' pp ahead of VW.';
       }
     });
   } catch {

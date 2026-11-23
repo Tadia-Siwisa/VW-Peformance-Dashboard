@@ -1,5 +1,5 @@
 (()=>{"use strict";
-const $=id=>document.getElementById(id), fmt=n=>n.toLocaleString("en-ZA"), mname=s=>new Date(s+"T00:00:00Z").toLocaleDateString("en-GB",{month:"short",year:"numeric",timeZone:"UTC"});
+const $=id=>document.getElementById(id), fmt=formatVehicleCount, mname=s=>new Date(s+"T00:00:00Z").toLocaleDateString("en-GB",{month:"short",year:"numeric",timeZone:"UTC"});
 const sum=a=>a.reduce((s,r)=>s+r.sales,0), year=r=>Number(r.month.slice(0,4)), mo=r=>Number(r.month.slice(5,7));
 const pct=n=>(n>=0?"+":"")+n.toFixed(1)+"%";
 function setupViews(){
@@ -107,7 +107,7 @@ if(!points.length){$("marketChart").innerHTML='<p class="source">No complete cal
 const labelInset = 40;
 const L=72,R=38,W=Math.max(900,L+labelInset+R+(points.length-1)*64),H=380,T=80,B=48, plotW=W-L-R, plotH=H-T-B, max=Math.max(...points.map(p=>p.value)), step=mode==="monthly"?10000:100000, top=Math.ceil(max/step)*step||step, x=i=>points.length===1 ? L+plotW/2 : L+labelInset+i*(plotW-labelInset)/(points.length-1), yy=v=>T+plotH*(1-v/top);
 let svg='<svg style="min-width:'+W+'px;touch-action:pan-x pan-y" viewBox="0 0 '+W+' '+H+'" role="group" aria-label="New vehicle market sales in vehicles">';
-for(let v=0;v<=top;v+=step)svg+='<line x1="'+L+'" x2="'+(W-R)+'" y1="'+yy(v)+'" y2="'+yy(v)+'" stroke="#dfe4e9"/><text x="'+(L-9)+'" y="'+(yy(v)+4)+'" text-anchor="end">'+(v/1000)+'k</text>';
+for(let v=0;v<=top;v+=step)svg+='<line x1="'+L+'" x2="'+(W-R)+'" y1="'+yy(v)+'" y2="'+yy(v)+'" stroke="#dfe4e9"/><text x="'+(L-9)+'" y="'+(yy(v)+4)+'" text-anchor="end">'+fmt(v)+'</text>';
 points.forEach((p,i)=>{
  const tick=mode==="monthly" && start===end ? p.label.split(" ")[0] : p.label;
  svg+='<text x="'+x(i)+'" y="'+(H-14)+'" text-anchor="middle">'+tick+'</text>';
