@@ -131,23 +131,27 @@ function chart(id,series,min,max,step,unit,readout,labels=months,title='Monthly 
   hit.addEventListener('keydown',event=>{if(event.key==='Enter'||event.key===' '){event.preventDefault();choose();}});
  });
 }
-const salesYear = document.getElementById('vwSalesYear'), salesView = document.getElementById('vwSalesView');
+const salesYear = document.getElementById('vwSalesYear');
 salesYear.innerHTML = yearOptions;
 function drawSales() {
- const annual = salesView.value === 'annual', year = salesYear.value;
- document.getElementById('vwSalesYearLabel').hidden = annual;
- const fullYears = Object.keys(vwPeriods).filter(y => vwPeriods[y].length === 12);
- const values = annual ? fullYears.map(y => vwPeriods[y].reduce((sum,row) => sum+row[0],0)) : vwPeriods[year].map(row => row[0]);
- const labels = annual ? fullYears : calendarMonths.slice(0,values.length);
- const name = annual ? 'Annual sales' : 'VW Group '+year;
- const step = annual ? 20000 : Math.max(1000,Math.ceil(Math.max(...values)/5000)*1000);
- document.getElementById('salesModeNote').textContent = (annual ? 'Complete calendar years · '+fullYears[0]+'–'+fullYears.at(-1) : labels[0]+'–'+labels.at(-1)+' '+year)+(annual||year==='2020'?' · April 2020 uses a reconciled zero for the dash in the report.':'');
+ const year = salesYear.value;
+ const values = vwPeriods[year].map(row => row[0]);
+ const labels = calendarMonths.slice(0,values.length);
+ const name = 'VW Group '+year;
+ const step = Math.max(1000,Math.ceil(Math.max(...values)/5000)*1000);
+ document.getElementById('salesModeNote').textContent = labels[0]+'–'+labels.at(-1)+' '+year;
  document.getElementById('salesReadout').textContent = '';
  chart('salesChart',[{name,color:'#001e50',values}],0,Math.ceil(Math.max(...values)/step)*step,step,'Vehicles','salesReadout',labels,name);
 }
 salesYear.addEventListener('change',drawSales);
-salesView.addEventListener('change',drawSales);
 drawSales();
+
+const fullSalesYears = Object.keys(vwPeriods).filter(year => vwPeriods[year].length === 12);
+const annualSales = fullSalesYears.map(year => vwPeriods[year].reduce((sum, row) => sum + row[0], 0));
+chart('annualSalesChart', [{name: 'VW Group', color: '#001e50', values: annualSales}],
+ 0, Math.ceil(Math.max(...annualSales) / 20000) * 20000, 20000, 'Vehicles',
+ 'annualSalesReadout', fullSalesYears, 'VW Group SA annual domestic sales');
+
 let selectedGrowthMonth=0;
 const growthPeriod=document.querySelector('#growthPeriod');
 growthPeriod.replaceChildren(...Object.keys(vwPeriods).filter(year => vwPeriods[year-1]).map(year => new Option(year+' versus '+(year-1),year)));
