@@ -94,8 +94,10 @@ function render(event) {
 let points=selected.map(r=>({label:mname(r.month),value:r.sales,short:r.month.slice(0,4),month:r.month}));
 let note="Monthly domestic sales · "+mname(selected[0].month)+" to "+mname(latest.month)+".";
 if(mode!=="monthly"){
-const months=12;
-points=years.filter(v=>v>=start&&v<=end).flatMap(v=>{const group=data.filter(r=>year(r)===v&&mo(r)<=months);return group.length===months?[{label:String(v)+(months===10?" · Jan–Oct":""),value:sum(group),short:String(v)}]:[];});
+points = years.filter(y => y >= start && y <= end).flatMap(y => {
+ const rows = selected.filter(row => year(row) === y);
+ return rows.length === 12 ? [{label:String(y), value:sum(rows), short:String(y)}] : [];
+});
 note="Full calendar years only. 2026 is excluded because November and December are outside the dataset.";
 }
 $("marketChartTitle").textContent=mode==="monthly"?"Monthly new vehicle sales":"Annual new vehicle sales";
