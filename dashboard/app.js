@@ -170,7 +170,8 @@ function drawSales() {
  const labels = calendarMonths.slice(0,values.length);
  const name = 'VW Group '+year;
  const step = Math.max(1000,Math.ceil(Math.max(...values)/5000)*1000);
- document.getElementById('salesModeNote').textContent = labels[0]+'–'+labels.at(-1)+' '+year+(future.length?' · Dashed light blue: November and December forecasts.':'');
+ document.getElementById('salesModeNote').textContent = labels[0]+'–'+labels.at(-1)+' '+year;
+ document.getElementById('vwForecastKey').hidden = !future.length;
  document.getElementById('salesReadout').textContent = '';
  chart('salesChart',[{name,color:'#001e50',values,forecastFrom}],0,Math.ceil(Math.max(...values)/step)*step,step,'Vehicles','salesReadout',labels,name);
 }
@@ -184,6 +185,7 @@ if (vw2026.length === 10) {
  fullSalesYears.push('2026');
  annualSales.push(vw2026.reduce((s,r)=>s+r[0],0) + salesForecasts.reduce((s,r)=>s+r.vw,0));
 }
+document.getElementById('vwAnnualForecastKey').hidden = vw2026.length !== 10;
 chart('annualSalesChart', [{name: 'VW Group', color: '#001e50', values: annualSales, forecastFrom: vw2026.length===10 ? fullSalesYears.length-1 : Infinity}],
  0, Math.ceil(Math.max(...annualSales) / 20000) * 20000, 20000, 'Vehicles',
  'annualSalesReadout', fullSalesYears, 'VW Group SA annual domestic sales');
