@@ -76,7 +76,8 @@ function chart(id,series,min,max,step,unit,readout,labels=months,title='Monthly 
     const other=series.length===2?series[1-j].values[i]:null;
     const above=other===null||v>=other;
     const ly=Math.max(T+15,Math.min(bottom-9,y(v)+(above?-19:23)));
-    s+='<text class="point-label" x="'+(id==='salesChart'&&i===0?x(i)+4:x(i))+'" y="'+ly+'" text-anchor="'+(id==='salesChart'&&i===0?'start':'middle')+'" style="fill:'+z.color+'">'+value(v)+'</text>';
+    const firstSalesLabel=i===0&&(id==='salesChart'||id==='annualSalesChart');
+    s+='<text class="point-label" x="'+(firstSalesLabel?x(i)+4:x(i))+'" y="'+ly+'" text-anchor="'+(firstSalesLabel?'start':'middle')+'" style="fill:'+z.color+'">'+value(v)+'</text>';
    }
   });
  });
