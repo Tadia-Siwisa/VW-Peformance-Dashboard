@@ -1,3 +1,16 @@
+const salesForecasts = [
+  {
+    "month": "2026-11-01",
+    "vw": 5768,
+    "market": 58529
+  },
+  {
+    "month": "2026-12-01",
+    "vw": 5398,
+    "market": 53022
+  }
+];
+const forecastColor = '#007fa3';
 const reportSources={"2025":[{"manufacturer":"https://naamsa.net/wp-content/uploads/2025/02/20250203-Flash-Report-January-2025.pdf","market":"https://naamsa.net/wp-content/uploads/2026/02/20260202-Flash-Report-January-2026.pdf"},{"manufacturer":"https://naamsa.net/wp-content/uploads/2025/03/20250303-Flash-Report-February-2025.pdf","market":"https://naamsa.net/wp-content/uploads/2026/03/20260302-Flash-Report-February-2026.pdf"},{"manufacturer":"https://naamsa.net/wp-content/uploads/2025/04/FLASH_STD_202503-updated.pdf","market":"https://naamsa.net/wp-content/uploads/2026/04/20260401-Flash-Report-March-2026-1.pdf"},{"manufacturer":"https://naamsa.net/wp-content/uploads/2025/05/20250502-Flash-Report-April-2025.pdf","market":"https://naamsa.net/wp-content/uploads/2026/05/FLASH_STD_202604-1.pdf"},{"manufacturer":"https://naamsa.net/wp-content/uploads/2025/06/20250602-Flash-Report-Standard.pdf","market":"https://naamsa.net/wp-content/uploads/2026/06/20260601-Flash-Report-May-2026-1.pdf"},{"manufacturer":"https://naamsa.net/wp-content/uploads/2025/07/20250701-Flash-Report-Standard.pdf","market":"https://naamsa.net/wp-content/uploads/2026/07/20260701-Flash-Report-June-2026.pdf"},{"manufacturer":"https://naamsa.net/wp-content/uploads/2025/08/FLASH_STD_202507.pdf","market":"https://naamsa.net/wp-content/uploads/2026/08/FLASH_STD_202607-1.pdf"},{"manufacturer":"https://naamsa.net/wp-content/uploads/2025/09/FLASH_STD_202508.pdf","market":"https://naamsa.net/wp-content/uploads/2026/09/20260901-Flash-Report-August-2026.pdf"},{"manufacturer":"https://naamsa.net/wp-content/uploads/2025/10/20251002-Flash-Report-September-2025-Standard.pdf","market":"https://naamsa.net/wp-content/uploads/2026/10/20261001-Flash-Report-September-2026-1.pdf"},{"manufacturer":"https://naamsa.net/wp-content/uploads/2025/11/20251104-Flash-Report-October-2025-Standard.pdf","market":"https://naamsa.net/wp-content/uploads/2026/11/FLASH_STD_202610.pdf"}],"2026":[{"manufacturer":"https://naamsa.net/wp-content/uploads/2026/02/20260202-Flash-Report-January-2026.pdf","market":"https://naamsa.net/wp-content/uploads/2026/03/20260302-Flash-Report-February-2026.pdf"},{"manufacturer":"https://naamsa.net/wp-content/uploads/2026/03/20260302-Flash-Report-February-2026.pdf","market":"https://naamsa.net/wp-content/uploads/2026/04/20260401-Flash-Report-March-2026-1.pdf"},{"manufacturer":"https://naamsa.net/wp-content/uploads/2026/04/20260401-Flash-Report-March-2026-1.pdf","market":"https://naamsa.net/wp-content/uploads/2026/05/FLASH_STD_202604-1.pdf"},{"manufacturer":"https://naamsa.net/wp-content/uploads/2026/05/FLASH_STD_202604-1.pdf","market":"https://naamsa.net/wp-content/uploads/2026/06/20260601-Flash-Report-May-2026-1.pdf"},{"manufacturer":"https://naamsa.net/wp-content/uploads/2026/06/20260601-Flash-Report-May-2026-1.pdf","market":"https://naamsa.net/wp-content/uploads/2026/07/20260701-Flash-Report-June-2026.pdf"},{"manufacturer":"https://naamsa.net/wp-content/uploads/2026/07/20260701-Flash-Report-June-2026.pdf","market":"https://naamsa.net/wp-content/uploads/2026/08/FLASH_STD_202607-1.pdf"},{"manufacturer":"https://naamsa.net/wp-content/uploads/2026/08/FLASH_STD_202607-1.pdf","market":"https://naamsa.net/wp-content/uploads/2026/09/20260901-Flash-Report-August-2026.pdf"},{"manufacturer":"https://naamsa.net/wp-content/uploads/2026/09/20260901-Flash-Report-August-2026.pdf","market":"https://naamsa.net/wp-content/uploads/2026/10/20261001-Flash-Report-September-2026-1.pdf"},{"manufacturer":"https://naamsa.net/wp-content/uploads/2026/10/20261001-Flash-Report-September-2026-1.pdf","market":"https://naamsa.net/wp-content/uploads/2026/11/FLASH_STD_202610.pdf"},{"manufacturer":"https://naamsa.net/wp-content/uploads/2026/11/FLASH_STD_202610.pdf","market":"https://naamsa.net/wp-content/uploads/2026/11/FLASH_STD_202610.pdf"}]};
 const months=['January','February','March','April','May','June','July','August','September','October'];
 const data={"2025":[[5676,12152,6399,1913,46594],[5249,11743,6044,1924,47994],[4913,11660,5284,1902,49500],[3973,10363,5977,1852,42467],[4582,10330,5536,1995,45287],[4973,11690,5221,2101,47269],[5738,12694,6257,2160,51558],[5521,13276,6534,2228,51960],[5763,14146,6072,2264,54706],[6221,13559,6890,2210,56051]],"2026":[[4774,11786,6410,2258,50521],[4895,12272,6562,2312,53383],[5574,13323,5047,2390,58064],[4814,10188,5363,2462,47892],[5295,10667,5546,2569,50987],[5613,12417,5689,2602,54405],[5799,14142,5994,2709,57733],[5668,13814,6505,2763,57761],[5968,15366,6668,3004,61656],[6515,14495,7292,2754,61890]]};
@@ -68,10 +81,15 @@ function chart(id,series,min,max,step,unit,readout,labels=months,title='Monthly 
  }
  labels.forEach((m,i)=>{s+='<text class="month-label" data-month="'+i+'" x="'+x(i)+'" y="'+monthY+'" text-anchor="middle">'+(/^\d{4}$/.test(m)?m:m.slice(0,3))+'</text>';});
  series.forEach((z,j)=>{
-  s+='<path d="'+z.values.map((v,i)=>v===null?'':((i===0||z.values[i-1]===null)?'M':'L')+x(i)+','+y(v)).join(' ')+'" fill="none" stroke="'+z.color+'" class="series-line" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.7" stroke-dasharray="none" style="stroke-dasharray:none"/>';
+  s+='<path d="'+z.values.map((v,i)=>i>=z.forecastFrom||v===null?'':((i===0||z.values[i-1]===null)?'M':'L')+x(i)+','+y(v)).join(' ')+'" fill="none" stroke="'+z.color+'" class="series-line" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.7" stroke-dasharray="none" style="stroke-dasharray:none"/>';
+  if(z.forecastFrom < z.values.length){
+   const first=z.forecastFrom-1;
+   const path=z.values.slice(first).map((v,k)=>(k?'L':'M')+x(first+k)+','+y(v)).join(' ');
+   s+='<path d="'+path+'" fill="none" stroke="'+forecastColor+'" stroke-width="2.7" stroke-dasharray="7 5"/>';
+  }
   z.values.forEach((v,i)=>{
    if(v===null)return;
-   s+='<g>'+svgMarker(z,x(i),y(v),4.8)+'<title>'+labels[i]+' · '+z.name+': '+value(v)+'</title></g>';
+   s+='<g>'+svgMarker(i>=z.forecastFrom?{color:forecastColor}:z,x(i),y(v),4.8)+'<title>'+labels[i]+(i>=z.forecastFrom?' forecast':'')+' · '+z.name+': '+value(v)+'</title></g>';
    if(!dense){
     const other=series.length===2?series[1-j].values[i]:null;
     const above=other===null||v>=other;
@@ -83,7 +101,7 @@ function chart(id,series,min,max,step,unit,readout,labels=months,title='Monthly 
  });
  if(dense)s+='<g class="focus-overlay" style="display:none" aria-hidden="true" pointer-events="none"></g>';
  labels.forEach((m,i)=>{
-  const aria=series.map(z=>z.name+': '+value(z.values[i])+(unit==='%'?'':' vehicles')).join('; ');
+  const aria=series.map(z=>(i>=z.forecastFrom?'Forecast · ':'')+z.name+': '+value(z.values[i])+(unit==='%'?'':' vehicles')).join('; ');
   s+='<rect class="hit" data-i="'+i+'" tabindex="0" role="button" aria-label="'+m+' - '+aria+'" x="'+(x(i)-(W-L-R)/(2*(labels.length-1)))+'" y="'+T+'" width="'+((W-L-R)/(labels.length-1))+'" height="'+(monthY-T+12)+'" fill="transparent"/>';
  });
  s+='</svg>';
@@ -129,9 +147,9 @@ function chart(id,series,min,max,step,unit,readout,labels=months,title='Monthly 
   const i=+hit.dataset.i;
   function choose(){
    pinned=i;if(dense)showMonth(i);
-   if(id==='salesChart'){document.getElementById(readout).textContent=labels[i]+' · '+series[0].name+': '+fmt(series[0].values[i])+' vehicles';return;}
+   if(id==='salesChart'){document.getElementById(readout).textContent=labels[i]+(i>=series[0].forecastFrom?' forecast':'')+' · '+series[0].name+': '+fmt(series[0].values[i])+' vehicles';return;}
    if(id==='growthChart'){selectedGrowthMonth=i;renderGrowthReadout(series,i);return;}
-   document.getElementById(readout).textContent=labels[i]+' · '+series.map(z=>z.name+': '+value(z.values[i])).join('  | ');
+   document.getElementById(readout).textContent=labels[i]+(i>=series[0].forecastFrom?' forecast':'')+' · '+series.map(z=>z.name+': '+value(z.values[i])).join('  | ');
   }
   hit.addEventListener('pointerenter',()=>{if(dense)showMonth(i);});
   hit.addEventListener('pointerleave',restore);
@@ -146,19 +164,27 @@ salesYear.innerHTML = yearOptions;
 function drawSales() {
  const year = salesYear.value;
  const values = vwPeriods[year].map(row => row[0]);
+ const future = salesForecasts.filter(r => r.month.startsWith(year) && Number(r.month.slice(5,7)) > values.length);
+ const forecastFrom = values.length;
+ values.push(...future.map(r => r.vw));
  const labels = calendarMonths.slice(0,values.length);
  const name = 'VW Group '+year;
  const step = Math.max(1000,Math.ceil(Math.max(...values)/5000)*1000);
- document.getElementById('salesModeNote').textContent = labels[0]+'–'+labels.at(-1)+' '+year;
+ document.getElementById('salesModeNote').textContent = labels[0]+'–'+labels.at(-1)+' '+year+(future.length?' · Dashed light blue: November and December forecasts.':'');
  document.getElementById('salesReadout').textContent = '';
- chart('salesChart',[{name,color:'#001e50',values}],0,Math.ceil(Math.max(...values)/step)*step,step,'Vehicles','salesReadout',labels,name);
+ chart('salesChart',[{name,color:'#001e50',values,forecastFrom}],0,Math.ceil(Math.max(...values)/step)*step,step,'Vehicles','salesReadout',labels,name);
 }
 salesYear.addEventListener('change',drawSales);
 drawSales();
 
 const fullSalesYears = Object.keys(vwPeriods).filter(year => vwPeriods[year].length === 12);
 const annualSales = fullSalesYears.map(year => vwPeriods[year].reduce((sum, row) => sum + row[0], 0));
-chart('annualSalesChart', [{name: 'VW Group', color: '#001e50', values: annualSales}],
+const vw2026 = vwPeriods['2026'];
+if (vw2026.length === 10) {
+ fullSalesYears.push('2026');
+ annualSales.push(vw2026.reduce((s,r)=>s+r[0],0) + salesForecasts.reduce((s,r)=>s+r.vw,0));
+}
+chart('annualSalesChart', [{name: 'VW Group', color: '#001e50', values: annualSales, forecastFrom: vw2026.length===10 ? fullSalesYears.length-1 : Infinity}],
  0, Math.ceil(Math.max(...annualSales) / 20000) * 20000, 20000, 'Vehicles',
  'annualSalesReadout', fullSalesYears, 'VW Group SA annual domestic sales');
 

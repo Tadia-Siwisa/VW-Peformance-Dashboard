@@ -59,8 +59,9 @@ const years=[...new Set(data.map(year))];for(const id of ["marketStart","marketE
 const startYear = $("marketStart"), endYear = $("marketEnd");
 const startMonth = $("marketStartMonth"), endMonth = $("marketEndMonth");
 const modeSelect = $("marketMode");
+const chartRows = data.concat(salesForecasts.map(r=>({month:r.month,sales:r.market,forecast:true})));
 function populateMonths(select, selectedYear, preferred) {
- const rows = data.filter(row => year(row) === Number(selectedYear));
+ const rows = chartRows.filter(row => year(row) === Number(selectedYear));
  select.replaceChildren(...rows.map(row => new Option(
   new Date(row.month + "T00:00:00Z").toLocaleDateString("en-GB", {month:"long", timeZone:"UTC"}),
   String(mo(row))
@@ -85,23 +86,23 @@ function render(event) {
   if (editingEnd) startMonth.value = endMonth.value;
   else endMonth.value = startMonth.value;
  }
- const selected = data.filter(row => {
+ const selected = chartRows.filter(row => {
   const y = year(row), m = mo(row);
   return y >= start && y <= end && (mode !== "monthly" ||
    ((y > start || m >= Number(startMonth.value)) && (y < end || m <= Number(endMonth.value))));
  });
  const latest = selected.at(-1);
-let points=selected.map(r=>({label:mname(r.month),value:r.sales,short:r.month.slice(0,4),month:r.month}));
+let points=selected.map(r=>({label:mname(r.month),value:r.sales,short:r.month.slice(0,4),month:r.month,forecast:r.forecast}));
 let note="Monthly domestic sales · "+mname(selected[0].month)+" to "+mname(latest.month)+".";
 if(mode!=="monthly"){
 points = years.filter(y => y >= start && y <= end).flatMap(y => {
  const rows = selected.filter(row => year(row) === y);
- return rows.length === 12 ? [{label:String(y), value:sum(rows), short:String(y)}] : [];
+ return rows.length === 12 ? [{label:String(y), value:sum(rows), short:String(y),forecast:rows.some(r=>r.forecast)}] : [];
 });
-note="Full calendar years only. 2026 is excluded because November and December are outside the dataset.";
+note="Full calendar years.";
 }
 $("marketChartTitle").textContent=mode==="monthly"?"Monthly new vehicle sales":"Annual new vehicle sales";
-$("marketChartNote").textContent=note;
+$("marketChartNote").textContent=note+(points.some(p=>p.forecast)?(mode==="monthly"?" Dashed light blue: November and December 2026 forecasts.":" 2026 estimate includes ten reported months and two forecast months."):"");
 if(!points.length){$("marketChart").innerHTML='<p class="source">No complete calendar year in this selection. Choose monthly view or expand the year range.</p>';$("marketReadout").textContent="No observations in this view.";return;}
 // Leave room for the left half of the first centered sales annotation.
 const labelInset = 40;
@@ -112,15 +113,18 @@ points.forEach((p,i)=>{
  const tick=mode==="monthly" && start===end ? p.label.split(" ")[0] : p.label;
  svg+='<text x="'+x(i)+'" y="'+(H-14)+'" text-anchor="middle">'+tick+'</text>';
 });
-svg+='<polyline points="'+points.map((p,i)=>x(i)+","+yy(p.value)).join(" ")+'" fill="none" stroke="#001e50" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/>';
+for(let i=1;i<points.length;i++){
+ const p=points[i], prev=points[i-1];
+ svg+='<line x1="'+x(i-1)+'" y1="'+yy(prev.value)+'" x2="'+x(i)+'" y2="'+yy(p.value)+'" stroke="'+(p.forecast?forecastColor:'#001e50')+'" stroke-width="2.5"'+(p.forecast?' stroke-dasharray="7 5"':'')+'/>';
+}
 points.forEach((p,i)=>{
  const cx=x(i),cy=yy(p.value);
- svg+='<circle cx="'+cx+'" cy="'+cy+'" r="3.5" fill="#001e50"/>';
+ svg+='<circle cx="'+cx+'" cy="'+cy+'" r="3.5" fill="'+(p.forecast?forecastColor:'#001e50')+'"/>';
  svg+='<text class="point-label" aria-hidden="true" x="'+cx+'" y="'+(cy-10)+'" text-anchor="middle">'+fmt(p.value)+'</text>';
 });
-const width=points.length===1?plotW:(plotW-labelInset)/(points.length-1);for(let i=0;i<points.length;i++){const left=i===0?L:x(i)-width/2,right=Math.min(W-R,x(i)+width/2);svg+='<rect class="market-mark" data-i="'+i+'" tabindex="0" role="button" aria-label="'+points[i].label+': '+fmt(points[i].value)+' vehicles" x="'+left+'" y="'+T+'" width="'+(right-left)+'" height="'+plotH+'" fill="transparent"><title>'+points[i].label+': '+fmt(points[i].value)+' vehicles</title></rect>';}
+const width=points.length===1?plotW:(plotW-labelInset)/(points.length-1);for(let i=0;i<points.length;i++){const left=i===0?L:x(i)-width/2,right=Math.min(W-R,x(i)+width/2);svg+='<rect class="market-mark" data-i="'+i+'" tabindex="0" role="button" aria-label="'+points[i].label+(points[i].forecast?' forecast':'')+': '+fmt(points[i].value)+' vehicles" x="'+left+'" y="'+T+'" width="'+(right-left)+'" height="'+plotH+'" fill="transparent"><title>'+points[i].label+(points[i].forecast?' forecast':'')+': '+fmt(points[i].value)+' vehicles</title></rect>';}
 svg+='<g id="marketFocus" pointer-events="none"></g></svg>';$("marketChart").innerHTML=svg;
-function focus(i){const p=points[i];$("marketFocus").innerHTML='<line x1="'+x(i)+'" x2="'+x(i)+'" y1="'+T+'" y2="'+(T+plotH)+'" stroke="#007fa3" stroke-dasharray="4 4"/><circle cx="'+x(i)+'" cy="'+yy(p.value)+'" r="5" stroke="white" stroke-width="2" fill="#007fa3"/>';const tx=Math.max(L,Math.min(x(i)-105,W-R-210));$("marketFocus").innerHTML+='<g class="market-tooltip" transform="translate('+tx+',4)"><rect width="210" height="49" rx="7" fill="white" stroke="#c7d3e2"/><text x="12" y="19" style="fill:#001e50;font-weight:700">'+p.label+'</text><text x="12" y="37" style="fill:#001e50;font-weight:700">'+fmt(p.value)+' vehicles</text></g>';$("marketReadout").textContent=p.label+" · "+fmt(p.value)+" vehicles";}
+function focus(i){const p=points[i], label=p.label+(p.forecast?' forecast':'');$("marketFocus").innerHTML='<line x1="'+x(i)+'" x2="'+x(i)+'" y1="'+T+'" y2="'+(T+plotH)+'" stroke="#007fa3" stroke-dasharray="4 4"/><circle cx="'+x(i)+'" cy="'+yy(p.value)+'" r="5" stroke="white" stroke-width="2" fill="#007fa3"/>';const tx=Math.max(L,Math.min(x(i)-105,W-R-210));$("marketFocus").innerHTML+='<g class="market-tooltip" transform="translate('+tx+',4)"><rect width="210" height="49" rx="7" fill="white" stroke="#c7d3e2"/><text x="12" y="19" style="fill:#001e50;font-weight:700">'+label+'</text><text x="12" y="37" style="fill:#001e50;font-weight:700">'+fmt(p.value)+' vehicles</text></g>';$("marketReadout").textContent=label+" · "+fmt(p.value)+" vehicles";}
 $("marketChart").querySelectorAll(".market-mark").forEach(el=>{const i=Number(el.dataset.i);for(const evt of ["pointerenter","focus","click"])el.addEventListener(evt,()=>focus(i));el.addEventListener("keydown",e=>{if(e.key==="Enter"||e.key===" "){e.preventDefault();focus(i);}});});focus(points.length-1);
 }
 function reset(){
