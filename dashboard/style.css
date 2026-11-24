@@ -196,4 +196,14 @@ main>section>h2,main>section>.eyebrow,main>section>.sub{text-align:center}
 .chart-data-link a:hover,.chart-data-link a:focus-visible{color:#007fa3}
 .chart-data-hint{color:#626d7a;font-size:12px}
 
-#salesChart svg .point-label,#annualSalesChart svg .point-label{font-size:11px;font-weight:400;stroke-width:2px}
+/* One type treatment for data values across both dashboard pages.
+   Some interactive SVG labels have inline typography. */
+.chart svg .point-label,
+.chart svg .focus-value,
+#marketChart .market-tooltip text:last-child,
+#manufacturerBars .manufacturer-value {
+  font-family: Arial, sans-serif !important;
+  font-size: 11px !important;
+  font-weight: 400 !important;
+}
+.chart svg .point-label { stroke-width: 2px; }
