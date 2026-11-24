@@ -102,7 +102,8 @@ points = years.filter(y => y >= start && y <= end).flatMap(y => {
 note="Full calendar years.";
 }
 $("marketChartTitle").textContent=mode==="monthly"?"Monthly new vehicle sales":"Annual new vehicle sales";
-$("marketChartNote").textContent=note+(points.some(p=>p.forecast)?(mode==="monthly"?" Dashed light blue: November and December 2026 forecasts.":" 2026 estimate includes ten reported months and two forecast months."):"");
+$("marketChartNote").textContent=note+(mode==="annual" && points.some(p=>p.forecast)?" 2026 includes ten reported months and two forecast months.":"");
+$("marketForecastKey").hidden=!points.some(p=>p.forecast);
 if(!points.length){$("marketChart").innerHTML='<p class="source">No complete calendar year in this selection. Choose monthly view or expand the year range.</p>';$("marketReadout").textContent="No observations in this view.";return;}
 // Leave room for the left half of the first centered sales annotation.
 const labelInset = 40;
